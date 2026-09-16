@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "birchy",
+	"version": "${version}",
+	"name": "Birchy Mod",
+	"description": "Birchy's mod",
+	"authors": [
+		"BirchyBoii"
+	],
+	"contact": {
+		"sources": "https://github.com/BirchyBoii/BirchyMod"
+	},
+	"license": "MIT",
+	"icon": "assets/birchy/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.birchyboii.birchy.BirchyMod"
+		],
+		"fabric-datagen": [
+			"net.birchyboii.birchy.BirchyModDataGenerator"
+		],
+		"client": [
+			"net.birchyboii.birchy.BirchyModClient"
+		]
+	},
+	"mixins": [
+		"birchy.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
