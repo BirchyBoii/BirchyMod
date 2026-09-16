@@ -1,4 +1,11 @@
 {
   "item.birchy.birchy_chunk": "Birchy Chunk",
-  "item.birchy.birchy_sheet": "Birchy Sheet"
+  "item.birchy.birchy_sheet": "Birchy Sheet",
+
+  "block.birchy.birchy_block": "Birchy Block",
+  "block.birchy.birchy_ore": "Birchy Ore",
+  "block.birchy.deepslate_birchy_ore": "Deepslate Birchy Ore",
+
+  "itemgroup.birchy.birchy_items": "Birchy Items",
+  "itemgroup.birchy.birchy_blocks": "Birchy Blocks"
 }

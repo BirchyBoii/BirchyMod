@@ -1,9 +1,9 @@
 package net.birchyboii.birchy;
 
+import net.birchyboii.birchy.item.ModItemGroups;
 import net.birchyboii.birchy.item.ModItems;
+import net.birchyboii.birchy.block.ModBlocks;
 import net.fabricmc.api.ModInitializer;
-
-import net.minecraft.util.Identifier;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +14,8 @@ public class BirchyMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
-
+		ModBlocks.registerModBlocks();
 	}
 }

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "birchy:block/birchy_block_front",
+    "back": "birchy:block/birchy_block_back",
+    "side": "birchy:block/birchy_block_side",
+    "top": "birchy:block/birchy_block_top"
+  }
+}

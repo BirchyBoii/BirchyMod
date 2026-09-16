@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "birchy:block/birchy_ore"
+    }
+  }
+}
