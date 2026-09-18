@@ -20,6 +20,10 @@ public class ModItemGroups {
                         entries.add(ModItems.BIRCHY_CHUNK);
 
                         entries.add(ModItems.DRY_WAND);
+                        entries.add(ModItems.MOIST_WAND);
+
+                        entries.add(ModItems.BIRCHY_BALLS);
+                        entries.add(ModItems.BIRCHISIZED_COAL);
 
                     }).build());
 

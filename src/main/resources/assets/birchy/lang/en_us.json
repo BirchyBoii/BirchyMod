@@ -2,11 +2,21 @@
   "item.birchy.birchy_chunk": "Birchy Chunk",
   "item.birchy.birchy_sheet": "Birchy Sheet",
   "item.birchy.dryer_wand": "Dryer Wand",
+  "item.birchy.moistening_wand": "Moistening Wand",
+  "item.birchy.birchy_balls": "Birchy Balls",
+  "item.birchy.birchisized_coal": "Birchisized Coal",
 
   "block.birchy.birchy_block": "Birchy Block",
   "block.birchy.birchy_ore": "Birchy Ore",
   "block.birchy.deepslate_birchy_ore": "Deepslate Birchy Ore",
 
   "itemgroup.birchy.birchy_items": "Birchy Items",
-  "itemgroup.birchy.birchy_blocks": "Birchy Blocks"
+  "itemgroup.birchy.birchy_blocks": "Birchy Blocks",
+
+  "tooltip.birchy.dryer_wand.shift_down": "A magic wand that dries anything you interact with.",
+  "tooltip.birchy.dryer_wand": "§7Press §eShift§r§7 for more information!",
+  "tooltip.birchy.moistening_wand.shift_down": "A magic wand that moistens anything you interact with.",
+  "tooltip.birchy.moistening_wand": "§7Press §eShift§r§7 for more information!",
+  "tooltip.birchy.birchy_balls": "§7Delicious! I wonder where they come from tho...",
+  "tooltip.birchy.birchisized_coal": "§b§4WOW THATS A LOT OF EYES"
 }
