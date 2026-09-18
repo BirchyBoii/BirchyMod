@@ -16,8 +16,10 @@ public class ModItemGroups {
             FabricItemGroup.builder().icon(() -> new ItemStack(ModItems.BIRCHY_CHUNK))
                     .displayName(Text.translatable("itemgroup.birchy.birchy_items"))
                     .entries((displayContext, entries) -> {
-                      entries.add(ModItems.BIRCHY_SHEET);
-                      entries.add(ModItems.BIRCHY_CHUNK);
+                        entries.add(ModItems.BIRCHY_SHEET);
+                        entries.add(ModItems.BIRCHY_CHUNK);
+
+                        entries.add(ModItems.DRY_WAND);
 
                     }).build());
 

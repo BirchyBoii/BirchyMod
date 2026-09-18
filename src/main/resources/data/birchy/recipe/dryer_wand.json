@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    " s ",
+    " s "
+  ],
+  "key": {
+    "X": {
+      "item": "birchy:birchy_sheet"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "count": 1,
+    "id": "birchy:dryer_wand"
+  }
+}
