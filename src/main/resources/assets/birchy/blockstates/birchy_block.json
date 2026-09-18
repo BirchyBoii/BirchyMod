@@ -1,7 +1,8 @@
 {
   "variants": {
-    "": {
-      "model": "birchy:block/birchy_block"
-    }
+    "facing=north": { "model": "birchy:block/birchy_block" },
+    "facing=east":  { "model": "birchy:block/birchy_block", "y":  90 },
+    "facing=south": { "model": "birchy:block/birchy_block", "y": 180 },
+    "facing=west":  { "model": "birchy:block/birchy_block", "y": 270 }
   }
 }
