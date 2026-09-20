@@ -1,0 +1,15 @@
+// 1.21.1	2026-09-20T02:44:07.0659099	Birchy Mod/Block Loot Tables
+fa3500d37ee5ca2c5ea51ee237e36ddaa6906c83 data\birchy\loot_table\blocks\birchy_stairs.json
+e35727f137d384a1e88b874fdafeb1701389d140 data\birchy\loot_table\blocks\birchy_fence.json
+023d25b6bf55ca97a2709954d9582dcf43fb8423 data\birchy\loot_table\blocks\birchy_ore.json
+60ca7d9c0b1d4b7e4715c71fc78c41c314b962a1 data\birchy\loot_table\blocks\birchy_button.json
+1f7e975b455458e3f7deb2d5b55c7b0492355e12 data\birchy\loot_table\blocks\birchy_planks.json
+cb6e71dfb48851a5270262060df52f69916b18c2 data\birchy\loot_table\blocks\birchy_pressure_plate.json
+6c8a57728899fa6325fbf555001e25993de2980e data\birchy\loot_table\blocks\birchy_door.json
+f03c1a3660b07bcdcfac08a195daa050f1559ed4 data\birchy\loot_table\blocks\deepslate_birchy_ore.json
+86a1a2fce8f1c3519bf8f1b78695d9d743bcf12a data\birchy\loot_table\blocks\birchy_trapdoor.json
+424ec0ab11a996b62611e0b5591d6ac43d1bec70 data\birchy\loot_table\blocks\birchy_slabs.json
+56dbf9fc9ff1f7537f2d160dd9d780682df1708b data\birchy\loot_table\blocks\birchy_fence_gate.json
+c727e855b6e9bfc7e4650a7ab2d218094d0771e8 data\birchy\loot_table\blocks\birchy_block.json
+5dd667fa165151255a4a4344f35488800dcc8cb2 data\birchy\loot_table\blocks\birchy_wood.json
+a941aa5da9841598a2005fe22a9cf366e913a5ff data\birchy\loot_table\blocks\birchy_log.json

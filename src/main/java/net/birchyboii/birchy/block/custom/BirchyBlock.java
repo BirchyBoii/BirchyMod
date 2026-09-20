@@ -2,6 +2,7 @@ package net.birchyboii.birchy.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.birchyboii.birchy.item.ModItems;
+import net.birchyboii.birchy.util.ModTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
@@ -35,12 +36,16 @@ public class BirchyBlock extends HorizontalFacingBlock {
     @Override
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
         if(entity instanceof ItemEntity itemEntity) {
-            if(itemEntity.getStack().getItem() == ModItems.BIRCHY_CHUNK) {
+            if(isValidItem(itemEntity.getStack())) {
                 itemEntity.setStack(new ItemStack(ModItems.BIRCHY_SHEET, itemEntity.getStack().getCount()));
             }
         }
 
         super.onSteppedOn(world, pos, state, entity);
+    }
+
+    private boolean isValidItem(ItemStack stack) {
+        return stack.isIn(ModTags.Items.BIRCHY_BLOCK_TRANSFORMABLE_ITEMS);
     }
 
     @Override

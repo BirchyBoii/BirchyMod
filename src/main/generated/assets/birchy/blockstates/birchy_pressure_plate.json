@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "birchy:block/birchy_pressure_plate"
+    },
+    "powered=true": {
+      "model": "birchy:block/birchy_pressure_plate_down"
+    }
+  }
+}

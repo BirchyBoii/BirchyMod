@@ -6,12 +6,27 @@
   "item.birchy.birchy_balls": "Birchy Balls",
   "item.birchy.birchisized_coal": "Birchisized Coal",
 
+
   "block.birchy.birchy_block": "Birchy Block",
   "block.birchy.birchy_ore": "Birchy Ore",
   "block.birchy.deepslate_birchy_ore": "Deepslate Birchy Ore",
 
+  "block.birchy.birchy_log": "Birchy Log",
+  "block.birchy.birchy_wood": "Birchy Wood",
+  "block.birchy.birchy_planks": "Birchy Planks",
+  "block.birchy.birchy_stairs": "Birchy Stairs",
+  "block.birchy.birchy_slabs": "Birchy Slabs",
+  "block.birchy.birchy_button": "Birchy Button",
+  "block.birchy.birchy_pressure_plate": "Birchy Pressure Plate",
+  "block.birchy.birchy_fence": "Birchy Fence",
+  "block.birchy.birchy_fence_gate": "Birchy Fence Gate",
+  "block.birchy.birchy_door": "Birchy Door",
+  "block.birchy.birchy_trapdoor": "Birchy Trapdoor",
+
+
   "itemgroup.birchy.birchy_items": "Birchy Items",
   "itemgroup.birchy.birchy_blocks": "Birchy Blocks",
+
 
   "tooltip.birchy.dryer_wand.shift_down": "A magic wand that dries anything you interact with.",
   "tooltip.birchy.dryer_wand": "§7Press §eShift§r§7 for more information!",

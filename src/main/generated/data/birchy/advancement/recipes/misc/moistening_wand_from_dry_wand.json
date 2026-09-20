@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dryer_wand": {
+      "conditions": {
+        "items": [
+          {
+            "items": "birchy:dryer_wand"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "birchy:moistening_wand_from_dry_wand"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_dryer_wand"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "birchy:moistening_wand_from_dry_wand"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "birchy:block/birchy_slabs"
+    },
+    "type=double": {
+      "model": "birchy:block/birchy_planks"
+    },
+    "type=top": {
+      "model": "birchy:block/birchy_slabs_top"
+    }
+  }
+}

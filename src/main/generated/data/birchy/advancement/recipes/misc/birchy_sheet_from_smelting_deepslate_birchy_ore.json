@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_deepslate_birchy_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "birchy:deepslate_birchy_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "birchy:birchy_sheet_from_smelting_deepslate_birchy_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_deepslate_birchy_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "birchy:birchy_sheet_from_smelting_deepslate_birchy_ore"
+    ]
+  }
+}

@@ -36,6 +36,18 @@ public class ModItemGroups {
                             entries.add(ModBlocks.BIRCHY_ORE);
                             entries.add(ModBlocks.BIRCHY_DEEPSLATE_ORE);
 
+                            entries.add(ModBlocks.BIRCHY_LOG);
+                            entries.add(ModBlocks.BIRCHY_WOOD);
+                            entries.add(ModBlocks.BIRCHY_PLANKS);
+                            entries.add(ModBlocks.BIRCHY_STAIRS);
+                            entries.add(ModBlocks.BIRCHY_SLAB);
+                            entries.add(ModBlocks.BIRCHY_BUTTON);
+                            entries.add(ModBlocks.BIRCHY_PRESSURE_PLATE);
+                            entries.add(ModBlocks.BIRCHY_FENCE);
+                            entries.add(ModBlocks.BIRCHY_FENCE_GATE);
+                            entries.add(ModBlocks.BIRCHY_DOOR);
+                            entries.add(ModBlocks.BIRCHY_TRAPDOOR);
+
                         }).build());
 
 
