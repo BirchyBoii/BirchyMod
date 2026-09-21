@@ -1,4 +1,4 @@
-// 1.21.1	2026-09-20T02:44:07.0659099	Birchy Mod/Recipes
+// 1.21.1	2026-09-22T00:39:02.7120432	Birchy Mod/Recipes
 901ff9963c9ab617053ec16cf0f40491bc3ab3a7 data\birchy\recipe\birchy_trapdoor.json
 4b22a5aa53ce07d8de9f9907534db69ec5e93e8e data\birchy\recipe\birchy_sheet_from_smelting_birchy_ore.json
 48766ca300087f9f1d65ea11da29ee01ee655672 data\birchy\recipe\dryer_wand.json
@@ -20,6 +20,7 @@ d094df9fcb765d897b4c940a1a5225c1252d95f7 data\birchy\recipe\birchy_sheet_from_bl
 57c041d7e179933402daaff20168c8e73440ef0f data\birchy\advancement\recipes\misc\dryer_wand.json
 4bd75a2a66120a8d63da82d9403d0090d9c258fb data\birchy\recipe\birchy_pressure_plate.json
 999d1b0132b4e5f3e34018551325e5abe0bb6c5c data\birchy\advancement\recipes\building_blocks\birchy_slabs.json
+e7453fbfe7ef7048d8fd80b419c619208900211e data\birchy\recipe\birchy.json
 e33d424c33016bb53fde1e3669248d4d26331c19 data\birchy\advancement\recipes\building_blocks\birchy_sheet.json
 8e09ba83d19256e36c72da335dda05134cf488fe data\birchy\advancement\recipes\building_blocks\birchy_block.json
 aa07d5b8286aabbb2bc609ed268d8008e61049ac data\birchy\recipe\moistening_wand_from_dry_wand.json
@@ -27,6 +28,7 @@ aa07d5b8286aabbb2bc609ed268d8008e61049ac data\birchy\recipe\moistening_wand_from
 4fcabb00d4f8a201a2ac178bc1edaca7c252474d data\birchy\advancement\recipes\misc\birchy_sheet_from_blasting_deepslate_birchy_ore.json
 207d0a50a789d2e2cc069472db9e8acc6122f76e data\birchy\recipe\birchy_fence_gate.json
 e5ebbb9425646a78f2c3d1dbc5ad659265e76b39 data\birchy\recipe\birchy_sheet_from_blasting_deepslate_birchy_ore.json
+8cc239b36879a806edf599dddaac37fb2bc9fa26 data\birchy\advancement\recipes\misc\birchy.json
 7a621ba015d4e404f1d00f3a6deb24ed3c1670f4 data\birchy\recipe\birchy_block.json
 280067c5791aebcb295c6a6f0b020149656770d7 data\birchy\advancement\recipes\misc\dryer_wand_from_moist_wand.json
 c1bd99ca4afdf889248797d6fbf0ad9f3c35f888 data\birchy\advancement\recipes\misc\birchy_sheet_from_smelting_birchy_ore.json

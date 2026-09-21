@@ -1,4 +1,4 @@
-// 1.21.1	2026-09-20T02:44:07.0669099	Birchy Mod/Tags for minecraft:block
+// 1.21.1	2026-09-22T00:39:02.7130437	Birchy Mod/Tags for minecraft:block
 0878955f9dc8132cb0c83d7762208dc29b804e46 data\minecraft\tags\block\mineable\axe.json
 96ece631abb5f27f2b9eeeb7e4ff2b3ff7312126 data\minecraft\tags\block\needs_diamond_tool.json
 a314be415fc1878673c9a51f08abd3ab4e0ae626 data\minecraft\tags\block\wooden_fences.json
@@ -6,5 +6,5 @@ a314be415fc1878673c9a51f08abd3ab4e0ae626 data\minecraft\tags\block\wooden_fences
 3331eff98d5ce839e6c212931d69a07521b67a60 data\minecraft\tags\block\fence_gates.json
 96ece631abb5f27f2b9eeeb7e4ff2b3ff7312126 data\minecraft\tags\block\mineable\pickaxe.json
 b24c0ee83de64e9c51719ba17b8298b3e5b40306 data\minecraft\tags\block\logs.json
-e5ecb35b32262539672775709e738ecad8b41749 data\birchy\tags\block\blocks_with_transparency.json
+a249c46329a41538f49a564e1f14338aaf1be5a0 data\birchy\tags\block\needs_birchy_tool.json
 01408587a7a641cc08c73181545220dd6bcf6cd3 data\minecraft\tags\block\mineable\shovel.json

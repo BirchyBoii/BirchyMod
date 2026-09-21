@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "clicked=false": {
+      "model": "birchy:block/birchy_lamp"
+    },
+    "clicked=true": {
+      "model": "birchy:block/birchy_lamp_on"
+    }
+  }
+}

@@ -81,5 +81,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         createTrapdoorRecipe(ModBlocks.BIRCHY_TRAPDOOR, Ingredient.ofItems(ModBlocks.BIRCHY_PLANKS))
                 .criterion(hasItem(ModBlocks.BIRCHY_PLANKS), conditionsFromItem(ModBlocks.BIRCHY_PLANKS)).offerTo(exporter);
 
+        offerSmithingTrimRecipe(exporter, ModItems.BIRCHY_SMITHING_TEMPLATE, Identifier.of(BirchyMod.MOD_ID, "birchy"));
+
     }
 }

@@ -25,6 +25,21 @@ public class ModItemGroups {
                         entries.add(ModItems.BIRCHY_BALLS);
                         entries.add(ModItems.BIRCHISIZED_COAL);
 
+                        entries.add(ModItems.BIRCHY_SWORD);
+                        entries.add(ModItems.BIRCHY_PICKAXE);
+                        entries.add(ModItems.BIRCHY_AXE);
+                        entries.add(ModItems.BIRCHY_SHOVEL);
+                        entries.add(ModItems.BIRCHY_HOE);
+                        entries.add(ModItems.BIRCHY_HAMMER);
+
+                        entries.add(ModItems.BIRCHY_HELMET);
+                        entries.add(ModItems.BIRCHY_CHESTPLATE);
+                        entries.add(ModItems.BIRCHY_LEGGINGS);
+                        entries.add(ModItems.BIRCHY_BOOTS);
+                        entries.add(ModItems.BIRCHY_HORSE_ARMOR);
+
+                        entries.add(ModItems.BIRCHY_SMITHING_TEMPLATE);
+
                     }).build());
 
         public static final ItemGroup BIRCHY_BLOCKS_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -47,6 +62,8 @@ public class ModItemGroups {
                             entries.add(ModBlocks.BIRCHY_FENCE_GATE);
                             entries.add(ModBlocks.BIRCHY_DOOR);
                             entries.add(ModBlocks.BIRCHY_TRAPDOOR);
+
+                            entries.add(ModBlocks.BIRCHY_LAMP);
 
                         }).build());
 

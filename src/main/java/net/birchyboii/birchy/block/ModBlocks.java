@@ -3,6 +3,7 @@ package net.birchyboii.birchy.block;
 import com.mojang.serialization.MapCodec;
 import net.birchyboii.birchy.BirchyMod;
 import net.birchyboii.birchy.block.custom.BirchyBlock;
+import net.birchyboii.birchy.block.custom.BirchyLamp;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.loader.impl.util.log.Log;
 import net.minecraft.block.*;
@@ -72,6 +73,10 @@ public class ModBlocks {
             new TrapdoorBlock(BlockSetType.BIRCH,
                     AbstractBlock.Settings.create().strength(1f)
                             .requiresTool().nonOpaque().sounds(BlockSoundGroup.WOOD)));
+
+    public static final Block BIRCHY_LAMP = registerBlock("birchy_lamp",
+            new BirchyLamp(AbstractBlock.Settings.create()
+                    .strength(1f).requiresTool().luminance(state -> state.get(BirchyLamp.CLICKED) ? 15 : 0).sounds(BlockSoundGroup.GLASS)));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

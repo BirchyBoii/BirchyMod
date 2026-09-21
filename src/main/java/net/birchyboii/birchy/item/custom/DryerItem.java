@@ -1,6 +1,7 @@
 package net.birchyboii.birchy.item.custom;
 
 import net.birchyboii.birchy.block.ModBlocks;
+import net.birchyboii.birchy.component.ModDataComponentTypes;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.Screen;
@@ -53,6 +54,7 @@ public class DryerItem extends Item {
                         context.getBlockPos().getX() + 0.5, context.getBlockPos().getY() + 1.2,
                         context.getBlockPos().getZ() + 0.5, 7, 0.3, 0.1, 0.3, 0);
 
+                context.getStack().set(ModDataComponentTypes.COORDINATES, context.getBlockPos());
             }
         }
 
@@ -65,6 +67,10 @@ public class DryerItem extends Item {
             tooltip.add(Text.translatable("tooltip.birchy.dryer_wand.shift_down"));
         } else {
             tooltip.add(Text.translatable("tooltip.birchy.dryer_wand"));
+        }
+
+        if(stack.get(ModDataComponentTypes.COORDINATES) != null) {
+            tooltip.add(Text.literal("§8Last Block Changed at §8" + stack.get(ModDataComponentTypes.COORDINATES)));
         }
 
         super.appendTooltip(stack, context, tooltip, type);

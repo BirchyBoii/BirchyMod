@@ -31,5 +31,28 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ItemTags.PLANKS)
                 .add(ModBlocks.BIRCHY_PLANKS.asItem());
 
+        getOrCreateTagBuilder(ItemTags.SWORDS)
+                .add(ModItems.BIRCHY_SWORD);
+        getOrCreateTagBuilder(ItemTags.PICKAXES)
+                .add(ModItems.BIRCHY_PICKAXE);
+        getOrCreateTagBuilder(ItemTags.AXES)
+                .add(ModItems.BIRCHY_AXE);
+        getOrCreateTagBuilder(ItemTags.SHOVELS)
+                .add(ModItems.BIRCHY_SHOVEL);
+        getOrCreateTagBuilder(ItemTags.HOES)
+                .add(ModItems.BIRCHY_HOE);
+
+        getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
+                .add(ModItems.BIRCHY_HELMET)
+                .add(ModItems.BIRCHY_CHESTPLATE)
+                .add(ModItems.BIRCHY_LEGGINGS)
+                .add(ModItems.BIRCHY_BOOTS);
+
+        getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS)
+                .add(ModItems.BIRCHY_SHEET);
+
+        getOrCreateTagBuilder(ItemTags.TRIM_TEMPLATES)
+                .add(ModItems.BIRCHY_SMITHING_TEMPLATE);
+
     }
 }

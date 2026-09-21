@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_birchy_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "birchy:birchy_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "birchy:birchy_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_birchy_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "birchy:birchy_stairs"
+    ]
+  }
+}
