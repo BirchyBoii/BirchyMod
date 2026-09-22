@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "birchy:item/dryer_wand"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "birchy:held": 1
+      },
+      "model": "birchy:item/dryer_wand_held"
+    }
+  ]
+}

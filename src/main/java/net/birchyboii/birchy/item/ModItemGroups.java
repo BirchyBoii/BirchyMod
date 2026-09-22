@@ -31,6 +31,7 @@ public class ModItemGroups {
                         entries.add(ModItems.BIRCHY_SHOVEL);
                         entries.add(ModItems.BIRCHY_HOE);
                         entries.add(ModItems.BIRCHY_HAMMER);
+                        entries.add(ModItems.BIRCHY_BOW);
 
                         entries.add(ModItems.BIRCHY_HELMET);
                         entries.add(ModItems.BIRCHY_CHESTPLATE);
