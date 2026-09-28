@@ -1,0 +1,17 @@
+{
+  "lamp_use": {
+    "subtitle": "sounds.birchy.lamp_use",
+    "sounds": [
+      "birchy:lamp_use_1",
+      "birchy:lamp_use_2"
+    ]
+  },
+  "stal_birchy_cover": {
+    "sounds": [
+      {
+        "name": "birchy:stal_birchy_cover",
+        "stream": true
+        }
+      ]
+    }
+}

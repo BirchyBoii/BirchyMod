@@ -4,6 +4,7 @@ import net.birchyboii.birchy.BirchyMod;
 import net.birchyboii.birchy.block.ModBlocks;
 import net.birchyboii.birchy.component.ModDataComponentTypes;
 import net.birchyboii.birchy.item.custom.*;
+import net.birchyboii.birchy.sounds.ModSounds;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.Screen;
@@ -144,6 +145,8 @@ public class ModItems {
     public static final Item BIRCHY_SMITHING_TEMPLATE = registerItem("birchy_armor_trim_smithing_template",
             SmithingTemplateItem.of(Identifier.of(BirchyMod.MOD_ID, "birchy"), FeatureFlags.VANILLA));
 
+    public static final Item STAL_BIRCHY_COVER_MUSIC_DISC = registerItem("stal_birchy_cover_music_disc",
+            new Item(new Item.Settings().jukeboxPlayable(ModSounds.STAL_BIRCHY_COVER_KEY).maxCount(1)));
 
 
     private static Item registerItem(String name, Item item) {

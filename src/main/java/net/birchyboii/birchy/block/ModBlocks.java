@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import net.birchyboii.birchy.BirchyMod;
 import net.birchyboii.birchy.block.custom.BirchyBlock;
 import net.birchyboii.birchy.block.custom.BirchyLamp;
+import net.birchyboii.birchy.sounds.ModSounds;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.loader.impl.util.log.Log;
 import net.minecraft.block.*;

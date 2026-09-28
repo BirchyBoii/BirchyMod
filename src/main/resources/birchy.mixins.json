@@ -3,7 +3,11 @@
 	"package": "net.birchyboii.birchy.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"ExampleMixin",
+		"LivingEntityMixin"
+	],
+	"client": [
+		"AbstractClientPlayerEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

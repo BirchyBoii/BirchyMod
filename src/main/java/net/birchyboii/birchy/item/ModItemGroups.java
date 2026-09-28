@@ -2,9 +2,18 @@ package net.birchyboii.birchy.item;
 
 import net.birchyboii.birchy.BirchyMod;
 import net.birchyboii.birchy.block.ModBlocks;
+import net.birchyboii.birchy.enchantment.ModEnchantments;
+import net.birchyboii.birchy.potion.ModPotions;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.component.EnchantmentEffectComponentTypes;
+import net.minecraft.component.type.ItemEnchantmentsComponent;
+import net.minecraft.component.type.PotionContentsComponent;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.EnchantmentLevelEntry;
+import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
@@ -19,12 +28,11 @@ public class ModItemGroups {
                         entries.add(ModItems.BIRCHY_SHEET);
                         entries.add(ModItems.BIRCHY_CHUNK);
 
-                        entries.add(ModItems.DRY_WAND);
-                        entries.add(ModItems.MOIST_WAND);
-
                         entries.add(ModItems.BIRCHY_BALLS);
                         entries.add(ModItems.BIRCHISIZED_COAL);
 
+                        entries.add(ModItems.DRY_WAND);
+                        entries.add(ModItems.MOIST_WAND);
                         entries.add(ModItems.BIRCHY_SWORD);
                         entries.add(ModItems.BIRCHY_PICKAXE);
                         entries.add(ModItems.BIRCHY_AXE);
@@ -40,6 +48,12 @@ public class ModItemGroups {
                         entries.add(ModItems.BIRCHY_HORSE_ARMOR);
 
                         entries.add(ModItems.BIRCHY_SMITHING_TEMPLATE);
+                        entries.add(ModItems.STAL_BIRCHY_COVER_MUSIC_DISC);
+
+                        entries.add(PotionContentsComponent.createStack(Items.POTION, ModPotions.SLIMEY_POTION));
+                        entries.add(PotionContentsComponent.createStack(Items.SPLASH_POTION, ModPotions.SLIMEY_POTION));
+                        entries.add(PotionContentsComponent.createStack(Items.LINGERING_POTION, ModPotions.SLIMEY_POTION));
+
 
                     }).build());
 

@@ -1,0 +1,6 @@
+{
+    "parent": "birchy:item/birchy_bow",
+    "textures": {
+        "layer0": "birchy:item/birchy_bow_pulling_2"
+    }
+}

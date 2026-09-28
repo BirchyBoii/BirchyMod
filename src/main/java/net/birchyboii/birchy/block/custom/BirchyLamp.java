@@ -1,5 +1,6 @@
 package net.birchyboii.birchy.block.custom;
 
+import net.birchyboii.birchy.sounds.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -34,7 +35,7 @@ public class BirchyLamp extends Block {
 
     protected static void playClickSound(@Nullable PlayerEntity player, WorldAccess world, BlockPos pos, BlockState state) {
         float f = state.get(CLICKED) ? 0.6F : 0.5F;
-        world.playSound(null, pos, SoundEvents.BLOCK_METAL_PRESSURE_PLATE_CLICK_ON, SoundCategory.BLOCKS, 0.6F, f);
+        world.playSound(null, pos, ModSounds.LAMP_USE, SoundCategory.BLOCKS, 0.6F, f);
     }
 
     @Override

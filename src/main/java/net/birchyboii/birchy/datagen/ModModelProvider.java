@@ -43,9 +43,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.BIRCHY_BALLS, Models.GENERATED);
         itemModelGenerator.register(ModItems.BIRCHISIZED_COAL, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.DRY_WAND, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MOIST_WAND, Models.GENERATED);
-
         itemModelGenerator.register(ModItems.BIRCHY_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.BIRCHY_PICKAXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.BIRCHY_AXE, Models.HANDHELD);
@@ -60,6 +57,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.BIRCHY_HORSE_ARMOR, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.BIRCHY_SMITHING_TEMPLATE, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.STAL_BIRCHY_COVER_MUSIC_DISC, Models.GENERATED);
 
     }
 }

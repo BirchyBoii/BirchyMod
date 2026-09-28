@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "birchy:item/stal_birchy_cover_music_disc"
+  }
+}

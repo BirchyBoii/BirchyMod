@@ -8,6 +8,8 @@
   "item.birchy.birchy_armor_trim_smithing_template": "Birchy Smithing Template",
   "trim_material.birchy.birchy": "Birchy Material",
   "trim_pattern.birchy.birchy": "Birchy Armor Pattern",
+  "item.birchy.stal_birchy_cover_music_disc": "Stal (Birchy Cover) Music Disc",
+  "item.birchy.stal_birchy_cover_music_disc.desc": "BirchyBoii - Stal (Birchy Cover)",
 
   "item.birchy.birchy_sword": "Birchy Sword",
   "item.birchy.birchy_pickaxe": "Birchy Pickaxe",
@@ -15,12 +17,25 @@
   "item.birchy.birchy_shovel": "Birchy Shovel",
   "item.birchy.birchy_hoe": "Birchy Hoe",
   "item.birchy.birchy_hammer": "Birchy Hammer",
+  "item.birchy.birchy_bow": "Birchy Bow",
 
   "item.birchy.birchy_helmet": "Birchy Helmet",
   "item.birchy.birchy_chestplate": "Birchy Chestplate",
   "item.birchy.birchy_leggings": "Birchy Leggings",
   "item.birchy.birchy_boots": "Birchy Boots",
   "item.birchy.birchy_horse_armor": "Birchy Horse Armor",
+
+  "item.minecraft.potion.effect.slimey_potion": "Slimey Potion",
+  "item.minecraft.splash_potion.effect.slimey_potion": "Slimey SplashPotion",
+  "item.minecraft.lingering_potion.effect.slimey_potion": "Slimey Lingering Potion",
+  "item.minecraft.tipped_arrow.effect.slimey_potion": "Arrow of Slimey",
+
+
+  "enchantment.birchy.exploding_strike": "Exploding Strike",
+
+  "effect.birchy.slimey": "Slimey",
+  "effect.birchy.low_gravity": "Low Gravity",
+  "effect.birchy.sun_stare": "Sun Stare",
 
 
   "block.birchy.birchy_block": "Birchy Block",
@@ -41,6 +56,12 @@
 
   "block.birchy.birchy_lamp": "Birchy Lamp",
 
+  "painting.birchy.self_portrait.title": "Self Portrait",
+  "painting.birchy.self_portrait.author": "BirchyBoii",
+  "painting.birchy.birchy_balls.title": "Birchy Balls",
+  "painting.birchy.birchy_balls.author": "BirchyBoii",
+
+
 
   "itemgroup.birchy.birchy_items": "Birchy Items",
   "itemgroup.birchy.birchy_blocks": "Birchy Blocks",
@@ -51,5 +72,7 @@
   "tooltip.birchy.moistening_wand.shift_down": "§7A magic wand that moistens anything you interact with.",
   "tooltip.birchy.moistening_wand": "§7Press §eShift§r§7 for more information!",
   "tooltip.birchy.birchy_balls": "§7Delicious! I wonder where they come from tho...",
-  "tooltip.birchy.birchisized_coal": "§b§4WOW THATS A LOT OF EYES"
+  "tooltip.birchy.birchisized_coal": "§b§4WOW THATS A LOT OF EYES",
+
+  "sounds.birchy.lamp_use": "Lamp is used"
 }
