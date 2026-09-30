@@ -18,11 +18,15 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup lookup) {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.BIRCHY_DEEPSLATE_ORE)
-                .add(ModBlocks.BIRCHY_ORE);
+                .add(ModBlocks.BIRCHY_ORE)
+                .add(ModBlocks.BIRCHY_NETHER_ORE)
+                .add(ModBlocks.BIRCHY_END_ORE);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.BIRCHY_DEEPSLATE_ORE)
-                .add(ModBlocks.BIRCHY_ORE);
+                .add(ModBlocks.BIRCHY_ORE)
+                .add(ModBlocks.BIRCHY_NETHER_ORE)
+                .add(ModBlocks.BIRCHY_END_ORE);
 
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
                 .add(ModBlocks.BIRCHY_BLOCK);

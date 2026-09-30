@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "birchy:block/birchy_grains_crop_stage4"
+  }
+}

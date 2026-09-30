@@ -82,5 +82,19 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         offerSmithingTrimRecipe(exporter, ModItems.BIRCHY_SMITHING_TEMPLATE, Identifier.of(BirchyMod.MOD_ID, "birchy"));
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BIRCHY_FIBERS, 3)
+                .input(ModItems.BIRCHY_GRAINS, 4)
+                .criterion(hasItem(ModItems.BIRCHY_GRAINS), conditionsFromItem(ModItems.BIRCHY_GRAINS))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.BIRCHY_BALLS)
+                .pattern(" f ")
+                .pattern("fgf")
+                .pattern(" f ")
+                .input('g', ModItems.BIRCHY_BERRIES)
+                .input('f', ModItems.BIRCHY_FIBERS)
+                .criterion(hasItem(ModItems.BIRCHY_FIBERS), conditionsFromItem(ModItems.BIRCHY_FIBERS))
+                .offerTo(exporter);
+
     }
 }

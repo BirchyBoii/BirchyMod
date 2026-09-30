@@ -4,6 +4,8 @@ import net.birchyboii.birchy.datagen.*;
 import net.birchyboii.birchy.enchantment.ModEnchantments;
 import net.birchyboii.birchy.trim.ModTrimMaterials;
 import net.birchyboii.birchy.trim.ModTrimPatterns;
+import net.birchyboii.birchy.world.ModConfiguredFeatures;
+import net.birchyboii.birchy.world.ModPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
@@ -27,5 +29,8 @@ public class BirchyModDataGenerator implements DataGeneratorEntrypoint {
 		registryBuilder.addRegistry(RegistryKeys.TRIM_MATERIAL, ModTrimMaterials::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.TRIM_PATTERN, ModTrimPatterns::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.ENCHANTMENT, ModEnchantments::bootstrap);
+
+		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
 	}
 }

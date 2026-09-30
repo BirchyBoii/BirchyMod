@@ -1,6 +1,8 @@
 package net.birchyboii.birchy.datagen;
 
 import net.birchyboii.birchy.block.ModBlocks;
+import net.birchyboii.birchy.block.custom.BirchyBerryBushBlock;
+import net.birchyboii.birchy.block.custom.BirchyCropBlock;
 import net.birchyboii.birchy.block.custom.BirchyLamp;
 import net.birchyboii.birchy.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -16,8 +18,10 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BIRCHY_DEEPSLATE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BIRCHY_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BIRCHY_DEEPSLATE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BIRCHY_NETHER_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BIRCHY_END_ORE);
         blockStateModelGenerator.registerNorthDefaultHorizontalRotatable(ModBlocks.BIRCHY_BLOCK, TextureMap.sideFrontTop(ModBlocks.BIRCHY_BLOCK));
         blockStateModelGenerator.registerLog(ModBlocks.BIRCHY_LOG).log(ModBlocks.BIRCHY_LOG).wood(ModBlocks.BIRCHY_WOOD);
         BlockStateModelGenerator.BlockTexturePool birchyPlanksPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.BIRCHY_PLANKS);
@@ -33,6 +37,10 @@ public class ModModelProvider extends FabricModelProvider {
         Identifier lampOnIdentifier = blockStateModelGenerator.createSubModel(ModBlocks.BIRCHY_LAMP, "_on", Models.CUBE_ALL, TextureMap::all);
         blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.BIRCHY_LAMP)
                 .coordinate(BlockStateModelGenerator.createBooleanModelMap(BirchyLamp.CLICKED, lampOnIdentifier, lampOffIdentifier)));
+
+        blockStateModelGenerator.registerCrop(ModBlocks.BIRCHY_GRAINS_CROP, BirchyCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.BIRCHY_BERRY_BUSH, BlockStateModelGenerator.TintType.NOT_TINTED,
+                BirchyBerryBushBlock.AGE, 0, 1, 2, 3);
     }
 
     @Override
@@ -55,6 +63,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_LEGGINGS));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_BOOTS));
         itemModelGenerator.register(ModItems.BIRCHY_HORSE_ARMOR, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.BIRCHY_FIBERS, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.BIRCHY_SMITHING_TEMPLATE, Models.GENERATED);
 

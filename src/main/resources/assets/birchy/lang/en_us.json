@@ -30,6 +30,10 @@
   "item.minecraft.lingering_potion.effect.slimey_potion": "Slimey Lingering Potion",
   "item.minecraft.tipped_arrow.effect.slimey_potion": "Arrow of Slimey",
 
+  "item.birchy.birchy_grains": "Birchy Grains",
+  "item.birchy.birchy_fibers": "Birchy Fibers",
+  "item.birchy.birchy_berries": "Birchy Berries",
+
 
   "enchantment.birchy.exploding_strike": "Exploding Strike",
 
@@ -41,6 +45,8 @@
   "block.birchy.birchy_block": "Birchy Block",
   "block.birchy.birchy_ore": "Birchy Ore",
   "block.birchy.deepslate_birchy_ore": "Deepslate Birchy Ore",
+  "block.birchy.nether_birchy_ore": "Nether Birchy Ore",
+  "block.birchy.end_birchy_ore": "End Birchy Ore",
 
   "block.birchy.birchy_log": "Birchy Log",
   "block.birchy.birchy_wood": "Birchy Wood",
@@ -55,6 +61,9 @@
   "block.birchy.birchy_trapdoor": "Birchy Trapdoor",
 
   "block.birchy.birchy_lamp": "Birchy Lamp",
+
+  "block.birchy.birchy_grains_crop": "Birchy Grains Crop",
+  "block.birchy.birchy_berry_bush": "Birchy Berry Bush",
 
   "painting.birchy.self_portrait.title": "Self Portrait",
   "painting.birchy.self_portrait.author": "BirchyBoii",

@@ -1,4 +1,4 @@
-// 1.21.1	2026-09-27T17:10:14.5177938	Birchy Mod/Recipes
+// 1.21.1	2026-09-29T16:42:46.0372106	Birchy Mod/Recipes
 901ff9963c9ab617053ec16cf0f40491bc3ab3a7 data\birchy\recipe\birchy_trapdoor.json
 4b22a5aa53ce07d8de9f9907534db69ec5e93e8e data\birchy\recipe\birchy_sheet_from_smelting_birchy_ore.json
 48766ca300087f9f1d65ea11da29ee01ee655672 data\birchy\recipe\dryer_wand.json
@@ -7,7 +7,9 @@ db47c4804065e2bc014cc285dbe9e945615357c9 data\birchy\advancement\recipes\misc\bi
 4ff4de635e2aed55cc5ea2a813bcb0b6b3c6d701 data\birchy\recipe\birchy_door.json
 286a9fe5ef6a53fe4c23f4e101eada469fe9eafb data\birchy\recipe\birchy_button.json
 72c89a1b146ff713c414d77f1200f15b976c59c9 data\birchy\advancement\recipes\misc\birchy_sheet_from_blasting_birchy_chunk.json
+b844d6bcdcb68b23cc41b88f670f4af56aeb08b7 data\birchy\advancement\recipes\food\birchy_balls.json
 c8c4f03a70cbd0bb9e9d64b3b682966b33c4d398 data\birchy\advancement\recipes\redstone\birchy_fence_gate.json
+73f3fc8315311a08cff85b5ea5f53b30801b3711 data\birchy\recipe\birchy_fibers.json
 8fc123dd864e7172adc4b5ac16f2a4799f14b282 data\birchy\recipe\birchy_stairs.json
 40f9e5b357144e12b2e80361029d688e678895d1 data\birchy\advancement\recipes\building_blocks\birchy_button.json
 6c3bc1f855a11f07dc3be12f138b2981d033a347 data\birchy\advancement\recipes\redstone\birchy_trapdoor.json
@@ -31,6 +33,8 @@ e5ebbb9425646a78f2c3d1dbc5ad659265e76b39 data\birchy\recipe\birchy_sheet_from_bl
 8cc239b36879a806edf599dddaac37fb2bc9fa26 data\birchy\advancement\recipes\misc\birchy.json
 7a621ba015d4e404f1d00f3a6deb24ed3c1670f4 data\birchy\recipe\birchy_block.json
 280067c5791aebcb295c6a6f0b020149656770d7 data\birchy\advancement\recipes\misc\dryer_wand_from_moist_wand.json
+664304ab1a03b75956a3f3b0e6ea097a0cda466c data\birchy\advancement\recipes\misc\birchy_fibers.json
+bcfcc3cfa1851aec5810cdb1888f7d3897563068 data\birchy\recipe\birchy_balls.json
 c1bd99ca4afdf889248797d6fbf0ad9f3c35f888 data\birchy\advancement\recipes\misc\birchy_sheet_from_smelting_birchy_ore.json
 c8299841b2fd02b96c79098142595532b7b2a5ff data\birchy\recipe\birchy_slabs.json
 aa88c009d0644421cfee05de23ec013c4c370695 data\birchy\recipe\birchy_fence.json

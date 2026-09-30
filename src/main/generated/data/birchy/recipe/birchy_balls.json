@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "f": {
+      "item": "birchy:birchy_fibers"
+    },
+    "g": {
+      "item": "birchy:birchy_berries"
+    }
+  },
+  "pattern": [
+    " f ",
+    "fgf",
+    " f "
+  ],
+  "result": {
+    "count": 1,
+    "id": "birchy:birchy_balls"
+  }
+}

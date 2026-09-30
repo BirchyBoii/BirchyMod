@@ -6,6 +6,7 @@ import net.birchyboii.birchy.component.ModDataComponentTypes;
 import net.birchyboii.birchy.item.custom.*;
 import net.birchyboii.birchy.sounds.ModSounds;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.component.DataComponentTypes;
@@ -147,6 +148,17 @@ public class ModItems {
 
     public static final Item STAL_BIRCHY_COVER_MUSIC_DISC = registerItem("stal_birchy_cover_music_disc",
             new Item(new Item.Settings().jukeboxPlayable(ModSounds.STAL_BIRCHY_COVER_KEY).maxCount(1)));
+
+    public static final Item BIRCHY_GRAINS = registerItem("birchy_grains",
+            new AliasedBlockItem(ModBlocks.BIRCHY_GRAINS_CROP, new Item.Settings()));
+
+    public static final Item BIRCHY_FIBERS = registerItem("birchy_fibers",
+            new Item(new Item.Settings().fireproof()));
+
+    public static final Item BIRCHY_BERRIES = registerItem("birchy_berries",
+            new AliasedBlockItem(ModBlocks.BIRCHY_BERRY_BUSH, new Item.Settings().food(ModFoodComponents.BIRCHY_BERRY)));
+
+
 
 
     private static Item registerItem(String name, Item item) {

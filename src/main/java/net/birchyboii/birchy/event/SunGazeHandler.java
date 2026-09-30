@@ -15,6 +15,7 @@ import java.util.UUID;
 
 public class SunGazeHandler {
     private static final Map<UUID, Integer> LOOK_AWAY_TIMERS = new HashMap<>();
+    private static final Map<UUID, Integer> LOOK_AT_TIMERS = new HashMap<>();
 
     public static void register() {
         BirchyMod.LOGGER.info("Registering Tick Events for " + BirchyMod.MOD_ID);
@@ -28,7 +29,11 @@ public class SunGazeHandler {
     private static void handlePlayerSunCheck(ServerPlayerEntity player) {
         if (player.hasStatusEffect(StatusEffects.BLINDNESS) ||
             player.hasStatusEffect(StatusEffects.FIRE_RESISTANCE)) {
+            if (player.hasStatusEffect(ModEffects.SUN_STARE)) {
+                player.removeStatusEffect(ModEffects.SUN_STARE);
+            }
              LOOK_AWAY_TIMERS.remove(player.getUuid());
+             LOOK_AT_TIMERS.remove(player.getUuid());
              return;
         }
 
@@ -36,28 +41,33 @@ public class SunGazeHandler {
 
         if (isLookingAtSun) {
             LOOK_AWAY_TIMERS.remove(player.getUuid());
-            if (!player.hasStatusEffect(ModEffects.SUN_STARE)) {
-                player.addStatusEffect(new StatusEffectInstance(
-                        ModEffects.SUN_STARE,
-                        220,
-                        0,
-                        false,
-                        false,
-                        true
-                ));
+            int lookTicks = LOOK_AT_TIMERS.getOrDefault(player.getUuid(), 0) + 1;
+            LOOK_AT_TIMERS.put(player.getUuid(), lookTicks);
+            if (lookTicks >= 40) {
+                if (!player.hasStatusEffect(ModEffects.SUN_STARE)) {
+                    player.addStatusEffect(new StatusEffectInstance(
+                            ModEffects.SUN_STARE,
+                            500,
+                            0,
+                            false,
+                            false,
+                            true
+                        ));
+                    }
                 }
             } else {
-                if (player.hasStatusEffect(ModEffects.SUN_STARE)) {
-                    int ticksAway = LOOK_AWAY_TIMERS.getOrDefault(player.getUuid(), 0) + 1;
+            LOOK_AT_TIMERS.remove(player.getUuid());
+            if (player.hasStatusEffect(ModEffects.SUN_STARE)) {
+                int ticksAway = LOOK_AWAY_TIMERS.getOrDefault(player.getUuid(), 0) + 1;
 
-                    if (ticksAway >= 20) {
-                        player.removeStatusEffect(ModEffects.SUN_STARE);
-                        LOOK_AWAY_TIMERS.remove(player.getUuid());
-                    } else {
-                        LOOK_AWAY_TIMERS.put(player.getUuid(), ticksAway);
-                    }
-                } else {
+                if (ticksAway >= 20) {
+                    player.removeStatusEffect(ModEffects.SUN_STARE);
                     LOOK_AWAY_TIMERS.remove(player.getUuid());
+                } else {
+                    LOOK_AWAY_TIMERS.put(player.getUuid(), ticksAway);
+                }
+            } else {
+                LOOK_AWAY_TIMERS.remove(player.getUuid());
                 }
             }
         }

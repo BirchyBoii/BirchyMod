@@ -10,10 +10,12 @@ import net.birchyboii.birchy.potion.ModPotions;
 import net.birchyboii.birchy.sounds.ModSounds;
 import net.birchyboii.birchy.event.SunGazeHandler;
 import net.birchyboii.birchy.util.HammerUsageEvent;
+import net.birchyboii.birchy.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -41,7 +43,11 @@ public class BirchyMod implements ModInitializer {
 		ModPotions.registerPotions();
 		ModEnchantmentEffects.registerEnchantmentEffects();
 
+		ModWorldGeneration.generateModWorldGen();
+
 		FuelRegistry.INSTANCE.add(ModItems.BIRCHISIZED_COAL, 4800);
+		CompostingChanceRegistry.INSTANCE.add(ModItems.BIRCHY_GRAINS, 0.25f);
+		CompostingChanceRegistry.INSTANCE.add(ModItems.BIRCHY_BERRIES, 0.25f);
 
 		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
 

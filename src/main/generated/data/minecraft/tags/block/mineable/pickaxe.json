@@ -1,6 +1,8 @@
 {
   "values": [
     "birchy:deepslate_birchy_ore",
-    "birchy:birchy_ore"
+    "birchy:birchy_ore",
+    "birchy:nether_birchy_ore",
+    "birchy:end_birchy_ore"
   ]
 }

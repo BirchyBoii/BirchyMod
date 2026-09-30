@@ -1,13 +1,13 @@
 package net.birchyboii.birchy.block;
 
-import com.mojang.serialization.MapCodec;
 import net.birchyboii.birchy.BirchyMod;
 import net.birchyboii.birchy.block.custom.BirchyBlock;
+import net.birchyboii.birchy.block.custom.BirchyBerryBushBlock;
+import net.birchyboii.birchy.block.custom.BirchyCropBlock;
 import net.birchyboii.birchy.block.custom.BirchyLamp;
-import net.birchyboii.birchy.sounds.ModSounds;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.fabricmc.loader.impl.util.log.Log;
 import net.minecraft.block.*;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -28,7 +28,15 @@ public class ModBlocks {
     public static final Block BIRCHY_DEEPSLATE_ORE = registerBlock("deepslate_birchy_ore",
             new ExperienceDroppingBlock(UniformIntProvider.create(3, 6),
                     AbstractBlock.Settings.create().strength(4f)
-                            .requiresTool().sounds(BlockSoundGroup.DEEPSLATE)));
+                    .requiresTool().sounds(BlockSoundGroup.DEEPSLATE)));
+    public static final Block BIRCHY_NETHER_ORE = registerBlock("nether_birchy_ore",
+            new ExperienceDroppingBlock(UniformIntProvider.create(4, 7),
+                    AbstractBlock.Settings.create().strength(2f)
+                            .requiresTool().sounds(BlockSoundGroup.NETHER_GOLD_ORE)));
+    public static final Block BIRCHY_END_ORE = registerBlock("end_birchy_ore",
+            new ExperienceDroppingBlock(UniformIntProvider.create(4, 9),
+                    AbstractBlock.Settings.create().strength(3f)
+                            .requiresTool().sounds(BlockSoundGroup.STONE)));
 
 
     public static final Block BIRCHY_LOG = registerBlock("birchy_log",
@@ -79,11 +87,23 @@ public class ModBlocks {
             new BirchyLamp(AbstractBlock.Settings.create()
                     .strength(1f).requiresTool().luminance(state -> state.get(BirchyLamp.CLICKED) ? 15 : 0).sounds(BlockSoundGroup.GLASS)));
 
+    public static final Block BIRCHY_GRAINS_CROP = registerBlockWithoutBlockItem("birchy_grains_crop",
+            new BirchyCropBlock(AbstractBlock.Settings.create().noCollision()
+                    .ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
+
+    public static final Block BIRCHY_BERRY_BUSH = registerBlockWithoutBlockItem("birchy_berry_bush",
+            new BirchyBerryBushBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH)));
+
+
+
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, Identifier.of(BirchyMod.MOD_ID, name), block);
     }
 
+    private static Block registerBlockWithoutBlockItem(String name, Block block) {
+        return Registry.register(Registries.BLOCK, Identifier.of(BirchyMod.MOD_ID, name), block);
+    }
 
 
     private static void registerBlockItem(String name, Block block) {

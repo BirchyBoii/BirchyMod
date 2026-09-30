@@ -54,6 +54,10 @@ public class ModItemGroups {
                         entries.add(PotionContentsComponent.createStack(Items.SPLASH_POTION, ModPotions.SLIMEY_POTION));
                         entries.add(PotionContentsComponent.createStack(Items.LINGERING_POTION, ModPotions.SLIMEY_POTION));
 
+                        entries.add(ModItems.BIRCHY_GRAINS);
+                        entries.add(ModItems.BIRCHY_FIBERS);
+                        entries.add(ModItems.BIRCHY_BERRIES);
+
 
                     }).build());
 
