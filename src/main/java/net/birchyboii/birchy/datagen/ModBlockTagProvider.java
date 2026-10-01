@@ -34,11 +34,15 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
                 .add(ModBlocks.BIRCHY_LOG)
                 .add(ModBlocks.BIRCHY_WOOD)
+                .add(ModBlocks.STRIPPED_BIRCHY_LOG)
+                .add(ModBlocks.STRIPPED_BIRCHY_WOOD)
                 .add(ModBlocks.BIRCHY_PLANKS);
 
         getOrCreateTagBuilder(BlockTags.LOGS)
                 .add(ModBlocks.BIRCHY_LOG)
-                .add(ModBlocks.BIRCHY_WOOD);
+                .add(ModBlocks.BIRCHY_WOOD)
+                .add(ModBlocks.STRIPPED_BIRCHY_LOG)
+                .add(ModBlocks.STRIPPED_BIRCHY_WOOD);
 
         getOrCreateTagBuilder(BlockTags.PLANKS)
                 .add(ModBlocks.BIRCHY_PLANKS);

@@ -1,18 +1,15 @@
 package net.birchyboii.birchy.world;
 
 import net.birchyboii.birchy.BirchyMod;
+import net.birchyboii.birchy.block.ModBlocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.YOffset;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.FeatureConfig;
-import net.minecraft.world.gen.feature.PlacedFeature;
-import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
-import net.minecraft.world.gen.placementmodifier.PlacementModifier;
+import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.placementmodifier.*;
 
 import java.util.List;
 
@@ -21,6 +18,9 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> NETHER_BIRCHY_ORE_PLACED_KEY = registerKey("nether_birchy_ore_placed");
     public static final RegistryKey<PlacedFeature> END_BIRCHY_ORE_PLACED_KEY = registerKey("end_birchy_ore_placed");
 
+    public static final RegistryKey<PlacedFeature> BIRCHY_TREE_PLACED_KEY = registerKey("birchy_tree_placed");
+
+    public static final RegistryKey<PlacedFeature> BIRCHY_BERRY_BUSH_PLACED_KEY = registerKey("birchy_berry_bush_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -37,6 +37,13 @@ public class ModPlacedFeatures {
                 ModOrePlacement.modifiersWithCount(7,
                         HeightRangePlacementModifier.uniform(YOffset.fixed(-80), YOffset.fixed(80))
                 ));
+
+        register(context, BIRCHY_TREE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.BIRCHY_TREE_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                        PlacedFeatures.createCountExtraModifier(2, 0.1f, 2), ModBlocks.BIRCHY_SAPLING));
+
+        register(context, BIRCHY_BERRY_BUSH_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.BIRCHY_BERRY_BUSH_KEY),
+                RarityFilterPlacementModifier.of(32), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
 
     }
 

@@ -1,10 +1,8 @@
 package net.birchyboii.birchy.block;
 
 import net.birchyboii.birchy.BirchyMod;
-import net.birchyboii.birchy.block.custom.BirchyBlock;
-import net.birchyboii.birchy.block.custom.BirchyBerryBushBlock;
-import net.birchyboii.birchy.block.custom.BirchyCropBlock;
-import net.birchyboii.birchy.block.custom.BirchyLamp;
+import net.birchyboii.birchy.block.custom.*;
+import net.birchyboii.birchy.world.tree.ModSaplingGenerators;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
@@ -40,14 +38,21 @@ public class ModBlocks {
 
 
     public static final Block BIRCHY_LOG = registerBlock("birchy_log",
-            new PillarBlock(AbstractBlock.Settings.create().strength(2f)
-                    .requiresTool().sounds(BlockSoundGroup.WOOD)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.BIRCH_LOG)));
     public static final Block BIRCHY_WOOD = registerBlock("birchy_wood",
-            new PillarBlock(AbstractBlock.Settings.create().strength(2f)
-                    .requiresTool().sounds(BlockSoundGroup.WOOD)));
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.BIRCH_WOOD)));
+    public static final Block STRIPPED_BIRCHY_LOG = registerBlock("stripped_birchy_log",
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_BIRCH_LOG)));
+    public static final Block STRIPPED_BIRCHY_WOOD = registerBlock("stripped_birchy_wood",
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_BIRCH_WOOD)));
+
     public static final Block BIRCHY_PLANKS = registerBlock("birchy_planks",
-            new Block(AbstractBlock.Settings.create().strength(1f)
-                    .requiresTool().sounds(BlockSoundGroup.WOOD)));
+            new Block(AbstractBlock.Settings.copy(Blocks.BIRCH_PLANKS)));
+    public static final Block BIRCHY_LEAVES = registerBlock("birchy_leaves",
+            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.BIRCH_LEAVES)));
+
+    public static final Block BIRCHY_SAPLING = registerBlock("birchy_sapling",
+            new ModSaplingBlock(ModSaplingGenerators.BIRCHY_TREE, AbstractBlock.Settings.copy(Blocks.BIRCH_SAPLING), Blocks.END_STONE));
 
     public static final Block BIRCHY_STAIRS = registerBlock("birchy_stairs",
             new StairsBlock(ModBlocks.BIRCHY_PLANKS.getDefaultState(),
@@ -92,7 +97,8 @@ public class ModBlocks {
                     .ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
 
     public static final Block BIRCHY_BERRY_BUSH = registerBlockWithoutBlockItem("birchy_berry_bush",
-            new BirchyBerryBushBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH)));
+            new BirchyBerryBushBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH), Blocks.END_STONE));
+
 
 
 

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "birchy:block/stripped_birchy_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "birchy:block/stripped_birchy_log"
+    },
+    "axis=z": {
+      "model": "birchy:block/stripped_birchy_log_horizontal",
+      "x": 90
+    }
+  }
+}

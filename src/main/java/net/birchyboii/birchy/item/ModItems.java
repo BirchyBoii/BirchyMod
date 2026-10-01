@@ -3,6 +3,7 @@ package net.birchyboii.birchy.item;
 import net.birchyboii.birchy.BirchyMod;
 import net.birchyboii.birchy.block.ModBlocks;
 import net.birchyboii.birchy.component.ModDataComponentTypes;
+import net.birchyboii.birchy.entity.ModEntities;
 import net.birchyboii.birchy.item.custom.*;
 import net.birchyboii.birchy.sounds.ModSounds;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -157,6 +158,9 @@ public class ModItems {
 
     public static final Item BIRCHY_BERRIES = registerItem("birchy_berries",
             new AliasedBlockItem(ModBlocks.BIRCHY_BERRY_BUSH, new Item.Settings().food(ModFoodComponents.BIRCHY_BERRY)));
+
+    public static final Item BIRCHY_BOY_SPAWN_EGG = registerItem("birchy_boy_spawn_egg",
+            new SpawnEggItem(ModEntities.BIRCHY_BOY, 0x19181f, 0xff0008, new Item.Settings()));
 
 
 

@@ -1,10 +1,14 @@
-// 1.21.1	2026-09-29T16:42:46.0382116	Birchy Mod/
+// 1.21.1	2026-10-01T18:32:06.2678409	Birchy Mod/
+e305f21badf8a0f162f5dea3effc52c7159d83e6 data\birchy\worldgen\configured_feature\birchy_berry_bush.json
 095293e9d2143b533c45b0249c58ae74bc125709 data\birchy\worldgen\configured_feature\end_birchy_ore.json
+c802ff63ad50b22a0e8471b9987cff7eec330dec data\birchy\worldgen\configured_feature\birchy_tree_key.json
 806b442d7e549ee589b23c74f1afe8dc9dcb76eb data\birchy\worldgen\configured_feature\nether_birchy_ore.json
 fed551920ff2b58df68fff1f1f734ce67b785e4e data\birchy\trim_pattern\birchy.json
+e6be4181187d699eefbd3e9237eb1791585d1aa4 data\birchy\worldgen\placed_feature\birchy_ore_placed.json
 773d17204eded23818ec0918f80e316413ca0ed3 data\birchy\enchantment\exploding_strike.json
 727baa5ab5124ea84d9aa6fe7b477f2167279ce6 data\birchy\worldgen\configured_feature\birchy_ore.json
 5791ba1277421f831b7947ba947b4810418b920a data\birchy\worldgen\placed_feature\nether_birchy_ore_placed.json
+fd7d1b7c5160df63b2ad5d2e8aa115d2bf8a6ea3 data\birchy\worldgen\placed_feature\birchy_tree_placed.json
 ae2baf72dc6cd87d73eb262dbdf3109725350870 data\birchy\trim_material\birchy.json
-e6be4181187d699eefbd3e9237eb1791585d1aa4 data\birchy\worldgen\placed_feature\birchy_ore_placed.json
 e8aa36a5cc3b5a346da5bd0d6b71e12e62c60dff data\birchy\worldgen\placed_feature\end_birchy_ore_placed.json
+8a002e989c0141b14d60db0d5cd27e8df2009e32 data\birchy\worldgen\placed_feature\birchy_berry_bush_placed.json

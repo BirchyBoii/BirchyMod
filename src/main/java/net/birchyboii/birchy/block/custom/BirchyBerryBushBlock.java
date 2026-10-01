@@ -11,13 +11,17 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.event.GameEvent;
 
 public class BirchyBerryBushBlock extends SweetBerryBushBlock {
-    public BirchyBerryBushBlock(Settings settings) {
+    private final Block blockToPlaceOn;
+
+    public BirchyBerryBushBlock(Settings settings, Block blockToPlaceOn) {
         super(settings);
+        this.blockToPlaceOn = blockToPlaceOn;
     }
 
     @Override
@@ -40,5 +44,10 @@ public class BirchyBerryBushBlock extends SweetBerryBushBlock {
         } else {
             return super.onUse(state, world, pos, player, hit);
         }
+    }
+
+    @Override
+    protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
+        return floor.isOf(this.blockToPlaceOn);
     }
 }

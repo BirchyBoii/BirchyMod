@@ -2,6 +2,8 @@
   "values": [
     "birchy:birchy_log",
     "birchy:birchy_wood",
+    "birchy:stripped_birchy_log",
+    "birchy:stripped_birchy_wood",
     "birchy:birchy_planks"
   ]
 }

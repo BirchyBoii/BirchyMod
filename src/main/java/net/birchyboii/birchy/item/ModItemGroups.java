@@ -57,6 +57,7 @@ public class ModItemGroups {
                         entries.add(ModItems.BIRCHY_GRAINS);
                         entries.add(ModItems.BIRCHY_FIBERS);
                         entries.add(ModItems.BIRCHY_BERRIES);
+                        entries.add(ModItems.BIRCHY_BOY_SPAWN_EGG);
 
 
                     }).build());
@@ -72,7 +73,11 @@ public class ModItemGroups {
 
                             entries.add(ModBlocks.BIRCHY_LOG);
                             entries.add(ModBlocks.BIRCHY_WOOD);
+                            entries.add(ModBlocks.STRIPPED_BIRCHY_LOG);
+                            entries.add(ModBlocks.STRIPPED_BIRCHY_WOOD);
                             entries.add(ModBlocks.BIRCHY_PLANKS);
+                            entries.add(ModBlocks.BIRCHY_LEAVES);
+                            entries.add(ModBlocks.BIRCHY_SAPLING);
                             entries.add(ModBlocks.BIRCHY_STAIRS);
                             entries.add(ModBlocks.BIRCHY_SLAB);
                             entries.add(ModBlocks.BIRCHY_BUTTON);
@@ -83,6 +88,7 @@ public class ModItemGroups {
                             entries.add(ModBlocks.BIRCHY_TRAPDOOR);
 
                             entries.add(ModBlocks.BIRCHY_LAMP);
+
 
                         }).build());
 

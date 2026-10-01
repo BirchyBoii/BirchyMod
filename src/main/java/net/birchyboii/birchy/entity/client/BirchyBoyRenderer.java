@@ -1,0 +1,32 @@
+package net.birchyboii.birchy.entity.client;
+
+import net.birchyboii.birchy.BirchyMod;
+import net.birchyboii.birchy.entity.custom.BirchyBoyEntity;
+import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.entity.EntityRendererFactory;
+import net.minecraft.client.render.entity.MobEntityRenderer;
+import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.Identifier;
+
+public class BirchyBoyRenderer extends MobEntityRenderer<BirchyBoyEntity, BirchyBoyModel<BirchyBoyEntity>> {
+    public BirchyBoyRenderer(EntityRendererFactory.Context context) {
+        super(context, new BirchyBoyModel<>(context.getPart(BirchyBoyModel.BIRCHY_BOY)), 0.25f);
+    }
+
+    @Override
+    public Identifier getTexture(BirchyBoyEntity entity) {
+        return Identifier.of(BirchyMod.MOD_ID, "textures/entity/birchy_boy/birchy_boy.png");
+    }
+
+    @Override
+    public void render(BirchyBoyEntity livingEntity, float f, float g, MatrixStack matrixStack,
+                       VertexConsumerProvider vertexConsumerProvider, int i) {
+        if(livingEntity.isBaby()) {
+            matrixStack.scale(0.5f, 0.5f, 0.5f);
+        } else {
+            matrixStack.scale(1f, 1f, 1f);
+        }
+
+        super.render(livingEntity, f, g, matrixStack, vertexConsumerProvider, i);
+    }
+}

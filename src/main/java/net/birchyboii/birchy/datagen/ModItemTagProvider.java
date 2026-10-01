@@ -23,10 +23,15 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ModTags.Items.BIRCHY_LOGS)
                 .add(ModBlocks.BIRCHY_LOG.asItem())
-                .add(ModBlocks.BIRCHY_WOOD.asItem());
+                .add(ModBlocks.BIRCHY_WOOD.asItem())
+                .add(ModBlocks.STRIPPED_BIRCHY_WOOD.asItem())
+                .add(ModBlocks.STRIPPED_BIRCHY_LOG.asItem());
 
         getOrCreateTagBuilder(ItemTags.LOGS)
-                .add(ModBlocks.BIRCHY_LOG.asItem());
+                .add(ModBlocks.BIRCHY_LOG.asItem())
+                .add(ModBlocks.BIRCHY_WOOD.asItem())
+                .add(ModBlocks.STRIPPED_BIRCHY_WOOD.asItem())
+                .add(ModBlocks.STRIPPED_BIRCHY_LOG.asItem());
 
         getOrCreateTagBuilder(ItemTags.PLANKS)
                 .add(ModBlocks.BIRCHY_PLANKS.asItem());

@@ -11,6 +11,8 @@ import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.util.Identifier;
 
+import java.util.Optional;
+
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
         super(output);
@@ -22,9 +24,13 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BIRCHY_DEEPSLATE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BIRCHY_NETHER_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BIRCHY_END_ORE);
+
         blockStateModelGenerator.registerNorthDefaultHorizontalRotatable(ModBlocks.BIRCHY_BLOCK, TextureMap.sideFrontTop(ModBlocks.BIRCHY_BLOCK));
         blockStateModelGenerator.registerLog(ModBlocks.BIRCHY_LOG).log(ModBlocks.BIRCHY_LOG).wood(ModBlocks.BIRCHY_WOOD);
+        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_BIRCHY_LOG).log(ModBlocks.STRIPPED_BIRCHY_LOG).wood(ModBlocks.STRIPPED_BIRCHY_WOOD);
         BlockStateModelGenerator.BlockTexturePool birchyPlanksPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.BIRCHY_PLANKS);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BIRCHY_LEAVES, TexturedModel.LEAVES);
+        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.BIRCHY_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
         birchyPlanksPool.stairs(ModBlocks.BIRCHY_STAIRS);
         birchyPlanksPool.slab(ModBlocks.BIRCHY_SLAB);
         birchyPlanksPool.button(ModBlocks.BIRCHY_BUTTON);
@@ -33,6 +39,7 @@ public class ModModelProvider extends FabricModelProvider {
         birchyPlanksPool.fenceGate(ModBlocks.BIRCHY_FENCE_GATE);
         blockStateModelGenerator.registerDoor(ModBlocks.BIRCHY_DOOR);
         blockStateModelGenerator.registerTrapdoor(ModBlocks.BIRCHY_TRAPDOOR);
+
         Identifier lampOffIdentifier = TexturedModel.CUBE_ALL.upload(ModBlocks.BIRCHY_LAMP, blockStateModelGenerator.modelCollector);
         Identifier lampOnIdentifier = blockStateModelGenerator.createSubModel(ModBlocks.BIRCHY_LAMP, "_on", Models.CUBE_ALL, TextureMap::all);
         blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.BIRCHY_LAMP)
@@ -41,12 +48,15 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCrop(ModBlocks.BIRCHY_GRAINS_CROP, BirchyCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6);
         blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.BIRCHY_BERRY_BUSH, BlockStateModelGenerator.TintType.NOT_TINTED,
                 BirchyBerryBushBlock.AGE, 0, 1, 2, 3);
+
+
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.BIRCHY_CHUNK, Models.GENERATED);
         itemModelGenerator.register(ModItems.BIRCHY_SHEET, Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.BIRCHY_SAPLING.asItem(), Models.GENERATED);
 
         itemModelGenerator.register(ModItems.BIRCHY_BALLS, Models.GENERATED);
         itemModelGenerator.register(ModItems.BIRCHISIZED_COAL, Models.GENERATED);
@@ -69,6 +79,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.BIRCHY_SMITHING_TEMPLATE, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.STAL_BIRCHY_COVER_MUSIC_DISC, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.BIRCHY_BOY_SPAWN_EGG,
+                new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
 
     }
 }

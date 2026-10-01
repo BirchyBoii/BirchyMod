@@ -34,6 +34,8 @@
   "item.birchy.birchy_fibers": "Birchy Fibers",
   "item.birchy.birchy_berries": "Birchy Berries",
 
+  "item.birchy.birchy_boy_spawn_egg": "Birchy Boy Spawn Egg",
+
 
   "enchantment.birchy.exploding_strike": "Exploding Strike",
 
@@ -50,7 +52,11 @@
 
   "block.birchy.birchy_log": "Birchy Log",
   "block.birchy.birchy_wood": "Birchy Wood",
+  "block.birchy.stripped_birchy_log": "Stripped Birchy Log",
+  "block.birchy.stripped_birchy_wood": "Stripped Birchy Wood",
   "block.birchy.birchy_planks": "Birchy Planks",
+  "block.birchy.birchy_leaves": "Birchy Leaves",
+  "block.birchy.birchy_sapling": "Birchy Sapling",
   "block.birchy.birchy_stairs": "Birchy Stairs",
   "block.birchy.birchy_slabs": "Birchy Slabs",
   "block.birchy.birchy_button": "Birchy Button",
@@ -64,6 +70,10 @@
 
   "block.birchy.birchy_grains_crop": "Birchy Grains Crop",
   "block.birchy.birchy_berry_bush": "Birchy Berry Bush",
+
+
+  "entity.birchy.birchy_boy": "Birchy Boy",
+
 
   "painting.birchy.self_portrait.title": "Self Portrait",
   "painting.birchy.self_portrait.author": "BirchyBoii",

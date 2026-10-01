@@ -38,7 +38,11 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.BIRCHY_LOG);
         addDrop(ModBlocks.BIRCHY_WOOD);
+        addDrop(ModBlocks.STRIPPED_BIRCHY_WOOD);
+        addDrop(ModBlocks.STRIPPED_BIRCHY_LOG);
         addDrop(ModBlocks.BIRCHY_PLANKS);
+        addDrop(ModBlocks.BIRCHY_SAPLING);
+        addDrop(ModBlocks.BIRCHY_LEAVES, leavesDrops(ModBlocks.BIRCHY_LEAVES, ModBlocks.BIRCHY_SAPLING, 0.0625f));
         addDrop(ModBlocks.BIRCHY_STAIRS);
         addDrop(ModBlocks.BIRCHY_SLAB, slabDrops(ModBlocks.BIRCHY_SLAB));
         addDrop(ModBlocks.BIRCHY_BUTTON);

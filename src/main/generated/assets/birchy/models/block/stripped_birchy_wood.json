@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "birchy:block/stripped_birchy_log",
+    "side": "birchy:block/stripped_birchy_log"
+  }
+}
