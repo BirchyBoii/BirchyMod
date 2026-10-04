@@ -6,6 +6,8 @@ import net.birchyboii.birchy.effect.ModEffects;
 import net.birchyboii.birchy.entity.ModEntities;
 import net.birchyboii.birchy.entity.client.BirchyBoyModel;
 import net.birchyboii.birchy.entity.client.BirchyBoyRenderer;
+import net.birchyboii.birchy.entity.client.SweetRideModel;
+import net.birchyboii.birchy.entity.client.SweetRideRenderer;
 import net.birchyboii.birchy.item.ModItems;
 import net.birchyboii.birchy.util.ModModelPredicates;
 import net.fabricmc.api.ClientModInitializer;
@@ -39,5 +41,7 @@ public class BirchyModClient implements ClientModInitializer {
 
         EntityModelLayerRegistry.registerModelLayer(BirchyBoyModel.BIRCHY_BOY, BirchyBoyModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.BIRCHY_BOY, BirchyBoyRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(SweetRideModel.SWEET_RIDE, SweetRideModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.SWEET_RIDE, SweetRideRenderer::new);
     }
 }

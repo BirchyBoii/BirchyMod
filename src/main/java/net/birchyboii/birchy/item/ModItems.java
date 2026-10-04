@@ -162,6 +162,9 @@ public class ModItems {
     public static final Item BIRCHY_BOY_SPAWN_EGG = registerItem("birchy_boy_spawn_egg",
             new SpawnEggItem(ModEntities.BIRCHY_BOY, 0x19181f, 0xff0008, new Item.Settings()));
 
+    public static final Item SWEET_RIDE_SPAWN_EGG = registerItem("sweet_ride_spawn_egg",
+            new SpawnEggItem(ModEntities.SWEET_RIDE, 0x8a5336, 0xc9e2e8, new Item.Settings()));
+
 
 
 

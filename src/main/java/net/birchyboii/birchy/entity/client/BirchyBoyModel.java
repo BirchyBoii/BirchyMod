@@ -11,7 +11,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 
 public class BirchyBoyModel<T extends BirchyBoyEntity> extends SinglePartEntityModel<T> {
-    public static final EntityModelLayer BIRCHY_BOY = new EntityModelLayer(Identifier.of(BirchyMod.MOD_ID, "birchy_boy"), "main");
+    public static final EntityModelLayer BIRCHY_BOY = new EntityModelLayer(Identifier.of(BirchyMod.MOD_ID, "birchy_boy"), "body");
 
     private final ModelPart body;
     private final ModelPart head;
@@ -58,8 +58,8 @@ public class BirchyBoyModel<T extends BirchyBoyEntity> extends SinglePartEntityM
         headYaw = MathHelper.clamp(headYaw, -30.0F, 30.0F);
         headPitch = MathHelper.clamp(headPitch, -25.0F, 45.0F);
 
-        this.head.yaw = headYaw * 0.017453292F;
-        this.head.pitch = headPitch * 0.017453292F;
+        this.head.yaw = (float) (headYaw * (Math.PI / 180));
+        this.head.pitch = (float) (headPitch * (Math.PI / 180));
     }
 
     @Override

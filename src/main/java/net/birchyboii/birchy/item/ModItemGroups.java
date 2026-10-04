@@ -58,6 +58,7 @@ public class ModItemGroups {
                         entries.add(ModItems.BIRCHY_FIBERS);
                         entries.add(ModItems.BIRCHY_BERRIES);
                         entries.add(ModItems.BIRCHY_BOY_SPAWN_EGG);
+                        entries.add(ModItems.SWEET_RIDE_SPAWN_EGG);
 
 
                     }).build());

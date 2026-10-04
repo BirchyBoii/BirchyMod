@@ -1,6 +1,6 @@
-// 1.21.1	2026-10-01T18:32:06.2668411	Birchy Mod/Block Loot Tables
-cbbcfc69b3144a66739543d3769aa18e8f5ccb5b data\birchy\loot_table\blocks\birchy_leaves.json
+// 1.21.1	2026-10-03T19:07:52.6902915	Birchy Mod/Block Loot Tables
 c087c7975d4b08436492ca3a110a7ded1a3b0897 data\birchy\loot_table\blocks\birchy_berry_bush.json
+cbbcfc69b3144a66739543d3769aa18e8f5ccb5b data\birchy\loot_table\blocks\birchy_leaves.json
 fa3500d37ee5ca2c5ea51ee237e36ddaa6906c83 data\birchy\loot_table\blocks\birchy_stairs.json
 220d7bc88c12354cdf7699d4aa3dedfbd5d056df data\birchy\loot_table\blocks\birchy_sapling.json
 7cd64567e221e560b103770905435b92a2a886db data\birchy\loot_table\blocks\nether_birchy_ore.json

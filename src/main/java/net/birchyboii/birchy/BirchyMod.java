@@ -5,6 +5,7 @@ import net.birchyboii.birchy.effect.ModEffects;
 import net.birchyboii.birchy.enchantment.ModEnchantmentEffects;
 import net.birchyboii.birchy.entity.ModEntities;
 import net.birchyboii.birchy.entity.custom.BirchyBoyEntity;
+import net.birchyboii.birchy.entity.custom.SweetRideEntity;
 import net.birchyboii.birchy.item.ModItemGroups;
 import net.birchyboii.birchy.item.ModItems;
 import net.birchyboii.birchy.block.ModBlocks;
@@ -80,5 +81,6 @@ public class BirchyMod implements ModInitializer {
 		SunGazeHandler.register();
 
 		FabricDefaultAttributeRegistry.register(ModEntities.BIRCHY_BOY, BirchyBoyEntity.createAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.SWEET_RIDE, SweetRideEntity.createAttributes());
 	}
 }
