@@ -1,4 +1,4 @@
-package net.birchyboii.birchy.entity.client;
+package net.birchyboii.birchy.entity.client.SweetRide;
 
 import net.minecraft.client.render.entity.animation.Animation;
 import net.minecraft.client.render.entity.animation.AnimationHelper;

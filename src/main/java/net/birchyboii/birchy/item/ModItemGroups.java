@@ -33,6 +33,7 @@ public class ModItemGroups {
 
                         entries.add(ModItems.DRY_WAND);
                         entries.add(ModItems.MOIST_WAND);
+                        entries.add(ModItems.SHURIKEN);
                         entries.add(ModItems.BIRCHY_SWORD);
                         entries.add(ModItems.BIRCHY_PICKAXE);
                         entries.add(ModItems.BIRCHY_AXE);
@@ -59,6 +60,10 @@ public class ModItemGroups {
                         entries.add(ModItems.BIRCHY_BERRIES);
                         entries.add(ModItems.BIRCHY_BOY_SPAWN_EGG);
                         entries.add(ModItems.SWEET_RIDE_SPAWN_EGG);
+                        entries.add(ModItems.MOTORCYCLE);
+                        entries.add(ModItems.DARK_STAFF);
+
+
 
 
                     }).build());
@@ -89,6 +94,8 @@ public class ModItemGroups {
                             entries.add(ModBlocks.BIRCHY_TRAPDOOR);
 
                             entries.add(ModBlocks.BIRCHY_LAMP);
+
+                            entries.add(ModBlocks.CHAIR);
 
 
                         }).build());

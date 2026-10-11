@@ -49,6 +49,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.BIRCHY_BERRY_BUSH, BlockStateModelGenerator.TintType.NOT_TINTED,
                 BirchyBerryBushBlock.AGE, 0, 1, 2, 3);
 
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.CHAIR);
 
     }
 
@@ -84,6 +85,7 @@ public class ModModelProvider extends FabricModelProvider {
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
         itemModelGenerator.register(ModItems.SWEET_RIDE_SPAWN_EGG,
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
+        itemModelGenerator.register(ModItems.MOTORCYCLE, Models.GENERATED);
 
     }
 }

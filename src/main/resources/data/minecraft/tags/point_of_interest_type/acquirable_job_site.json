@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "birchy:birchy_poi",
+      "required": false
+    }
+  ]
+}

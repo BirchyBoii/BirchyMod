@@ -13,5 +13,28 @@
         "stream": true
         }
       ]
-    }
+    },
+  "birchy_boy_laugh": {
+    "subtitle": "sounds.birchy.birchy_boy.laugh",
+    "sounds": [
+      "birchy:birchy_boy_laugh1",
+      "birchy:birchy_boy_laugh2",
+      "birchy:birchy_boy_laugh3"
+    ]
+  },
+  "birchy_boy_hurt": {
+    "subtitle": "sounds.birchy.birchy_boy.hurt",
+    "sounds": [
+      "birchy:birchy_boy_hurt1",
+      "birchy:birchy_boy_hurt2",
+      "birchy:birchy_boy_hurt3"
+    ]
+  },
+  "birchy_boy_death": {
+    "subtitle": "sounds.birchy.birchy_boy.death",
+    "sounds": [
+      "birchy:birchy_boy_death1",
+      "birchy:birchy_boy_death2"
+    ]
+  }
 }

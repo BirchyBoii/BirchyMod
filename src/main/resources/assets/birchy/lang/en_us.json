@@ -3,6 +3,8 @@
   "item.birchy.birchy_sheet": "Birchy Sheet",
   "item.birchy.dryer_wand": "Dryer Wand",
   "item.birchy.moistening_wand": "Moistening Wand",
+  "item.birchy.shuriken": "Shuriken",
+  "item.birchy.dark_staff": "Dark staff",
   "item.birchy.birchy_balls": "Birchy Balls",
   "item.birchy.birchisized_coal": "Birchisized Coal",
   "item.birchy.birchy_armor_trim_smithing_template": "Birchy Smithing Template",
@@ -39,6 +41,7 @@
 
 
   "enchantment.birchy.exploding_strike": "Exploding Strike",
+  "enchantment.birchy.knockback_pants": "Knockback Pants",
 
   "effect.birchy.slimey": "Slimey",
   "effect.birchy.low_gravity": "Low Gravity",
@@ -69,12 +72,18 @@
 
   "block.birchy.birchy_lamp": "Birchy Lamp",
 
+  "block.birchy.chair": "Chair",
+
   "block.birchy.birchy_grains_crop": "Birchy Grains Crop",
   "block.birchy.birchy_berry_bush": "Birchy Berry Bush",
 
 
   "entity.birchy.birchy_boy": "Birchy Boy",
   "entity.birchy.sweet_ride": "Sweet Ride",
+  "entity.birchy.shuriken": "Shuriken",
+  "entity.birchy.motorcycle": "Motorcycle",
+  "item.birchy.motorcycle_item": "Motorcycle Item",
+  "entity.minecraft.villager.birchy.bircher": "Bircher",
 
 
   "painting.birchy.self_portrait.title": "Self Portrait",
@@ -95,5 +104,8 @@
   "tooltip.birchy.birchy_balls": "§7Delicious! I wonder where they come from tho...",
   "tooltip.birchy.birchisized_coal": "§b§4WOW THATS A LOT OF EYES",
 
-  "sounds.birchy.lamp_use": "Lamp is used"
+  "sounds.birchy.lamp_use": "Lamp is used",
+  "sounds.birchy.birchy_boy.laugh": "Birchy Boy laughs",
+  "sounds.birchy.birchy_boy.hurt": "Birchy Boy gets hurt",
+  "sounds.birchy.birchy_boy.death": "Birchy Boy dies"
 }

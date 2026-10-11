@@ -26,7 +26,6 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class SweetRideEntity extends AnimalEntity {
-    private static final EntityDimensions BABY_BASE_DIMENSIONS = EntityType.CHICKEN.getDimensions().scaled(0.5F).withEyeHeight(0.2975F);
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
 
@@ -50,11 +49,6 @@ public class SweetRideEntity extends AnimalEntity {
         this.goalSelector.add(4, new WanderAroundFarGoal(this, 1.0D));
         this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 4.0F));
         this.goalSelector.add(6, new LookAroundGoal(this));
-    }
-
-    @Override
-    public EntityDimensions getBaseDimensions(EntityPose pose) {
-        return this.isBaby() ? BABY_BASE_DIMENSIONS : super.getBaseDimensions(pose);
     }
 
     public static DefaultAttributeContainer.Builder createAttributes() {

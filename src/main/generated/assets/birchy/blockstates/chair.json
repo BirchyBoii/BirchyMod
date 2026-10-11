@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "birchy:block/chair",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "birchy:block/chair"
+    },
+    "facing=south": {
+      "model": "birchy:block/chair",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "birchy:block/chair",
+      "y": 270
+    }
+  }
+}

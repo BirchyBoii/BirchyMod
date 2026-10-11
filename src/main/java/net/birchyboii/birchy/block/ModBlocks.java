@@ -99,6 +99,9 @@ public class ModBlocks {
     public static final Block BIRCHY_BERRY_BUSH = registerBlockWithoutBlockItem("birchy_berry_bush",
             new BirchyBerryBushBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH), Blocks.END_STONE));
 
+    public static final Block CHAIR = registerBlock("chair",
+            new ChairBlock(AbstractBlock.Settings.create().nonOpaque()));
+
 
 
 

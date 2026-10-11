@@ -1,11 +1,13 @@
 package net.birchyboii.birchy.entity.custom;
 
 import net.birchyboii.birchy.item.ModItems;
+import net.birchyboii.birchy.sounds.ModSounds;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
@@ -13,6 +15,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -29,7 +32,6 @@ public class BirchyBoyEntity extends AnimalEntity {
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
 
-        this.goalSelector.add(1, new TemptGoal(this, 1.25D, Ingredient.ofItems(ModItems.BIRCHY_BERRIES), false));
 
         this.goalSelector.add(4, new WanderAroundFarGoal(this, 1.0D));
         this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 4.0F));
@@ -69,5 +71,20 @@ public class BirchyBoyEntity extends AnimalEntity {
     @Override
     public @Nullable PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
         return null;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getAmbientSound() {
+        return ModSounds.BIRCHY_BOY_LAUGH;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getHurtSound(DamageSource source) {
+        return ModSounds.BIRCHY_BOY_HURT;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getDeathSound() {
+        return ModSounds.BIRCHY_BOY_DEATH;
     }
 }

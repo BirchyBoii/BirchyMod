@@ -1,9 +1,7 @@
 package net.birchyboii.birchy.entity;
 
 import net.birchyboii.birchy.BirchyMod;
-import net.birchyboii.birchy.entity.custom.BirchyBoyEntity;
-import net.birchyboii.birchy.entity.custom.SweetRideEntity;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.birchyboii.birchy.entity.custom.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -18,7 +16,16 @@ public class ModEntities {
     public static final EntityType<SweetRideEntity> SWEET_RIDE = register("sweet_ride",
             EntityType.Builder.create(SweetRideEntity::new, SpawnGroup.CREATURE)
                     .dimensions(0.75f, 1f));
+    public static final EntityType<ShurikenProjectileEntity> SHURIKEN = register("shuriken",
+            EntityType.Builder.<ShurikenProjectileEntity>create(ShurikenProjectileEntity::new, SpawnGroup.MISC)
+                    .dimensions(0.5f, 0.5f));
+    public static final EntityType<MotorcycleEntity> MOTORCYCLE = register("motorcycle",
+            EntityType.Builder.create(MotorcycleEntity::new, SpawnGroup.MISC)
+                    .dimensions(0.5f, 0.75f));
 
+    public static final EntityType<SittableEntity> SITTABLE_ENTITY = register("sittable_entity",
+            EntityType.Builder.create(SittableEntity::new, SpawnGroup.MISC)
+                    .dimensions(0.5f, 1.1f));
 
     public static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> builder) {
         return Registry.register(Registries.ENTITY_TYPE, Identifier.of(BirchyMod.MOD_ID, name), builder.build());

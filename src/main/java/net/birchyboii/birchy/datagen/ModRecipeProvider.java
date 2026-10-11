@@ -33,7 +33,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerBlasting(exporter, BIRCHY_SHEET_SMELTABLES, RecipeCategory.MISC, ModItems.BIRCHY_SHEET, 0.25f, 100, "birchy_sheet");
         offerPlanksRecipe(exporter, ModBlocks.BIRCHY_PLANKS, ModTags.Items.BIRCHY_LOGS, 4);
 
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.BIRCHY_SHEET, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BIRCHY_BLOCK);
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.BIRCHY_CHUNK, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BIRCHY_BLOCK);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DRY_WAND)
                 .pattern(" b ")

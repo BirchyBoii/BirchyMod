@@ -1,4 +1,4 @@
-package net.birchyboii.birchy.entity.client;
+package net.birchyboii.birchy.entity.client.SweetRide;
 
 import net.birchyboii.birchy.BirchyMod;
 import net.birchyboii.birchy.entity.custom.SweetRideEntity;

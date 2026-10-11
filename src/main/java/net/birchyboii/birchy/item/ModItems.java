@@ -165,6 +165,15 @@ public class ModItems {
     public static final Item SWEET_RIDE_SPAWN_EGG = registerItem("sweet_ride_spawn_egg",
             new SpawnEggItem(ModEntities.SWEET_RIDE, 0x8a5336, 0xc9e2e8, new Item.Settings()));
 
+    public static final Item MOTORCYCLE = registerItem("motorcycle_item",
+            new SpawnEggItem(ModEntities.MOTORCYCLE, 0xFFFFFF, 0xFFFFFF, new Item.Settings()));
+
+    public static final Item SHURIKEN = registerItem("shuriken",
+            new ShurikenItem(new Item.Settings().maxCount(16)));
+
+    public static final Item DARK_STAFF = registerItem("dark_staff",
+            new Item(new Item.Settings().maxCount(1)));
+
 
 
 

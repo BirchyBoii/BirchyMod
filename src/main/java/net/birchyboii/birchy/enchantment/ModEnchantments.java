@@ -2,6 +2,7 @@ package net.birchyboii.birchy.enchantment;
 
 import net.birchyboii.birchy.BirchyMod;
 import net.birchyboii.birchy.enchantment.custom.ExplodingStrikeEnchantmentEffect;
+import net.birchyboii.birchy.enchantment.custom.KnockbackPantsEnchantmentEffect;
 import net.minecraft.component.EnchantmentEffectComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.enchantment.Enchantment;
@@ -16,6 +17,8 @@ import net.minecraft.util.Identifier;
 public class ModEnchantments {
     public static final RegistryKey<Enchantment> EXPLODING_STRIKE =
             RegistryKey.of(RegistryKeys.ENCHANTMENT, Identifier.of(BirchyMod.MOD_ID, "exploding_strike"));
+    public static final RegistryKey<Enchantment> KNOCKBACK_PANTS =
+            RegistryKey.of(RegistryKeys.ENCHANTMENT, Identifier.of(BirchyMod.MOD_ID, "knockback_pants"));
 
     public static void bootstrap(Registerable<Enchantment> registerable) {
         var enchantments = registerable.getRegistryLookup(RegistryKeys.ENCHANTMENT);
@@ -33,6 +36,17 @@ public class ModEnchantments {
                 .addEffect(EnchantmentEffectComponentTypes.POST_ATTACK,
                         EnchantmentEffectTarget.ATTACKER, EnchantmentEffectTarget.VICTIM,
                         new ExplodingStrikeEnchantmentEffect()));
+
+        register(registerable, KNOCKBACK_PANTS, Enchantment.builder(Enchantment.definition(
+                        items.getOrThrow(ItemTags.LEG_ARMOR_ENCHANTABLE),
+                        7,
+                        1,
+                        Enchantment.leveledCost(5, 7),
+                        Enchantment.leveledCost(25, 9),
+                        2,
+                        AttributeModifierSlot.LEGS))
+                .addEffect(EnchantmentEffectComponentTypes.TICK,
+                        new KnockbackPantsEnchantmentEffect()));
 
     }
 

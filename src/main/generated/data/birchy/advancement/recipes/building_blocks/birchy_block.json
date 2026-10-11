@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_birchy_sheet": {
+    "has_birchy_chunk": {
       "conditions": {
         "items": [
           {
-            "items": "birchy:birchy_sheet"
+            "items": "birchy:birchy_chunk"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_birchy_sheet"
+      "has_birchy_chunk"
     ]
   ],
   "rewards": {

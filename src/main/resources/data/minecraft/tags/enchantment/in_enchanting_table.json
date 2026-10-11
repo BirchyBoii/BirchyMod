@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "birchy:exploding_strike"
+    "birchy:exploding_strike",
+    "birchy:knockback_pants"
   ]
 }

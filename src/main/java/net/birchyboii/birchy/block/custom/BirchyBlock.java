@@ -1,7 +1,9 @@
 package net.birchyboii.birchy.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.birchyboii.birchy.block.ModBlocks;
 import net.birchyboii.birchy.item.ModItems;
+import net.birchyboii.birchy.particle.ModParticles;
 import net.birchyboii.birchy.util.ModTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -11,12 +13,16 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particle.BlockStateParticleEffect;
+import net.minecraft.particle.ParticleType;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -35,9 +41,18 @@ public class BirchyBlock extends HorizontalFacingBlock {
 
     @Override
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
-        if(entity instanceof ItemEntity itemEntity) {
-            if(isValidItem(itemEntity.getStack())) {
-                itemEntity.setStack(new ItemStack(ModItems.BIRCHY_SHEET, itemEntity.getStack().getCount()));
+        if(entity instanceof PlayerEntity player) {
+            if(entity.isAlive()) {
+                float yaw = player.getYaw();
+                double yawRad = Math.toRadians(yaw);
+                double xDir = -Math.sin(yawRad);
+                double zDir = Math.cos(yawRad);
+                double intensity = 0.25;
+
+                world.addParticle(ParticleTypes.WARPED_SPORE, pos.getX() + 0.5, pos.getY() + 1,
+                        pos.getZ() + 0.5, 0, 1, 0);
+
+                player.addVelocity((xDir * intensity), 0.5, (zDir * intensity));
             }
         }
 
