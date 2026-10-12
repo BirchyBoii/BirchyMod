@@ -1,6 +1,8 @@
 package net.birchyboii.birchy;
 
 import net.birchyboii.birchy.block.ModBlocks;
+import net.birchyboii.birchy.block.entity.ModBlockEntities;
+import net.birchyboii.birchy.block.entity.renderer.PedestalBlockEntityRenderer;
 import net.birchyboii.birchy.effect.overlay.EffectOverlayManager;
 import net.birchyboii.birchy.effect.ModEffects;
 import net.birchyboii.birchy.entity.ModEntities;
@@ -15,6 +17,10 @@ import net.birchyboii.birchy.entity.client.SweetRide.SweetRideModel;
 import net.birchyboii.birchy.entity.client.SweetRide.SweetRideRenderer;
 import net.birchyboii.birchy.particle.BikeSmokeParticle;
 import net.birchyboii.birchy.particle.ModParticles;
+import net.birchyboii.birchy.screen.ModScreenHandlers;
+import net.birchyboii.birchy.screen.custom.BirchisizerScreen;
+import net.birchyboii.birchy.screen.custom.BirchisizerScreenHandler;
+import net.birchyboii.birchy.screen.custom.PedestalScreen;
 import net.birchyboii.birchy.util.ModModelPredicates;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -22,8 +28,11 @@ import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.particle.ParticleFactory;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 
 public class BirchyModClient implements ClientModInitializer {
     @Override
@@ -57,5 +66,10 @@ public class BirchyModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.SITTABLE_ENTITY, SittableEntityRenderer::new);
 
         ParticleFactoryRegistry.getInstance().register(ModParticles.BIKE_SMOKE_PARTICLE, BikeSmokeParticle.Factory::new);
+
+        BlockEntityRendererFactories.register(ModBlockEntities.PEDESTAL_BE, PedestalBlockEntityRenderer::new);
+        HandledScreens.register(ModScreenHandlers.PEDESTAL_SCREEN_HANDLER, PedestalScreen::new);
+
+        HandledScreens.register(ModScreenHandlers.BIRCHISIZER_SCREEN_HANDLER, BirchisizerScreen::new);
     }
 }

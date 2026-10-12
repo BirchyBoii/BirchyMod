@@ -1,5 +1,6 @@
 package net.birchyboii.birchy;
 
+import net.birchyboii.birchy.block.entity.ModBlockEntities;
 import net.birchyboii.birchy.component.ModDataComponentTypes;
 import net.birchyboii.birchy.effect.ModEffects;
 import net.birchyboii.birchy.enchantment.ModEnchantmentEffects;
@@ -11,6 +12,8 @@ import net.birchyboii.birchy.item.ModItems;
 import net.birchyboii.birchy.block.ModBlocks;
 import net.birchyboii.birchy.particle.ModParticles;
 import net.birchyboii.birchy.potion.ModPotions;
+import net.birchyboii.birchy.recipe.ModRecipes;
+import net.birchyboii.birchy.screen.ModScreenHandlers;
 import net.birchyboii.birchy.sounds.ModSounds;
 import net.birchyboii.birchy.event.SunGazeHandler;
 import net.birchyboii.birchy.util.HammerUsageEvent;
@@ -50,6 +53,7 @@ public class BirchyMod implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+		ModBlockEntities.registerBlockEntities();
 		ModDataComponentTypes.registerDataComponentTypes();
 		ModSounds.registerSounds();
 		ModEffects.registerEffects();
@@ -62,6 +66,10 @@ public class BirchyMod implements ModInitializer {
 		ModParticles.registerParticles();
 
 		ModWorldGeneration.generateModWorldGen();
+
+		ModScreenHandlers.registerScreenHandlers();
+
+		ModRecipes.registerRecipes();
 
 		FuelRegistry.INSTANCE.add(ModItems.BIRCHISIZED_COAL, 4800);
 		CompostingChanceRegistry.INSTANCE.add(ModItems.BIRCHY_GRAINS, 0.25f);

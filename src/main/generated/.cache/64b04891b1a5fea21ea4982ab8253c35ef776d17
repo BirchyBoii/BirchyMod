@@ -1,8 +1,9 @@
-// 1.21.1	2026-10-11T13:33:17.8170106	Birchy Mod/Model Definitions
+// 1.21.1	2026-10-12T19:13:38.818107	Birchy Mod/Model Definitions
 032e2c342818aa157c60e59404738f80b274dabf assets\birchy\blockstates\stripped_birchy_wood.json
 0a8d1e7cf4e89d79beda6dddfaca10bc64f72e4d assets\birchy\models\item\birchy_slabs.json
 c62e6d00c3827bd3339cd14b844861e922e21689 assets\birchy\models\item\birchy_sheet.json
 ec0f9845c5d658529a8521d2d4a22c3d6679725b assets\birchy\models\item\birchy_sapling.json
+17f8d60d8a545352772bceab13e99a2a6af80956 assets\birchy\models\block\birchisizer.json
 e847ea4c37b12c5f3a1fbfb34b21609035599f83 assets\birchy\models\item\birchy_boots_quartz_trim.json
 6022bdc2893da7603e9071f24bd7c1dcdb402f3a assets\birchy\blockstates\deepslate_birchy_ore.json
 f5d489130d742b1cb17ee8466442cb51201b3556 assets\birchy\models\item\birchy_button.json
@@ -48,8 +49,8 @@ d2e096278bffa23c9c954835dddfa400f25e44d2 assets\birchy\models\item\birchy_armor_
 2c41e5ca6b1847785d6b596a0e12d2ff3e93f43b assets\birchy\blockstates\birchy_sapling.json
 358a2e51894dd26079ab502b1a0d15edd3f2e2e7 assets\birchy\blockstates\birchy_planks.json
 e6a288532b5134ad67095d6db513a48eab0c47d7 assets\birchy\models\block\birchy_berry_bush_stage0.json
-479e6663463729987a992f21e227f0bbc3530086 assets\birchy\models\item\birchy_planks.json
 303fdc93f02c793da777e0095c9b3bbb51ba2bd5 assets\birchy\models\item\birchy_leggings_gold_trim.json
+479e6663463729987a992f21e227f0bbc3530086 assets\birchy\models\item\birchy_planks.json
 0f7578b559a62af8a00cd1bd4c1b3dc5f6cfbdb6 assets\birchy\models\item\birchy_leggings_redstone_trim.json
 561e85b294bab3e7e5ce0f159c4b63c3dd10fbb3 assets\birchy\models\item\birchy_leaves.json
 646aac09cb636bb6c5d931508348b84daa912767 assets\birchy\models\item\motorcycle_item.json
@@ -63,6 +64,7 @@ c9b220d1caa2b39cdc6fc0849e18d704902238ba assets\birchy\models\item\birchy_leggin
 4f149daa1843270df10f0ed1a1e0f21eecdb1a57 assets\birchy\models\block\stripped_birchy_log_horizontal.json
 198f34bbe07e9684f7ddd7ae44ee3589088521f2 assets\birchy\models\item\nether_birchy_ore.json
 ad991bf016328c0595d09491b122c4ad0cdf4ca0 assets\birchy\models\block\birchy_block.json
+4561c80b7236962d77ae19eef9dadfca2783cf90 assets\birchy\models\item\birchisizer.json
 f23605218ed3c7eaa8f4fa9f9a07daa413194caf assets\birchy\models\block\birchy_button_pressed.json
 e6cfd544a272144eb865ed838b4e0f5d0c1b33e6 assets\birchy\models\block\stripped_birchy_wood.json
 93c368d2dd549a3fa532f0737f1dbd7059a69217 assets\birchy\models\item\birchy_boots_iron_trim.json
@@ -89,6 +91,7 @@ dab5ffaffbe5ae9519bc781eb5821bad795b95b4 assets\birchy\models\item\birchy_chestp
 ea56c86478aad8ea242f735576f50884d56ccbf7 assets\birchy\models\item\birchy_chunk.json
 01fa3682523fc2a0a59f89684d61039285e2dd3e assets\birchy\blockstates\birchy_trapdoor.json
 dc199d321871c9f4b90d11ca591f3cef55320824 assets\birchy\models\item\birchy_stairs.json
+69e070e96a5d6ee7b39b090229e831b20fbea010 assets\birchy\blockstates\birchisizer.json
 4261dac470c3609131482c81e78d61e392f21eca assets\birchy\blockstates\birchy_wood.json
 c209c0f4f8718524220e56b1de61f8ba0dba2266 assets\birchy\models\item\birchisized_coal.json
 72c3380504cf45e969f62b8d4fe1f67be9d13345 assets\birchy\models\block\birchy_lamp_on.json
@@ -99,8 +102,8 @@ fe99a41b66477c2a6a3483cecc7a6e94b51b770f assets\birchy\models\item\birchy_leggin
 67989d08cde681c36ee0e18d166bbd8233224e31 assets\birchy\models\item\birchy_fence_gate.json
 4235fc383da537d65fa3cfbacd027ddda66461b4 assets\birchy\blockstates\nether_birchy_ore.json
 7252d1343c9cd9d698d2d138764fbbf48851235c assets\birchy\models\item\birchy_chestplate_lapis_trim.json
-fb81616e51d5d0e94d4961f2806e8dded72d7893 assets\birchy\models\block\birchy_door_bottom_left.json
 eaa5f08c58cd04f778b8240742d1dcb591d51c3e assets\birchy\models\item\birchy_boots_netherite_trim.json
+fb81616e51d5d0e94d4961f2806e8dded72d7893 assets\birchy\models\block\birchy_door_bottom_left.json
 68139aaf6ee57ed1b6d4e06b380be097eb488a94 assets\birchy\models\item\birchy_trapdoor.json
 20f6c65f8d1c1031d0c3a2e5f54da637fab36ac1 assets\birchy\models\item\birchy_lamp.json
 b570798b2cb31798b21197dc989522a1991a9ce3 assets\birchy\blockstates\birchy_fence.json

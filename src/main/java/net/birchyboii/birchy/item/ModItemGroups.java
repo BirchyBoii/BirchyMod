@@ -96,6 +96,8 @@ public class ModItemGroups {
                             entries.add(ModBlocks.BIRCHY_LAMP);
 
                             entries.add(ModBlocks.CHAIR);
+                            entries.add(ModBlocks.PEDESTAL);
+                            entries.add(ModBlocks.BIRCHISIZER);
 
 
                         }).build());

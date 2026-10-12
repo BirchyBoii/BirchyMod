@@ -101,6 +101,10 @@ public class ModBlocks {
 
     public static final Block CHAIR = registerBlock("chair",
             new ChairBlock(AbstractBlock.Settings.create().nonOpaque()));
+    public static final Block PEDESTAL = registerBlock("pedestal",
+            new PedestalBlock(AbstractBlock.Settings.create().nonOpaque()));
+    public static final Block BIRCHISIZER = registerBlock("birchisizer",
+            new BirchisizerBlock(AbstractBlock.Settings.create()));
 
 
 
