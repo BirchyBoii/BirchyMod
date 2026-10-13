@@ -1,13 +1,16 @@
 package net.birchyboii.birchy.datagen;
 
+import net.birchyboii.birchy.BirchyMod;
 import net.birchyboii.birchy.block.ModBlocks;
 import net.birchyboii.birchy.block.custom.BirchyBerryBushBlock;
 import net.birchyboii.birchy.block.custom.BirchyCropBlock;
 import net.birchyboii.birchy.block.custom.BirchyLamp;
+import net.birchyboii.birchy.item.ModArmorMaterials;
 import net.birchyboii.birchy.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.util.Identifier;
 
@@ -70,10 +73,14 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.BIRCHY_HOE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.BIRCHY_HAMMER, Models.HANDHELD);
 
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_BOOTS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_HELMET), Identifier.of(BirchyMod.MOD_ID, "birchy"),
+                ModArmorMaterials.BIRCHY, EquipmentSlot.HEAD);
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_CHESTPLATE), Identifier.of(BirchyMod.MOD_ID, "birchy"),
+                ModArmorMaterials.BIRCHY, EquipmentSlot.CHEST);
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_LEGGINGS), Identifier.of(BirchyMod.MOD_ID, "birchy"),
+                ModArmorMaterials.BIRCHY, EquipmentSlot.LEGS);
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_BOOTS), Identifier.of(BirchyMod.MOD_ID, "birchy"),
+                ModArmorMaterials.BIRCHY, EquipmentSlot.FEET);
         itemModelGenerator.register(ModItems.BIRCHY_HORSE_ARMOR, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.BIRCHY_FIBERS, Models.GENERATED);

@@ -8,25 +8,37 @@ import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
-public class BirchyBoyRenderer extends MobEntityRenderer<BirchyBoyEntity, BirchyBoyModel<BirchyBoyEntity>> {
+public class BirchyBoyRenderer extends MobEntityRenderer<BirchyBoyEntity, BirchyBoyRenderState, BirchyBoyModel> {
     public BirchyBoyRenderer(EntityRendererFactory.Context context) {
-        super(context, new BirchyBoyModel<>(context.getPart(BirchyBoyModel.BIRCHY_BOY)), 0.25f);
+        super(context, new BirchyBoyModel(context.getPart(BirchyBoyModel.BIRCHY_BOY)), 0.25f);
     }
 
     @Override
-    public Identifier getTexture(BirchyBoyEntity entity) {
+    public Identifier getTexture(BirchyBoyRenderState state) {
         return Identifier.of(BirchyMod.MOD_ID, "textures/entity/birchy_boy/birchy_boy.png");
     }
 
     @Override
-    public void render(BirchyBoyEntity livingEntity, float f, float g, MatrixStack matrixStack,
+    public void render(BirchyBoyRenderState state, MatrixStack matrixStack,
                        VertexConsumerProvider vertexConsumerProvider, int i) {
-        if(livingEntity.isBaby()) {
+        if(state.baby) {
             matrixStack.scale(0.5f, 0.5f, 0.5f);
         } else {
             matrixStack.scale(1f, 1f, 1f);
         }
 
-        super.render(livingEntity, f, g, matrixStack, vertexConsumerProvider, i);
+        super.render(state, matrixStack, vertexConsumerProvider, i);
+    }
+
+    @Override
+    public BirchyBoyRenderState createRenderState() {
+        return new BirchyBoyRenderState();
+    }
+
+    @Override
+    public void updateRenderState(BirchyBoyEntity livingEntity, BirchyBoyRenderState livingEntityRenderState, float f) {
+        super.updateRenderState(livingEntity, livingEntityRenderState, f);
+        livingEntityRenderState.idleAnimationState.copyFrom(livingEntity.idleAnimationState);
+
     }
 }

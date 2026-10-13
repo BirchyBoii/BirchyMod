@@ -3,20 +3,19 @@ package net.birchyboii.birchy.entity.client.BirchyBoy;
 import net.birchyboii.birchy.BirchyMod;
 import net.birchyboii.birchy.entity.custom.BirchyBoyEntity;
 import net.minecraft.client.model.*;
-import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.client.render.entity.model.SinglePartEntityModel;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 
-public class BirchyBoyModel<T extends BirchyBoyEntity> extends SinglePartEntityModel<T> {
+public class BirchyBoyModel extends EntityModel<BirchyBoyRenderState> {
     public static final EntityModelLayer BIRCHY_BOY = new EntityModelLayer(Identifier.of(BirchyMod.MOD_ID, "birchy_boy"), "body");
 
     private final ModelPart body;
     private final ModelPart head;
 
     public BirchyBoyModel(ModelPart root) {
+        super(root);
         this.body = root.getChild("body");
         this.head = this.body.getChild("head");
     }
@@ -46,12 +45,12 @@ public class BirchyBoyModel<T extends BirchyBoyEntity> extends SinglePartEntityM
         return TexturedModelData.of(modelData, 32, 32);
     }
     @Override
-    public void setAngles(BirchyBoyEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        this.getPart().traverse().forEach(ModelPart::resetTransform);
-        this.setHeadAngles(netHeadYaw, headPitch);
+    public void setAngles(BirchyBoyRenderState state) {
+        super.setAngles(state);
+        this.setHeadAngles(state.yawDegrees, state.pitch);
 
-        this.animateMovement(BirchyBoyAnimations.ANIM_BIRCHY_BOY_RUN, limbSwing, limbSwingAmount, 2f, 2.5f);
-        this.updateAnimation(entity.idleAnimationState, BirchyBoyAnimations.ANIM_BIRCHY_BOY_IDLE, ageInTicks, 1f);
+        this.animateWalking(BirchyBoyAnimations.ANIM_BIRCHY_BOY_RUN, state.limbFrequency, state.limbAmplitudeMultiplier, 2f, 2.5f);
+        this.animate(state.idleAnimationState, BirchyBoyAnimations.ANIM_BIRCHY_BOY_IDLE, state.age, 1f);
     }
 
     private void setHeadAngles(float headYaw, float headPitch) {
@@ -62,13 +61,4 @@ public class BirchyBoyModel<T extends BirchyBoyEntity> extends SinglePartEntityM
         this.head.pitch = (float) (headPitch * (Math.PI / 180));
     }
 
-    @Override
-    public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, int color) {
-        body.render(matrices, vertexConsumer, light, overlay, color);
-    }
-
-    @Override
-    public ModelPart getPart() {
-        return body;
-    }
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "birchy:birchy_sheet_from_blasting_deepslate_birchy_ore"
+        "recipe": "minecraft:birchy_sheet_from_blasting_deepslate_birchy_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "birchy:birchy_sheet_from_blasting_deepslate_birchy_ore"
+      "minecraft:birchy_sheet_from_blasting_deepslate_birchy_ore"
     ]
   }
 }

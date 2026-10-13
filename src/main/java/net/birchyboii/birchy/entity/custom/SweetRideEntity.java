@@ -53,10 +53,11 @@ public class SweetRideEntity extends AnimalEntity {
 
     public static DefaultAttributeContainer.Builder createAttributes() {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 15)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 20)
-                .add(EntityAttributes.GENERIC_SCALE, 1.5);
+                .add(EntityAttributes.MAX_HEALTH, 15)
+                .add(EntityAttributes.MOVEMENT_SPEED, 0.25)
+                .add(EntityAttributes.FOLLOW_RANGE, 20)
+                .add(EntityAttributes.SCALE, 1.5)
+                .add(EntityAttributes.TEMPT_RANGE, 12);
 
     }
 
@@ -87,7 +88,7 @@ public class SweetRideEntity extends AnimalEntity {
 
     @Override
     public SweetRideEntity createChild(ServerWorld world, PassiveEntity passiveEntity) {
-        SweetRideEntity baby = ModEntities.SWEET_RIDE.create(world);
+        SweetRideEntity baby = ModEntities.SWEET_RIDE.create(world, SpawnReason.BREEDING);
         SweetRideVariant variant = Util.getRandom(SweetRideVariant.values(), this.random);
         baby.setVariant(variant);
         return baby;

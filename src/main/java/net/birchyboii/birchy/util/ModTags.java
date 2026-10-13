@@ -21,6 +21,7 @@ public class ModTags {
 
     public static class Items {
         public static final TagKey<Item> BIRCHY_BLOCK_TRANSFORMABLE_ITEMS = createTag("birchy_block_transformable_items");
+        public static final TagKey<Item> BIRCHY_REPAIR = createTag("birchy_repair");
         public static final TagKey<Item> BIRCHY_LOGS = createTag("birchy_logs");
 
         private static TagKey<Item> createTag(String name) {

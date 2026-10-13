@@ -2,15 +2,9 @@ package net.birchyboii.birchy.item;
 
 import net.birchyboii.birchy.BirchyMod;
 import net.birchyboii.birchy.block.ModBlocks;
-import net.birchyboii.birchy.enchantment.ModEnchantments;
 import net.birchyboii.birchy.potion.ModPotions;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.component.EnchantmentEffectComponentTypes;
-import net.minecraft.component.type.ItemEnchantmentsComponent;
 import net.minecraft.component.type.PotionContentsComponent;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.EnchantmentLevelEntry;
-import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;

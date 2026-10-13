@@ -3,20 +3,19 @@ package net.birchyboii.birchy.entity.client.Motorcycle;
 import net.birchyboii.birchy.BirchyMod;
 import net.birchyboii.birchy.entity.custom.MotorcycleEntity;
 import net.minecraft.client.model.*;
-import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.client.render.entity.model.SinglePartEntityModel;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 
-public class MotorcycleModel<T extends MotorcycleEntity> extends SinglePartEntityModel<T> {
+public class MotorcycleModel extends EntityModel<MotorcycleRenderState> {
     public static final EntityModelLayer MOTORCYCLE = new EntityModelLayer(Identifier.of(BirchyMod.MOD_ID, "motorcycle"), "body");
 
     private final ModelPart wheeler;
     private final ModelPart head;
 
     public MotorcycleModel(ModelPart root) {
+        super(root);
         this.wheeler = root.getChild("wheeler");
         this.head = this.wheeler.getChild("head");
     }
@@ -183,12 +182,12 @@ public class MotorcycleModel<T extends MotorcycleEntity> extends SinglePartEntit
     }
 
     @Override
-    public void setAngles(MotorcycleEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        this.getPart().traverse().forEach(ModelPart::resetTransform);
-        this.setHeadAngles(netHeadYaw);
+    public void setAngles(MotorcycleRenderState state) {
+        super.setAngles(state);
+        this.setHeadAngles(state.yawDegrees);
 
-        this.animateMovement(MotorcycleAnimations.ANIM_MOTORCYCLE_DRIVING, limbSwing, limbSwingAmount, 2f, 2.5f);
-        this.updateAnimation(entity.idleAnimationState, MotorcycleAnimations.ANIM_MOTORCYCLE_IDLE, ageInTicks, 1f);
+        this.animateWalking(MotorcycleAnimations.ANIM_MOTORCYCLE_DRIVING, state.limbFrequency, state.limbAmplitudeMultiplier, 2f, 2.5f);
+        this.animate(state.idleAnimationState, MotorcycleAnimations.ANIM_MOTORCYCLE_IDLE, state.age, 1f);
     }
 
     private void setHeadAngles(float headYaw) {
@@ -197,13 +196,5 @@ public class MotorcycleModel<T extends MotorcycleEntity> extends SinglePartEntit
         this.head.yaw = (float) (headYaw * (Math.PI / 180));
     }
 
-    @Override
-    public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, int color) {
-        wheeler.render(matrices, vertexConsumer, light, overlay, color);
-    }
 
-    @Override
-    public ModelPart getPart() {
-        return wheeler;
-    }
 }

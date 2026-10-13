@@ -3,6 +3,7 @@ package net.birchyboii.birchy.effect.overlay;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -59,6 +60,7 @@ public class EffectOverlayTracker {
             RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, this.currentAlpha);
 
             drawContext.drawTexture(
+                    RenderLayer::getGuiTexturedOverlay,
                     this.texture,
                     0, 0,
                     0, 0,

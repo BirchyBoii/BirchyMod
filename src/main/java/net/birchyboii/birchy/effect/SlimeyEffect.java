@@ -3,6 +3,7 @@ package net.birchyboii.birchy.effect;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
 
 public class SlimeyEffect extends StatusEffect {
@@ -11,7 +12,7 @@ public class SlimeyEffect extends StatusEffect {
     }
 
     @Override
-    public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
+    public boolean applyUpdateEffect(ServerWorld world, LivingEntity entity, int amplifier) {
         if(entity.horizontalCollision) {
             Vec3d initialVec = entity.getVelocity();
             Vec3d climbVec = new Vec3d(initialVec.x, 0.1D, initialVec.z);
@@ -19,7 +20,7 @@ public class SlimeyEffect extends StatusEffect {
             return true;
         }
 
-        return super.applyUpdateEffect(entity, amplifier);
+        return super.applyUpdateEffect(world, entity, amplifier);
     }
 
     @Override

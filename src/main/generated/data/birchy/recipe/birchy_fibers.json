@@ -2,18 +2,10 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "birchy:birchy_grains"
-    },
-    {
-      "item": "birchy:birchy_grains"
-    },
-    {
-      "item": "birchy:birchy_grains"
-    },
-    {
-      "item": "birchy:birchy_grains"
-    }
+    "birchy:birchy_grains",
+    "birchy:birchy_grains",
+    "birchy:birchy_grains",
+    "birchy:birchy_grains"
   ],
   "result": {
     "count": 3,

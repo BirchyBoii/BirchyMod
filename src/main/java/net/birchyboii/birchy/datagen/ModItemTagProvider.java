@@ -20,6 +20,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup lookup) {
         getOrCreateTagBuilder(ModTags.Items.BIRCHY_BLOCK_TRANSFORMABLE_ITEMS)
                 .add(ModItems.BIRCHY_CHUNK);
+        getOrCreateTagBuilder(ModTags.Items.BIRCHY_REPAIR)
+                .add(ModItems.BIRCHY_SHEET);
 
         getOrCreateTagBuilder(ModTags.Items.BIRCHY_LOGS)
                 .add(ModBlocks.BIRCHY_LOG.asItem())

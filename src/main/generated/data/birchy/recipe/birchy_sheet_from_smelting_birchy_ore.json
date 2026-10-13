@@ -4,9 +4,7 @@
   "cookingtime": 200,
   "experience": 0.25,
   "group": "birchy_sheet",
-  "ingredient": {
-    "item": "birchy:birchy_ore"
-  },
+  "ingredient": "birchy:birchy_ore",
   "result": {
     "id": "birchy:birchy_sheet"
   }

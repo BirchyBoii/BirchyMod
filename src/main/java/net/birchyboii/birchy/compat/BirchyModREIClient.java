@@ -23,8 +23,8 @@ public class BirchyModREIClient implements REIClientPlugin {
 
     @Override
     public void registerDisplays(DisplayRegistry registry) {
-        registry.registerRecipeFiller(BirchisizerRecipe.class, ModRecipes.BIRCHISIZER_TYPE,
-                BirchisizerDisplay::new);
+    //    registry.registerRecipeFiller(BirchisizerRecipe.class, ModRecipes.BIRCHISIZER_TYPE,
+    //            BirchisizerDisplay::new);
     }
 
     @Override

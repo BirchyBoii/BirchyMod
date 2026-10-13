@@ -7,12 +7,16 @@ import net.birchyboii.birchy.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeExporter;
+import net.minecraft.data.server.recipe.RecipeGenerator;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 
@@ -25,76 +29,87 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     @Override
-    public void generate(RecipeExporter exporter) {
-        List<ItemConvertible> BIRCHY_SHEET_SMELTABLES = List.of(ModItems.BIRCHY_CHUNK, ModBlocks.BIRCHY_ORE, ModBlocks.BIRCHY_DEEPSLATE_ORE);
+    protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup registries, RecipeExporter exporter) {
+        return new RecipeGenerator(registries, exporter) {
+            @Override
+            public void generate() {
+                List<ItemConvertible> BIRCHY_SHEET_SMELTABLES = List.of(ModItems.BIRCHY_CHUNK, ModBlocks.BIRCHY_ORE, ModBlocks.BIRCHY_DEEPSLATE_ORE);
 
 
-        offerSmelting(exporter, BIRCHY_SHEET_SMELTABLES, RecipeCategory.MISC, ModItems.BIRCHY_SHEET, 0.25f, 200, "birchy_sheet");
-        offerBlasting(exporter, BIRCHY_SHEET_SMELTABLES, RecipeCategory.MISC, ModItems.BIRCHY_SHEET, 0.25f, 100, "birchy_sheet");
-        offerPlanksRecipe(exporter, ModBlocks.BIRCHY_PLANKS, ModTags.Items.BIRCHY_LOGS, 4);
+                offerSmelting(BIRCHY_SHEET_SMELTABLES, RecipeCategory.MISC, ModItems.BIRCHY_SHEET, 0.25f, 200, "birchy_sheet");
+                offerBlasting(BIRCHY_SHEET_SMELTABLES, RecipeCategory.MISC, ModItems.BIRCHY_SHEET, 0.25f, 100, "birchy_sheet");
+                offerPlanksRecipe(ModBlocks.BIRCHY_PLANKS, ModTags.Items.BIRCHY_LOGS, 4);
 
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.BUILDING_BLOCKS, ModItems.BIRCHY_CHUNK, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BIRCHY_BLOCK);
+                offerReversibleCompactingRecipes(RecipeCategory.BUILDING_BLOCKS, ModItems.BIRCHY_CHUNK, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BIRCHY_BLOCK);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DRY_WAND)
-                .pattern(" b ")
-                .pattern(" s ")
-                .pattern(" s ")
-                .input('s', Items.STICK)
-                .input('b', ModItems.BIRCHY_SHEET)
-                .criterion(hasItem(ModItems.BIRCHY_SHEET), conditionsFromItem(ModItems.BIRCHY_SHEET))
-                .offerTo(exporter);
+                createShaped(RecipeCategory.MISC, ModItems.DRY_WAND)
+                        .pattern(" b ")
+                        .pattern(" s ")
+                        .pattern(" s ")
+                        .input('s', Items.STICK)
+                        .input('b', ModItems.BIRCHY_SHEET)
+                        .criterion(hasItem(ModItems.BIRCHY_SHEET), conditionsFromItem(ModItems.BIRCHY_SHEET))
+                        .offerTo(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DRY_WAND, 1)
-                .input(ModItems.MOIST_WAND)
-                .criterion(hasItem(ModItems.MOIST_WAND), conditionsFromItem(ModItems.MOIST_WAND))
-                .offerTo(exporter, Identifier.of(BirchyMod.MOD_ID, "dryer_wand_from_moist_wand"));
+                createShapeless(RecipeCategory.MISC, ModItems.DRY_WAND, 1)
+                        .input(ModItems.MOIST_WAND)
+                        .criterion(hasItem(ModItems.MOIST_WAND), conditionsFromItem(ModItems.MOIST_WAND))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(BirchyMod.MOD_ID, "dryer_wand_from_moist_wand")));
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MOIST_WAND, 1)
-                .input(ModItems.DRY_WAND)
-                .criterion(hasItem(ModItems.DRY_WAND), conditionsFromItem(ModItems.DRY_WAND))
-                .offerTo(exporter, Identifier.of(BirchyMod.MOD_ID, "moistening_wand_from_dry_wand"));
+                createShapeless(RecipeCategory.MISC, ModItems.MOIST_WAND, 1)
+                        .input(ModItems.DRY_WAND)
+                        .criterion(hasItem(ModItems.DRY_WAND), conditionsFromItem(ModItems.DRY_WAND))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(BirchyMod.MOD_ID, "moistening_wand_from_dry_wand")));
 
-        createStairsRecipe(ModBlocks.BIRCHY_STAIRS, Ingredient.ofItems(ModBlocks.BIRCHY_PLANKS))
-                .criterion(hasItem(ModBlocks.BIRCHY_PLANKS), conditionsFromItem(ModBlocks.BIRCHY_PLANKS)).offerTo(exporter);
+                createStairsRecipe(ModBlocks.BIRCHY_STAIRS, Ingredient.ofItems(ModBlocks.BIRCHY_PLANKS))
+                        .criterion(hasItem(ModBlocks.BIRCHY_PLANKS), conditionsFromItem(ModBlocks.BIRCHY_PLANKS)).offerTo(exporter);
 
-        createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BIRCHY_SLAB, Ingredient.ofItems(ModBlocks.BIRCHY_PLANKS))
-                .criterion(hasItem(ModBlocks.BIRCHY_PLANKS), conditionsFromItem(ModBlocks.BIRCHY_PLANKS)).offerTo(exporter);
+                createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BIRCHY_SLAB, Ingredient.ofItems(ModBlocks.BIRCHY_PLANKS))
+                        .criterion(hasItem(ModBlocks.BIRCHY_PLANKS), conditionsFromItem(ModBlocks.BIRCHY_PLANKS)).offerTo(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BIRCHY_BUTTON)
-                .input(ModBlocks.BIRCHY_PLANKS)
-                .criterion(hasItem(ModBlocks.BIRCHY_PLANKS), conditionsFromItem(ModBlocks.BIRCHY_PLANKS))
-                .offerTo(exporter);
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BIRCHY_BUTTON)
+                        .input(ModBlocks.BIRCHY_PLANKS)
+                        .criterion(hasItem(ModBlocks.BIRCHY_PLANKS), conditionsFromItem(ModBlocks.BIRCHY_PLANKS))
+                        .offerTo(exporter);
 
-        createPressurePlateRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BIRCHY_PRESSURE_PLATE, Ingredient.ofItems(ModBlocks.BIRCHY_PLANKS))
-                .criterion(hasItem(ModBlocks.BIRCHY_PLANKS), conditionsFromItem(ModBlocks.BIRCHY_PLANKS)).offerTo(exporter);
+                createPressurePlateRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BIRCHY_PRESSURE_PLATE, Ingredient.ofItems(ModBlocks.BIRCHY_PLANKS))
+                        .criterion(hasItem(ModBlocks.BIRCHY_PLANKS), conditionsFromItem(ModBlocks.BIRCHY_PLANKS)).offerTo(exporter);
 
-        createFenceRecipe(ModBlocks.BIRCHY_FENCE, Ingredient.ofItems(ModBlocks.BIRCHY_PLANKS))
-                .criterion(hasItem(ModBlocks.BIRCHY_PLANKS), conditionsFromItem(ModBlocks.BIRCHY_PLANKS)).offerTo(exporter);
+                createFenceRecipe(ModBlocks.BIRCHY_FENCE, Ingredient.ofItems(ModBlocks.BIRCHY_PLANKS))
+                        .criterion(hasItem(ModBlocks.BIRCHY_PLANKS), conditionsFromItem(ModBlocks.BIRCHY_PLANKS)).offerTo(exporter);
 
-        createFenceGateRecipe(ModBlocks.BIRCHY_FENCE_GATE, Ingredient.ofItems(ModBlocks.BIRCHY_PLANKS))
-                .criterion(hasItem(ModBlocks.BIRCHY_PLANKS), conditionsFromItem(ModBlocks.BIRCHY_PLANKS)).offerTo(exporter);
+                createFenceGateRecipe(ModBlocks.BIRCHY_FENCE_GATE, Ingredient.ofItems(ModBlocks.BIRCHY_PLANKS))
+                        .criterion(hasItem(ModBlocks.BIRCHY_PLANKS), conditionsFromItem(ModBlocks.BIRCHY_PLANKS)).offerTo(exporter);
 
-        createDoorRecipe(ModBlocks.BIRCHY_DOOR, Ingredient.ofItems(ModBlocks.BIRCHY_PLANKS))
-                .criterion(hasItem(ModBlocks.BIRCHY_PLANKS), conditionsFromItem(ModBlocks.BIRCHY_PLANKS)).offerTo(exporter);
+                createDoorRecipe(ModBlocks.BIRCHY_DOOR, Ingredient.ofItems(ModBlocks.BIRCHY_PLANKS))
+                        .criterion(hasItem(ModBlocks.BIRCHY_PLANKS), conditionsFromItem(ModBlocks.BIRCHY_PLANKS)).offerTo(exporter);
 
-        createTrapdoorRecipe(ModBlocks.BIRCHY_TRAPDOOR, Ingredient.ofItems(ModBlocks.BIRCHY_PLANKS))
-                .criterion(hasItem(ModBlocks.BIRCHY_PLANKS), conditionsFromItem(ModBlocks.BIRCHY_PLANKS)).offerTo(exporter);
+                createTrapdoorRecipe(ModBlocks.BIRCHY_TRAPDOOR, Ingredient.ofItems(ModBlocks.BIRCHY_PLANKS))
+                        .criterion(hasItem(ModBlocks.BIRCHY_PLANKS), conditionsFromItem(ModBlocks.BIRCHY_PLANKS)).offerTo(exporter);
 
-        offerSmithingTrimRecipe(exporter, ModItems.BIRCHY_SMITHING_TEMPLATE, Identifier.of(BirchyMod.MOD_ID, "birchy"));
+                offerSmithingTrimRecipe(ModItems.BIRCHY_SMITHING_TEMPLATE, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(BirchyMod.MOD_ID, "birchy")));
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BIRCHY_FIBERS, 3)
-                .input(ModItems.BIRCHY_GRAINS, 4)
-                .criterion(hasItem(ModItems.BIRCHY_GRAINS), conditionsFromItem(ModItems.BIRCHY_GRAINS))
-                .offerTo(exporter);
+                createShapeless(RecipeCategory.MISC, ModItems.BIRCHY_FIBERS, 3)
+                        .input(ModItems.BIRCHY_GRAINS, 4)
+                        .criterion(hasItem(ModItems.BIRCHY_GRAINS), conditionsFromItem(ModItems.BIRCHY_GRAINS))
+                        .offerTo(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.BIRCHY_BALLS)
-                .pattern(" f ")
-                .pattern("fgf")
-                .pattern(" f ")
-                .input('g', ModItems.BIRCHY_BERRIES)
-                .input('f', ModItems.BIRCHY_FIBERS)
-                .criterion(hasItem(ModItems.BIRCHY_FIBERS), conditionsFromItem(ModItems.BIRCHY_FIBERS))
-                .offerTo(exporter);
+                createShaped(RecipeCategory.FOOD, ModItems.BIRCHY_BALLS)
+                        .pattern(" f ")
+                        .pattern("fgf")
+                        .pattern(" f ")
+                        .input('g', ModItems.BIRCHY_BERRIES)
+                        .input('f', ModItems.BIRCHY_FIBERS)
+                        .criterion(hasItem(ModItems.BIRCHY_FIBERS), conditionsFromItem(ModItems.BIRCHY_FIBERS))
+                        .offerTo(exporter);
 
+            }
+        };
+    }
+
+
+    @Override
+    public String getName() {
+        return "Birchy Recipes";
     }
 }

@@ -14,19 +14,19 @@ import net.minecraft.util.Identifier;
 public class ModEffects {
     public static final RegistryEntry<StatusEffect> SLIMEY_EFFECT = registerStatusEffect("slimey",
             new SlimeyEffect(StatusEffectCategory.NEUTRAL, 0x36ebab)
-                    .addAttributeModifier(EntityAttributes.GENERIC_MOVEMENT_SPEED,
+                    .addAttributeModifier(EntityAttributes.MOVEMENT_SPEED,
                             Identifier.of(BirchyMod.MOD_ID, "slimey"), -0.25f,
                             EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 
     public static final RegistryEntry<StatusEffect> LOW_GRAVITY = registerStatusEffect("low_gravity",
             new LowGravityEffect(StatusEffectCategory.NEUTRAL, 0xd3dfe8)
-                    .addAttributeModifier(EntityAttributes.GENERIC_GRAVITY,
+                    .addAttributeModifier(EntityAttributes.GRAVITY,
                             Identifier.of(BirchyMod.MOD_ID, "low_gravity"), -0.55f,
                             EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
-                    .addAttributeModifier(EntityAttributes.GENERIC_FALL_DAMAGE_MULTIPLIER,
+                    .addAttributeModifier(EntityAttributes.FALL_DAMAGE_MULTIPLIER,
                             Identifier.of(BirchyMod.MOD_ID, "low_gravity"), -0.4f,
                             EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
-                    .addAttributeModifier(EntityAttributes.GENERIC_SAFE_FALL_DISTANCE,
+                    .addAttributeModifier(EntityAttributes.SAFE_FALL_DISTANCE,
                             Identifier.of(BirchyMod.MOD_ID, "low_gravity"), 3.5f,
                             EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 

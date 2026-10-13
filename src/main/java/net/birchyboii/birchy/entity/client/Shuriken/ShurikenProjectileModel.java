@@ -6,15 +6,17 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
+import net.minecraft.client.render.entity.state.EntityRenderState;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.Identifier;
 
-public class ShurikenProjectileModel extends EntityModel<ShurikenProjectileEntity> {
+public class ShurikenProjectileModel extends EntityModel<EntityRenderState> {
     public static final EntityModelLayer SHURIKEN = new EntityModelLayer(Identifier.of(BirchyMod.MOD_ID, "shuriken"), "main");
     private final ModelPart shuriken;
 
     public ShurikenProjectileModel(ModelPart root) {
+        super(root);
         this.shuriken = root.getChild("shuriken");
     }
 
@@ -34,11 +36,6 @@ public class ShurikenProjectileModel extends EntityModel<ShurikenProjectileEntit
         ModelPartData cube_r5 = shuriken.addChild("cube_r5", ModelPartBuilder.create().uv(0, 2).cuboid(-0.5F, 0.5F, -0.5F, 1.0F, 0.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -0.99F, 1.0F, 0.0F, -0.7854F, 0.0F));
         return TexturedModelData.of(modelData, 8, 8);
     }
-    @Override
-    public void setAngles(ShurikenProjectileEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-    }
-    @Override
-    public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, int color) {
-        shuriken.render(matrices, vertexConsumer, light, overlay, color);
-    }
+
+
 }

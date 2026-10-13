@@ -54,8 +54,8 @@ public class MotorcycleEntity extends PassiveEntity {
 
     public static DefaultAttributeContainer.Builder createAttributes() {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 50)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 1);
+                .add(EntityAttributes.MAX_HEALTH, 50)
+                .add(EntityAttributes.MOVEMENT_SPEED, 1);
 
     }
 
@@ -156,7 +156,7 @@ public class MotorcycleEntity extends PassiveEntity {
 
     @Override
     protected float getSaddledSpeed(PlayerEntity controllingPlayer) {
-        return ((float) this.getAttributeBaseValue(EntityAttributes.GENERIC_MOVEMENT_SPEED));
+        return ((float) this.getAttributeBaseValue(EntityAttributes.MOVEMENT_SPEED));
     }
 
     @Override
@@ -232,8 +232,8 @@ public class MotorcycleEntity extends PassiveEntity {
     }
 
     @Override
-    protected void mobTick() {
-        super.mobTick();
+    protected void mobTick(ServerWorld world) {
+        super.mobTick(world);
         this.bossBar.setPercent(this.getHealth() / this.getMaxHealth());
     }
 

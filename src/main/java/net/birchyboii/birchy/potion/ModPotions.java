@@ -11,7 +11,7 @@ import net.minecraft.util.Identifier;
 
 public class ModPotions {
     public static final RegistryEntry<Potion> SLIMEY_POTION = registerPotion("slimey_potion",
-            new Potion(new StatusEffectInstance(ModEffects.SLIMEY_EFFECT, 1200, 0)));
+            new Potion("slimey_potion", new StatusEffectInstance(ModEffects.SLIMEY_EFFECT, 1200, 0)));
 
     private static RegistryEntry<Potion> registerPotion(String name, Potion potion) {
         return Registry.registerReference(Registries.POTION, Identifier.of(BirchyMod.MOD_ID, name), potion);

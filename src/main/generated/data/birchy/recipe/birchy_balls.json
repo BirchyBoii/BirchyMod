@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "f": {
-      "item": "birchy:birchy_fibers"
-    },
-    "g": {
-      "item": "birchy:birchy_berries"
-    }
+    "f": "birchy:birchy_fibers",
+    "g": "birchy:birchy_berries"
   },
   "pattern": [
     " f ",

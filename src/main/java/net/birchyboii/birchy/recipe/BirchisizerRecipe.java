@@ -6,18 +6,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.network.codec.PacketCodecs;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.RecipeSerializer;
-import net.minecraft.recipe.RecipeType;
+import net.minecraft.recipe.*;
+import net.minecraft.recipe.book.RecipeBookCategories;
+import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.dynamic.Codecs;
 import net.minecraft.world.World;
 
 public record BirchisizerRecipe(Ingredient inputItem, int inputCount, ItemStack output) implements Recipe<BirchisizerRecipeInput> {
-
-    @Override
     public DefaultedList<Ingredient> getIngredients() {
         DefaultedList<Ingredient> list = DefaultedList.of();
         list.add(this.inputItem);
@@ -40,29 +37,30 @@ public record BirchisizerRecipe(Ingredient inputItem, int inputCount, ItemStack 
         return output.copy();
     }
 
-    @Override
-    public boolean fits(int width, int height) {
-        return true;
-    }
 
     @Override
-    public ItemStack getResult(RegistryWrapper.WrapperLookup registriesLookup) {
-        return output;
-    }
-
-    @Override
-    public RecipeSerializer<?> getSerializer() {
+    public RecipeSerializer<? extends Recipe<BirchisizerRecipeInput>> getSerializer() {
         return ModRecipes.BIRCHISIZER_SERIALIZER;
     }
 
     @Override
-    public RecipeType<?> getType() {
+    public RecipeType<? extends Recipe<BirchisizerRecipeInput>> getType() {
         return ModRecipes.BIRCHISIZER_TYPE;
+    }
+
+    @Override
+    public IngredientPlacement getIngredientPlacement() {
+        return IngredientPlacement.forSingleSlot(inputItem);
+    }
+
+    @Override
+    public RecipeBookCategory getRecipeBookCategory() {
+        return RecipeBookCategories.CRAFTING_MISC;
     }
 
     public static class Serializer implements RecipeSerializer<BirchisizerRecipe> {
         public static final MapCodec<BirchisizerRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
-                Ingredient.DISALLOW_EMPTY_CODEC.fieldOf("ingredient").forGetter(BirchisizerRecipe::inputItem),
+                Ingredient.CODEC.fieldOf("ingredient").forGetter(BirchisizerRecipe::inputItem),
                 Codecs.POSITIVE_INT.fieldOf("input_count").orElse(1).forGetter(BirchisizerRecipe::inputCount),
                 ItemStack.CODEC.fieldOf("result").forGetter(BirchisizerRecipe::output)
         ).apply(inst, BirchisizerRecipe::new));

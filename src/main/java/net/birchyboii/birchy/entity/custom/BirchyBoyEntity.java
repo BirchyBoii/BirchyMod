@@ -40,8 +40,8 @@ public class BirchyBoyEntity extends AnimalEntity {
 
     public static DefaultAttributeContainer.Builder createAttributes() {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 4)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.35);
+                .add(EntityAttributes.MAX_HEALTH, 4)
+                .add(EntityAttributes.MOVEMENT_SPEED, 0.35);
 
     }
 

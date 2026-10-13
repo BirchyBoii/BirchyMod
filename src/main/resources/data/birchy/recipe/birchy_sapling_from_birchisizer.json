@@ -1,8 +1,6 @@
 {
   "type": "birchy:birchisizer",
-  "ingredient": {
-    "item": "minecraft:oak_sapling"
-  },
+  "ingredient": "minecraft:oak_sapling",
   "result": {
     "id": "birchy:birchy_sapling"
   }

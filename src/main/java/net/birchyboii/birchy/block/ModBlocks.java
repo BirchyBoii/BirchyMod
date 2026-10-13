@@ -5,123 +5,147 @@ import net.birchyboii.birchy.block.custom.*;
 import net.birchyboii.birchy.world.tree.ModSaplingGenerators;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
+import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 
+import java.util.function.Function;
+
 public class ModBlocks {
     public static final Block BIRCHY_BLOCK = registerBlock("birchy_block",
-            new BirchyBlock(AbstractBlock.Settings.create().strength(4f)
+            properties -> new BirchyBlock(properties.strength(4f)
                     .requiresTool().sounds(BlockSoundGroup.CORAL)));
     public static final Block BIRCHY_ORE = registerBlock("birchy_ore",
-            new ExperienceDroppingBlock(UniformIntProvider.create(2, 5),
-                    AbstractBlock.Settings.create().strength(3f)
+            properties -> new ExperienceDroppingBlock(UniformIntProvider.create(2, 5),
+                    properties.strength(3f)
                     .requiresTool().sounds(BlockSoundGroup.STONE)));
     public static final Block BIRCHY_DEEPSLATE_ORE = registerBlock("deepslate_birchy_ore",
-            new ExperienceDroppingBlock(UniformIntProvider.create(3, 6),
-                    AbstractBlock.Settings.create().strength(4f)
+            properties -> new ExperienceDroppingBlock(UniformIntProvider.create(3, 6),
+                    properties.strength(4f)
                     .requiresTool().sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block BIRCHY_NETHER_ORE = registerBlock("nether_birchy_ore",
-            new ExperienceDroppingBlock(UniformIntProvider.create(4, 7),
-                    AbstractBlock.Settings.create().strength(2f)
+            properties -> new ExperienceDroppingBlock(UniformIntProvider.create(4, 7),
+                    properties.strength(2f)
                             .requiresTool().sounds(BlockSoundGroup.NETHER_GOLD_ORE)));
     public static final Block BIRCHY_END_ORE = registerBlock("end_birchy_ore",
-            new ExperienceDroppingBlock(UniformIntProvider.create(4, 9),
-                    AbstractBlock.Settings.create().strength(3f)
+            properties -> new ExperienceDroppingBlock(UniformIntProvider.create(4, 9),
+                    properties.strength(3f)
                             .requiresTool().sounds(BlockSoundGroup.STONE)));
 
 
     public static final Block BIRCHY_LOG = registerBlock("birchy_log",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.BIRCH_LOG)));
+            properties -> new PillarBlock(properties
+                    .instrument(NoteBlockInstrument.BASS)
+                    .strength(2.0F).sounds(BlockSoundGroup.WOOD)));
     public static final Block BIRCHY_WOOD = registerBlock("birchy_wood",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.BIRCH_WOOD)));
+            properties -> new PillarBlock(properties
+                    .instrument(NoteBlockInstrument.BASS)
+                    .strength(2.0F).sounds(BlockSoundGroup.WOOD)));
     public static final Block STRIPPED_BIRCHY_LOG = registerBlock("stripped_birchy_log",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_BIRCH_LOG)));
+            properties -> new PillarBlock(properties
+                    .instrument(NoteBlockInstrument.BASS)
+                    .strength(2.0F).sounds(BlockSoundGroup.WOOD)));
     public static final Block STRIPPED_BIRCHY_WOOD = registerBlock("stripped_birchy_wood",
-            new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_BIRCH_WOOD)));
+            properties -> new PillarBlock(properties
+                    .instrument(NoteBlockInstrument.BASS)
+                    .strength(2.0F).sounds(BlockSoundGroup.WOOD)));
 
     public static final Block BIRCHY_PLANKS = registerBlock("birchy_planks",
-            new Block(AbstractBlock.Settings.copy(Blocks.BIRCH_PLANKS)));
+            properties -> new Block(properties.strength(3f)));
     public static final Block BIRCHY_LEAVES = registerBlock("birchy_leaves",
-            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.BIRCH_LEAVES)));
+            properties -> new LeavesBlock(properties
+                    .mapColor(MapColor.DARK_GREEN).strength(0.2F).ticksRandomly()
+                    .sounds(BlockSoundGroup.AZALEA_LEAVES).nonOpaque()
+                    .allowsSpawning(Blocks::canSpawnOnLeaves).suffocates(Blocks::never)
+                    .blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY)
+                    .solidBlock(Blocks::never)));
 
     public static final Block BIRCHY_SAPLING = registerBlock("birchy_sapling",
-            new ModSaplingBlock(ModSaplingGenerators.BIRCHY_TREE, AbstractBlock.Settings.copy(Blocks.BIRCH_SAPLING), Blocks.END_STONE));
+            properties -> new ModSaplingBlock(ModSaplingGenerators.BIRCHY_TREE,
+                    properties.mapColor(MapColor.DARK_GREEN).noCollision().ticksRandomly()
+                    .breakInstantly().sounds(BlockSoundGroup.GRASS).pistonBehavior(PistonBehavior.DESTROY), Blocks.END_STONE));
 
     public static final Block BIRCHY_STAIRS = registerBlock("birchy_stairs",
-            new StairsBlock(ModBlocks.BIRCHY_PLANKS.getDefaultState(),
-                    AbstractBlock.Settings.create().strength(1f)
+            properties -> new StairsBlock(ModBlocks.BIRCHY_PLANKS.getDefaultState(),
+                    properties.strength(1f)
                             .requiresTool().sounds(BlockSoundGroup.WOOD)));
     public static final Block BIRCHY_SLAB = registerBlock("birchy_slabs",
-            new SlabBlock(AbstractBlock.Settings.create().strength(1f)
+            properties -> new SlabBlock(properties.strength(1f)
                             .requiresTool().sounds(BlockSoundGroup.WOOD)));
 
     public static final Block BIRCHY_BUTTON = registerBlock("birchy_button",
-            new ButtonBlock(BlockSetType.BIRCH, 2,
-                    AbstractBlock.Settings.create().strength(1f)
+            properties -> new ButtonBlock(BlockSetType.BIRCH, 2,
+                    properties.strength(1f)
                             .requiresTool().noCollision().sounds(BlockSoundGroup.WOOD)));
     public static final Block BIRCHY_PRESSURE_PLATE = registerBlock("birchy_pressure_plate",
-            new PressurePlateBlock(BlockSetType.BIRCH,
-                    AbstractBlock.Settings.create().strength(1f)
+            properties -> new PressurePlateBlock(BlockSetType.BIRCH,
+                    properties.strength(1f)
                             .requiresTool().sounds(BlockSoundGroup.WOOD)));
 
     public static final Block BIRCHY_FENCE = registerBlock("birchy_fence",
-            new FenceBlock(AbstractBlock.Settings.create().strength(1f)
+            properties -> new FenceBlock(properties.strength(1f)
                             .requiresTool().sounds(BlockSoundGroup.WOOD)));
     public static final Block BIRCHY_FENCE_GATE = registerBlock("birchy_fence_gate",
-            new FenceGateBlock(WoodType.BIRCH,
-                    AbstractBlock.Settings.create().strength(1f)
+            properties -> new FenceGateBlock(WoodType.BIRCH,
+                    properties.strength(1f)
                             .requiresTool().sounds(BlockSoundGroup.WOOD)));
 
     public static final Block BIRCHY_DOOR = registerBlock("birchy_door",
-            new DoorBlock(BlockSetType.BIRCH,
-                    AbstractBlock.Settings.create().strength(1f)
+            properties -> new DoorBlock(BlockSetType.BIRCH,
+                    properties.strength(1f)
                             .requiresTool().nonOpaque().sounds(BlockSoundGroup.WOOD)));
     public static final Block BIRCHY_TRAPDOOR = registerBlock("birchy_trapdoor",
-            new TrapdoorBlock(BlockSetType.BIRCH,
-                    AbstractBlock.Settings.create().strength(1f)
+            properties -> new TrapdoorBlock(BlockSetType.BIRCH,
+                    properties.strength(1f)
                             .requiresTool().nonOpaque().sounds(BlockSoundGroup.WOOD)));
 
     public static final Block BIRCHY_LAMP = registerBlock("birchy_lamp",
-            new BirchyLamp(AbstractBlock.Settings.create()
+            properties -> new BirchyLamp(properties
                     .strength(1f).requiresTool().luminance(state -> state.get(BirchyLamp.CLICKED) ? 15 : 0).sounds(BlockSoundGroup.GLASS)));
 
     public static final Block BIRCHY_GRAINS_CROP = registerBlockWithoutBlockItem("birchy_grains_crop",
-            new BirchyCropBlock(AbstractBlock.Settings.create().noCollision()
-                    .ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
+            properties -> new BirchyCropBlock(properties.noCollision()
+                    .ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP)
+                    .pistonBehavior(PistonBehavior.DESTROY)));
 
     public static final Block BIRCHY_BERRY_BUSH = registerBlockWithoutBlockItem("birchy_berry_bush",
-            new BirchyBerryBushBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH), Blocks.END_STONE));
+            properties -> new BirchyBerryBushBlock(properties.mapColor(MapColor.DARK_GREEN).ticksRandomly()
+                    .noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH).pistonBehavior(PistonBehavior.DESTROY),
+                    Blocks.END_STONE));
 
     public static final Block CHAIR = registerBlock("chair",
-            new ChairBlock(AbstractBlock.Settings.create().nonOpaque()));
+            properties -> new ChairBlock(properties.nonOpaque()));
     public static final Block PEDESTAL = registerBlock("pedestal",
-            new PedestalBlock(AbstractBlock.Settings.create().nonOpaque()));
-    public static final Block BIRCHISIZER = registerBlock("birchisizer",
-            new BirchisizerBlock(AbstractBlock.Settings.create()));
+            properties -> new PedestalBlock(properties.nonOpaque()));
+    public static final Block BIRCHISIZER = registerBlock("birchisizer", BirchisizerBlock::new);
 
 
 
 
-    private static Block registerBlock(String name, Block block) {
-        registerBlockItem(name, block);
-        return Registry.register(Registries.BLOCK, Identifier.of(BirchyMod.MOD_ID, name), block);
+    private static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> function) {
+        Block toRegister = function.apply(AbstractBlock.Settings.create().registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(BirchyMod.MOD_ID, name))));
+        registerBlockItem(name, toRegister);
+        return Registry.register(Registries.BLOCK, Identifier.of(BirchyMod.MOD_ID, name), toRegister);
     }
 
-    private static Block registerBlockWithoutBlockItem(String name, Block block) {
-        return Registry.register(Registries.BLOCK, Identifier.of(BirchyMod.MOD_ID, name), block);
+    private static Block registerBlockWithoutBlockItem(String name, Function<AbstractBlock.Settings, Block> function) {
+        return Registry.register(Registries.BLOCK, Identifier.of(BirchyMod.MOD_ID, name),
+                function.apply(AbstractBlock.Settings.create().registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(BirchyMod.MOD_ID, name)))));
     }
-
 
     private static void registerBlockItem(String name, Block block) {
         Registry.register(Registries.ITEM, Identifier.of(BirchyMod.MOD_ID, name),
-                new BlockItem(block, new Item.Settings()));
+                new BlockItem(block, new Item.Settings().useBlockPrefixedTranslationKey()
+                        .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(BirchyMod.MOD_ID, name)))));
     }
 
     public static void registerModBlocks() {

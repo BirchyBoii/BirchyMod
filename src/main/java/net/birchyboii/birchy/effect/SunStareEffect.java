@@ -7,6 +7,7 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.server.world.ServerWorld;
 
 public class SunStareEffect extends StatusEffect {
     protected SunStareEffect(StatusEffectCategory category, int color) {
@@ -19,7 +20,7 @@ public class SunStareEffect extends StatusEffect {
     }
 
     @Override
-    public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
+    public boolean applyUpdateEffect(ServerWorld world, LivingEntity entity, int amplifier) {
         entity.addStatusEffect(new StatusEffectInstance(
                 StatusEffects.BLINDNESS, 200, 0, false, false, true
         ));

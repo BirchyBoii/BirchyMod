@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "birchy:dryer_wand"
-    }
+    "birchy:dryer_wand"
   ],
   "result": {
     "count": 1,

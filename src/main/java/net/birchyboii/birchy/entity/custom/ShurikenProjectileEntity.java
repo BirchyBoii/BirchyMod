@@ -11,6 +11,7 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.Direction;
@@ -30,7 +31,7 @@ public Vector2f groundedOffset;
 
     public static DefaultAttributeContainer.Builder createAttributes() {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_SCALE, 2);
+                .add(EntityAttributes.SCALE, 2);
 
     }
 
@@ -47,17 +48,15 @@ public Vector2f groundedOffset;
         return rotation;
     }
 
-    public boolean isGrounded() {
-        return inGround;
-    }
 
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
         Entity entity = entityHitResult.getEntity();
-        entity.damage(this.getDamageSources().thrown(this, this.getOwner()), 4);
+
 
         if (!this.getWorld().isClient()) {
+            entity.damage(((ServerWorld) this.getWorld()), this.getDamageSources().thrown(this, this.getOwner()), 4);
             this.getWorld().sendEntityStatus(this, (byte)3);
             this.discard();
         }

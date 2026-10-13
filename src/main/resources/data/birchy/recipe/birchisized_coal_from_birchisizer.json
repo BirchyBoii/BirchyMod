@@ -1,8 +1,6 @@
 {
   "type": "birchy:birchisizer",
-  "ingredient": {
-    "item": "minecraft:coal"
-  },
+  "ingredient": "minecraft:coal",
   "input_count": 3,
   "result": {
     "count": 2,

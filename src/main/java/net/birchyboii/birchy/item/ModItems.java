@@ -13,10 +13,13 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.BannerPatternsComponent;
 import net.minecraft.item.*;
+import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -25,12 +28,13 @@ import net.minecraft.util.Rarity;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 public class ModItems {
-    public static final Item BIRCHY_CHUNK = registerItem("birchy_chunk", new Item(new Item.Settings().fireproof()));
-    public static final Item BIRCHY_SHEET = registerItem("birchy_sheet", new Item(new Item.Settings().fireproof()));
+    public static final Item BIRCHY_CHUNK = registerItem("birchy_chunk", setting -> new Item(setting.fireproof()));
+    public static final Item BIRCHY_SHEET = registerItem("birchy_sheet", setting -> new Item(setting.fireproof()));
 
-    public static final Item DRY_WAND = registerItem("dryer_wand", new CustomBlockTransformerItem(new Item.Settings()
+    public static final Item DRY_WAND = registerItem("dryer_wand", setting -> new CustomBlockTransformerItem(setting
             .maxDamage(500).maxCount(1).rarity(Rarity.RARE).fireproof(),
             Map.of(
                     Blocks.GRASS_BLOCK, Blocks.DIRT,
@@ -56,7 +60,7 @@ public class ModItems {
         }
     });
 
-    public static final Item MOIST_WAND = registerItem("moistening_wand", new CustomBlockTransformerItem(new Item.Settings()
+    public static final Item MOIST_WAND = registerItem("moistening_wand", setting -> new CustomBlockTransformerItem(setting
             .maxDamage(500).maxCount(1).rarity(Rarity.RARE).fireproof(),
             Map.of(
                     Blocks.DIRT, Blocks.GRASS_BLOCK,
@@ -81,7 +85,8 @@ public class ModItems {
         }
     });
 
-    public static final Item BIRCHY_BALLS = registerItem("birchy_balls", new Item(new Item.Settings().food(ModFoodComponents.BIRCHY_BALLS).fireproof()) {
+    public static final Item BIRCHY_BALLS = registerItem("birchy_balls", setting -> new Item(setting.food(
+            ModFoodComponents.BIRCHY_BALLS, ModFoodComponents.BIRCHY_BALLS_EFFECT).fireproof()) {
         @Override
         public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
             tooltip.add(Text.translatable("tooltip.birchy.birchy_balls"));
@@ -89,7 +94,7 @@ public class ModItems {
         }
     });
 
-    public static final Item BIRCHISIZED_COAL = registerItem("birchisized_coal", new Item(new Item.Settings().fireproof()) {
+    public static final Item BIRCHISIZED_COAL = registerItem("birchisized_coal", setting -> new Item(setting.fireproof()) {
         @Override
         public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
             tooltip.add(Text.translatable("tooltip.birchy.birchisized_coal"));
@@ -98,87 +103,82 @@ public class ModItems {
     });
 
     public static final Item BIRCHY_SWORD = registerItem("birchy_sword",
-            new SwordItem(ModToolMaterials.BIRCHY, new Item.Settings()
-                    .fireproof()
-                    .attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.BIRCHY, 3, -2.0f))));
+            setting -> new SwordItem(ModToolMaterials.BIRCHY, 3, -2.0f, setting
+                    .fireproof()));
     public static final Item BIRCHY_PICKAXE = registerItem("birchy_pickaxe",
-            new PickaxeItem(ModToolMaterials.BIRCHY, new Item.Settings()
-                    .fireproof()
-                    .attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.BIRCHY, 1, -2.8f))));
+            setting -> new PickaxeItem(ModToolMaterials.BIRCHY, 1, -2.8f, setting
+                    .fireproof()));
     public static final Item BIRCHY_AXE = registerItem("birchy_axe",
-            new AxeItem(ModToolMaterials.BIRCHY, new Item.Settings()
-                    .fireproof()
-                    .attributeModifiers(AxeItem.createAttributeModifiers(ModToolMaterials.BIRCHY, 6, -3.2f))));
+            setting -> new AxeItem(ModToolMaterials.BIRCHY, 6, -3.2f, setting
+                    .fireproof()));
     public static final Item BIRCHY_SHOVEL = registerItem("birchy_shovel",
-            new ShovelItem(ModToolMaterials.BIRCHY, new Item.Settings()
-                    .fireproof()
-                    .attributeModifiers(ShovelItem.createAttributeModifiers(ModToolMaterials.BIRCHY, 1.5f, -3.0f))));
+            setting -> new ShovelItem(ModToolMaterials.BIRCHY, 1.5f, -3.0f, setting
+                    .fireproof()));
     public static final Item BIRCHY_HOE = registerItem("birchy_hoe",
-            new HoeItem(ModToolMaterials.BIRCHY, new Item.Settings()
-                    .fireproof()
-                    .attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.BIRCHY, 0, -3f))));
+            setting -> new HoeItem(ModToolMaterials.BIRCHY, 0, -3f, setting
+                    .fireproof()));
+    public static final Item BIRCHY_HAMMER = registerItem("birchy_hammer",
+            setting -> new HammerItem(ModToolMaterials.BIRCHY, 9, -3.7f, setting
+                    .fireproof()));
 
     public static final Item BIRCHY_BOW = registerItem("birchy_bow",
-            new BowItem(new Item.Settings().maxDamage(500)));
-    public static final Item BIRCHY_HAMMER = registerItem("birchy_hammer",
-            new HammerItem(ModToolMaterials.BIRCHY, new Item.Settings()
-                    .fireproof()
-                    .attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.BIRCHY, 9, -3.7f))));
+            setting -> new BowItem(setting.maxDamage(500)));
 
     public static final Item BIRCHY_HELMET = registerItem("birchy_helmet",
-            new ModArmorItem(ModArmorMaterials.BIRCHY_ARMOR_MATERIAL, ArmorItem.Type.HELMET, new Item.Settings()
+            setting -> new ModArmorItem(ModArmorMaterials.BIRCHY_ARMOR_MATERIAL, EquipmentType.HELMET, setting
                     .fireproof()
-                    .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(40))));
+                    .maxDamage(EquipmentType.HELMET.getMaxDamage(40))));
     public static final Item BIRCHY_CHESTPLATE = registerItem("birchy_chestplate",
-            new ArmorItem(ModArmorMaterials.BIRCHY_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Settings()
+            setting -> new ArmorItem(ModArmorMaterials.BIRCHY_ARMOR_MATERIAL, EquipmentType.CHESTPLATE, setting
                     .fireproof()
-                    .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(40))));
+                    .maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(40))));
     public static final Item BIRCHY_LEGGINGS = registerItem("birchy_leggings",
-            new ArmorItem(ModArmorMaterials.BIRCHY_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, new Item.Settings()
+            setting -> new ArmorItem(ModArmorMaterials.BIRCHY_ARMOR_MATERIAL, EquipmentType.LEGGINGS, setting
                     .fireproof()
-                    .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(40))));
+                    .maxDamage(EquipmentType.LEGGINGS.getMaxDamage(40))));
     public static final Item BIRCHY_BOOTS = registerItem("birchy_boots",
-            new ArmorItem(ModArmorMaterials.BIRCHY_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, new Item.Settings()
+            setting -> new ArmorItem(ModArmorMaterials.BIRCHY_ARMOR_MATERIAL, EquipmentType.BOOTS, setting
                     .fireproof()
-                    .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(40))));
+                    .maxDamage(EquipmentType.BOOTS.getMaxDamage(40))));
     public static final Item BIRCHY_HORSE_ARMOR = registerItem("birchy_horse_armor",
-            new AnimalArmorItem(ModArmorMaterials.BIRCHY_ARMOR_MATERIAL, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+            setting -> new AnimalArmorItem(ModArmorMaterials.BIRCHY_ARMOR_MATERIAL, AnimalArmorItem.Type.EQUESTRIAN, setting.maxCount(1)));
 
     public static final Item BIRCHY_SMITHING_TEMPLATE = registerItem("birchy_armor_trim_smithing_template",
-            SmithingTemplateItem.of(Identifier.of(BirchyMod.MOD_ID, "birchy"), FeatureFlags.VANILLA));
+            SmithingTemplateItem::of);
 
     public static final Item STAL_BIRCHY_COVER_MUSIC_DISC = registerItem("stal_birchy_cover_music_disc",
-            new Item(new Item.Settings().jukeboxPlayable(ModSounds.STAL_BIRCHY_COVER_KEY).maxCount(1)));
+            setting -> new Item(setting.jukeboxPlayable(ModSounds.STAL_BIRCHY_COVER_KEY).maxCount(1)));
 
     public static final Item BIRCHY_GRAINS = registerItem("birchy_grains",
-            new AliasedBlockItem(ModBlocks.BIRCHY_GRAINS_CROP, new Item.Settings()));
+            setting -> new BlockItem(ModBlocks.BIRCHY_GRAINS_CROP, setting));
 
     public static final Item BIRCHY_FIBERS = registerItem("birchy_fibers",
-            new Item(new Item.Settings().fireproof()));
+            setting -> new Item(setting.fireproof()));
 
     public static final Item BIRCHY_BERRIES = registerItem("birchy_berries",
-            new AliasedBlockItem(ModBlocks.BIRCHY_BERRY_BUSH, new Item.Settings().food(ModFoodComponents.BIRCHY_BERRY)));
+            setting -> new BlockItem(ModBlocks.BIRCHY_BERRY_BUSH, setting.food(ModFoodComponents.BIRCHY_BERRY)));
 
     public static final Item BIRCHY_BOY_SPAWN_EGG = registerItem("birchy_boy_spawn_egg",
-            new SpawnEggItem(ModEntities.BIRCHY_BOY, 0x19181f, 0xff0008, new Item.Settings()));
+            setting -> new SpawnEggItem(ModEntities.BIRCHY_BOY, 0x19181f, 0xff0008, setting));
 
     public static final Item SWEET_RIDE_SPAWN_EGG = registerItem("sweet_ride_spawn_egg",
-            new SpawnEggItem(ModEntities.SWEET_RIDE, 0x8a5336, 0xc9e2e8, new Item.Settings()));
+            setting -> new SpawnEggItem(ModEntities.SWEET_RIDE, 0x8a5336, 0xc9e2e8, setting));
 
     public static final Item MOTORCYCLE = registerItem("motorcycle_item",
-            new SpawnEggItem(ModEntities.MOTORCYCLE, 0xFFFFFF, 0xFFFFFF, new Item.Settings()));
+            setting -> new SpawnEggItem(ModEntities.MOTORCYCLE, 0xFFFFFF, 0xFFFFFF, setting));
 
     public static final Item SHURIKEN = registerItem("shuriken",
-            new ShurikenItem(new Item.Settings().maxCount(16)));
+            setting -> new ShurikenItem(setting.maxCount(16)));
 
     public static final Item DARK_STAFF = registerItem("dark_staff",
-            new Item(new Item.Settings().maxCount(1)));
+            setting -> new Item(setting.maxCount(1)));
 
 
 
 
-    private static Item registerItem(String name, Item item) {
-        return Registry.register(Registries.ITEM, Identifier.of(BirchyMod.MOD_ID, name), item);
+    private static Item registerItem(String name, Function<Item.Settings, Item> function) {
+        return Registry.register(Registries.ITEM, Identifier.of(BirchyMod.MOD_ID, name),
+                function.apply(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(BirchyMod.MOD_ID, name)))));
     }
 
     public static void registerModItems() {

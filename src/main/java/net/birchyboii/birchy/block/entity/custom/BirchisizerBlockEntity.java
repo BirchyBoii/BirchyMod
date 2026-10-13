@@ -25,6 +25,7 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -164,7 +165,7 @@ public class BirchisizerBlockEntity extends BlockEntity implements ExtendedScree
     }
 
     private Optional<RecipeEntry<BirchisizerRecipe>> getCurrentRecipe() {
-        return this.getWorld().getRecipeManager()
+        return ((ServerWorld) this.getWorld()).getRecipeManager()
                 .getFirstMatch(ModRecipes.BIRCHISIZER_TYPE, new BirchisizerRecipeInput(inventory.get(INPUT_SLOT)), this.getWorld());
     }
 

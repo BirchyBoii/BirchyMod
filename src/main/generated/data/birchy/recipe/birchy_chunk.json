@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    {
-      "item": "birchy:birchy_block"
-    }
+    "birchy:birchy_block"
   ],
   "result": {
     "count": 9,

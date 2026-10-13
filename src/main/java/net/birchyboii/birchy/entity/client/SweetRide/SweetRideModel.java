@@ -1,23 +1,21 @@
 package net.birchyboii.birchy.entity.client.SweetRide;
 
 import net.birchyboii.birchy.BirchyMod;
-import net.birchyboii.birchy.entity.custom.SweetRideEntity;
 import net.minecraft.client.model.*;
-import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.client.render.entity.model.SinglePartEntityModel;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 
 
-public class SweetRideModel<T extends SweetRideEntity> extends SinglePartEntityModel<T> {
+public class SweetRideModel extends EntityModel<SweetRideRenderState> {
     public static final EntityModelLayer SWEET_RIDE = new EntityModelLayer(Identifier.of(BirchyMod.MOD_ID, "sweet_ride"), "main");
 
     private final ModelPart main;
     private final ModelPart head;
 
     public SweetRideModel(ModelPart root) {
+        super(root);
         this.main = root.getChild("main");
         this.head = this.main.getChild("head");
     }
@@ -147,12 +145,12 @@ public class SweetRideModel<T extends SweetRideEntity> extends SinglePartEntityM
     }
 
     @Override
-    public void setAngles(SweetRideEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        this.getPart().traverse().forEach(ModelPart::resetTransform);
-        this.setHeadAngles(netHeadYaw, headPitch);
+    public void setAngles(SweetRideRenderState state) {
+        super.setAngles(state);
+        this.setHeadAngles(state.yawDegrees, state.pitch);
 
-        this.animateMovement(SweetRideAnimations.ANIM_SWEET_RIDE_WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
-        this.updateAnimation(entity.idleAnimationState, SweetRideAnimations.ANIM_SWEET_RIDE_IDLE, ageInTicks, 1f);
+        this.animateWalking(SweetRideAnimations.ANIM_SWEET_RIDE_WALK, state.limbFrequency, state.limbAmplitudeMultiplier, 2f, 2.5f);
+        this.animate(state.idleAnimationState, SweetRideAnimations.ANIM_SWEET_RIDE_IDLE, state.age, 1f);
 
     }
 
@@ -162,16 +160,6 @@ public class SweetRideModel<T extends SweetRideEntity> extends SinglePartEntityM
 
         this.head.yaw = (float) (headYaw * (Math.PI / 180));
         this.head.pitch = (float) (headPitch * (Math.PI / 180));
-    }
-
-    @Override
-    public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, int color) {
-        main.render(matrices, vertexConsumer, light, overlay, color);
-    }
-
-    @Override
-    public ModelPart getPart() {
-        return main;
     }
 
 }

@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "birchy:birchy_chunk"
-    }
+    "#": "birchy:birchy_chunk"
   },
   "pattern": [
     "###",

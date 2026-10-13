@@ -1,4 +1,4 @@
-// 1.21.1	2026-10-12T19:13:38.818107	Birchy Mod/Model Definitions
+// 1.21.3	2026-10-13T14:57:51.6280647	Birchy Mod/Model Definitions
 032e2c342818aa157c60e59404738f80b274dabf assets\birchy\blockstates\stripped_birchy_wood.json
 0a8d1e7cf4e89d79beda6dddfaca10bc64f72e4d assets\birchy\models\item\birchy_slabs.json
 c62e6d00c3827bd3339cd14b844861e922e21689 assets\birchy\models\item\birchy_sheet.json
@@ -117,9 +117,9 @@ ae881544254354b1a53acba2089ae02d79a4aca0 assets\birchy\models\item\birchy_leggin
 2e11a87fad39684c4ae4b0485288eb1b2a834eeb assets\birchy\models\item\deepslate_birchy_ore.json
 d97cc62c151d9fa8c7be4e43ba6f935b445c996d assets\birchy\models\item\birchy_boots_copper_trim.json
 7c33a94a628b0d23cf4babf5f6b3f1dc59dd269f assets\birchy\models\item\birchy_boots_lapis_trim.json
-076271c5be7cf6e69ab7b8a6b747e5cae19c3d2b assets\birchy\models\block\birchy_door_bottom_right.json
 a0809dec6e80256f6cdc52a767e125c49b1c16f2 assets\birchy\models\block\birchy_trapdoor_top.json
 20d1600bd784b9a5fecbbc47f594e9ca5bc1deb6 assets\birchy\models\item\birchy_helmet_redstone_trim.json
+076271c5be7cf6e69ab7b8a6b747e5cae19c3d2b assets\birchy\models\block\birchy_door_bottom_right.json
 342b3179ba43f361d7091ec389f3618ce9acc32b assets\birchy\models\item\birchy_chestplate_amethyst_trim.json
 707b91dd9da7af28c91e56ca3e2e3dc1220ba808 assets\birchy\models\block\birchy_door_top_right.json
 11e90669ade8aaa3999279200b69b4006d2f51c1 assets\birchy\models\block\birchy_sapling.json

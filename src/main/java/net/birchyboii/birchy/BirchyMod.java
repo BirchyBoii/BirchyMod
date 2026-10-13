@@ -26,10 +26,7 @@ import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
-import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
-import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
-import net.fabricmc.fabric.api.registry.FuelRegistry;
-import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
+import net.fabricmc.fabric.api.registry.*;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.SheepEntity;
@@ -71,7 +68,10 @@ public class BirchyMod implements ModInitializer {
 
 		ModRecipes.registerRecipes();
 
-		FuelRegistry.INSTANCE.add(ModItems.BIRCHISIZED_COAL, 4800);
+		FuelRegistryEvents.BUILD.register((builder, context) -> {
+			builder.add(ModItems.BIRCHISIZED_COAL, 4800);
+		});
+
 		CompostingChanceRegistry.INSTANCE.add(ModItems.BIRCHY_GRAINS, 0.25f);
 		CompostingChanceRegistry.INSTANCE.add(ModItems.BIRCHY_BERRIES, 0.25f);
 
@@ -83,7 +83,7 @@ public class BirchyMod implements ModInitializer {
 		UseEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
 			if (entity instanceof SheepEntity sheepEntity && player.getMainHandStack().getItem() == Items.END_ROD) {
 				if (!world.isClient()) {
-					player.sendMessage(Text.literal(player.getName().getString() + " just hit a sheep with an END ROD! YOU SICK FREAK!"));
+					player.sendMessage(Text.literal(player.getName().getString() + " just hit a sheep with an END ROD! YOU SICK FREAK!"), false);
 					player.getMainHandStack().decrement(1);
 					sheepEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 500, 10));
 					sheepEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 5000));
