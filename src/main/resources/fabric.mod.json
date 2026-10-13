@@ -22,6 +22,9 @@
 		],
 		"client": [
 			"net.birchyboii.birchy.BirchyModClient"
+		],
+		"rei_client": [
+			"net.birchyboii.birchy.compat.BirchyModREIClient"
 		]
 	},
 	"mixins": [
