@@ -31,7 +31,6 @@ public class EffectOverlayTracker {
     public void render(DrawContext drawContext, RenderTickCounter tickCounter) {
         MinecraftClient client = MinecraftClient.getInstance();
         if (client.player == null) return;
-
         StatusEffectInstance activeEffect = client.player.getStatusEffect(this.effect);
         if (activeEffect != null) {
             int duration = activeEffect.getDuration();
@@ -39,7 +38,7 @@ public class EffectOverlayTracker {
                 this.trackedMaxDuration = duration;
             }
 
-            float progress = (float) duration / (float) this.trackedMaxDuration;
+            float progress = 1.0f - ((float) duration) / ((float) this.trackedMaxDuration);
             this.currentAlpha = Math.clamp(progress, 0.0f, 1.0f);
         } else {
             this.trackedMaxDuration = 1;
@@ -48,21 +47,17 @@ public class EffectOverlayTracker {
                 float totalFadeTicks = this.fadeOutDurationSeconds * 20.0f;
 
                 this.currentAlpha -= (frameDurationInTicks / totalFadeTicks);
-                if (this.currentAlpha < 0.0f) {
-                    this.currentAlpha = 0.0f;
-                }
+                if (this.currentAlpha < 0.0f) this.currentAlpha = 0.0f;
             }
         }
 
         if (this.currentAlpha > 0.0f) {
             int width = drawContext.getScaledWindowWidth();
             int height = drawContext.getScaledWindowHeight();
-            int alpha = Math.round((1.0f - currentAlpha) * 255.0f);
-            int red = 255;
-            int green = 255;
-            int blue = 255;
 
-            int color = (alpha << 24) | (red << 16) | (green << 8) | blue;
+            RenderSystem.enableBlend();
+            RenderSystem.defaultBlendFunc();
+            RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, this.currentAlpha);
 
             drawContext.drawTexture(
                     RenderLayer::getGuiTexturedOverlay,
@@ -70,10 +65,11 @@ public class EffectOverlayTracker {
                     0, 0,
                     0, 0,
                     width, height,
-                    width, height,
-                    color
+                    width, height
             );
 
+            RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
+            RenderSystem.disableBlend();
         }
     }
 }
