@@ -1,0 +1,14 @@
+{
+  "model": {
+    "type": "minecraft:condition",
+    "on_false": {
+      "type": "minecraft:model",
+      "model": "birchy:item/moistening_wand"
+    },
+    "on_true": {
+      "type": "minecraft:model",
+      "model": "birchy:item/moistening_wand_held"
+    },
+    "property": "minecraft:selected"
+  }
+}

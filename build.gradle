@@ -27,11 +27,11 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
-	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:17.0.803"
-	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:17.0.803"
+	// modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:17.0.803"
+	// modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:17.0.803"
 
-	modApi "dev.architectury:architectury-fabric:14.0.4"
-	modApi "me.shedaniel.cloth:cloth-config-fabric:16.0.143"
+	// modApi "dev.architectury:architectury-fabric:14.0.4"
+	// modApi "me.shedaniel.cloth:cloth-config-fabric:16.0.143"
 
 }
 
@@ -46,6 +46,9 @@ processResources {
 
 tasks.withType(JavaCompile).configureEach {
 	it.options.release = 21
+}
+tasks.withType(JavaExec).configureEach {
+	jvmArgs += '--enable-native-access=ALL-UNNAMED'
 }
 
 java {

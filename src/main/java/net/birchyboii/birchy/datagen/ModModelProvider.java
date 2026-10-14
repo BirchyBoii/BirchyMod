@@ -5,13 +5,26 @@ import net.birchyboii.birchy.block.ModBlocks;
 import net.birchyboii.birchy.block.custom.BirchyBerryBushBlock;
 import net.birchyboii.birchy.block.custom.BirchyCropBlock;
 import net.birchyboii.birchy.block.custom.BirchyLamp;
+import net.birchyboii.birchy.component.ModDataComponentTypes;
 import net.birchyboii.birchy.item.ModArmorMaterials;
 import net.birchyboii.birchy.item.ModItems;
+import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.client.*;
+import net.minecraft.client.data.*;
+import net.minecraft.client.item.ItemAsset;
+import net.minecraft.client.render.item.model.CompositeItemModel;
+import net.minecraft.client.render.item.model.ConditionItemModel;
+import net.minecraft.client.render.item.model.ItemModel;
+import net.minecraft.client.render.item.model.SelectItemModel;
+import net.minecraft.client.render.item.property.bool.HasComponentProperty;
+import net.minecraft.client.render.item.property.bool.SelectedProperty;
+import net.minecraft.client.render.item.property.select.DisplayContextProperty;
+import net.minecraft.client.render.item.property.select.MainHandProperty;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.recipe.display.SlotDisplay;
 import net.minecraft.util.Identifier;
 
 import java.util.Optional;
@@ -33,7 +46,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_BIRCHY_LOG).log(ModBlocks.STRIPPED_BIRCHY_LOG).wood(ModBlocks.STRIPPED_BIRCHY_WOOD);
         BlockStateModelGenerator.BlockTexturePool birchyPlanksPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.BIRCHY_PLANKS);
         blockStateModelGenerator.registerSingleton(ModBlocks.BIRCHY_LEAVES, TexturedModel.LEAVES);
-        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.BIRCHY_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.BIRCHY_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
         birchyPlanksPool.stairs(ModBlocks.BIRCHY_STAIRS);
         birchyPlanksPool.slab(ModBlocks.BIRCHY_SLAB);
         birchyPlanksPool.button(ModBlocks.BIRCHY_BUTTON);
@@ -49,7 +62,7 @@ public class ModModelProvider extends FabricModelProvider {
                 .coordinate(BlockStateModelGenerator.createBooleanModelMap(BirchyLamp.CLICKED, lampOnIdentifier, lampOffIdentifier)));
 
         blockStateModelGenerator.registerCrop(ModBlocks.BIRCHY_GRAINS_CROP, BirchyCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6);
-        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.BIRCHY_BERRY_BUSH, BlockStateModelGenerator.TintType.NOT_TINTED,
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.BIRCHY_BERRY_BUSH, BlockStateModelGenerator.CrossType.NOT_TINTED,
                 BirchyBerryBushBlock.AGE, 0, 1, 2, 3);
 
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.CHAIR);
@@ -72,15 +85,13 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.BIRCHY_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.BIRCHY_HOE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.BIRCHY_HAMMER, Models.HANDHELD);
+        itemModelGenerator.upload(ModItems.BIRCHY_BOW, Models.BOW);
+        itemModelGenerator.registerBow(ModItems.BIRCHY_BOW);
 
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_HELMET), Identifier.of(BirchyMod.MOD_ID, "birchy"),
-                ModArmorMaterials.BIRCHY, EquipmentSlot.HEAD);
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_CHESTPLATE), Identifier.of(BirchyMod.MOD_ID, "birchy"),
-                ModArmorMaterials.BIRCHY, EquipmentSlot.CHEST);
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_LEGGINGS), Identifier.of(BirchyMod.MOD_ID, "birchy"),
-                ModArmorMaterials.BIRCHY, EquipmentSlot.LEGS);
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_BOOTS), Identifier.of(BirchyMod.MOD_ID, "birchy"),
-                ModArmorMaterials.BIRCHY, EquipmentSlot.FEET);
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_HELMET), ModArmorMaterials.BIRCHY_KEY, "helmet", false);
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_CHESTPLATE), ModArmorMaterials.BIRCHY_KEY, "chestplate", false);
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_LEGGINGS), ModArmorMaterials.BIRCHY_KEY, "leggings", false);
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_BOOTS), ModArmorMaterials.BIRCHY_KEY, "boots", false);
         itemModelGenerator.register(ModItems.BIRCHY_HORSE_ARMOR, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.BIRCHY_FIBERS, Models.GENERATED);
@@ -95,5 +106,18 @@ public class ModModelProvider extends FabricModelProvider {
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
         itemModelGenerator.register(ModItems.MOTORCYCLE, Models.GENERATED);
 
+        ItemModel.Unbaked unbakedDryWand = ItemModels.basic(itemModelGenerator.upload(ModItems.DRY_WAND, Models.GENERATED));
+        ItemModel.Unbaked unbakedHeldDryWand = ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.DRY_WAND, "_held", Models.GENERATED));
+        itemModelGenerator.output.accept(ModItems.DRY_WAND,
+                new ItemAsset(new ConditionItemModel.Unbaked(new SelectedProperty(),
+                        unbakedHeldDryWand, unbakedDryWand),
+                        new ItemAsset.Properties(false)).model());
+
+        ItemModel.Unbaked unbakedMoistWand = ItemModels.basic(itemModelGenerator.upload(ModItems.MOIST_WAND, Models.GENERATED));
+        ItemModel.Unbaked unbakedHeldMoistWand = ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.MOIST_WAND, "_held", Models.GENERATED));
+        itemModelGenerator.output.accept(ModItems.MOIST_WAND,
+                new ItemAsset(new ConditionItemModel.Unbaked(new SelectedProperty(),
+                        unbakedHeldMoistWand, unbakedMoistWand),
+                        new ItemAsset.Properties(false)).model());
     }
 }

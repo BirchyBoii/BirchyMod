@@ -159,13 +159,13 @@ public class ModItems {
             setting -> new BlockItem(ModBlocks.BIRCHY_BERRY_BUSH, setting.food(ModFoodComponents.BIRCHY_BERRY)));
 
     public static final Item BIRCHY_BOY_SPAWN_EGG = registerItem("birchy_boy_spawn_egg",
-            setting -> new SpawnEggItem(ModEntities.BIRCHY_BOY, 0x19181f, 0xff0008, setting));
+            setting -> new SpawnEggItem(ModEntities.BIRCHY_BOY, setting));
 
     public static final Item SWEET_RIDE_SPAWN_EGG = registerItem("sweet_ride_spawn_egg",
-            setting -> new SpawnEggItem(ModEntities.SWEET_RIDE, 0x8a5336, 0xc9e2e8, setting));
+            setting -> new SpawnEggItem(ModEntities.SWEET_RIDE, setting));
 
     public static final Item MOTORCYCLE = registerItem("motorcycle_item",
-            setting -> new SpawnEggItem(ModEntities.MOTORCYCLE, 0xFFFFFF, 0xFFFFFF, setting));
+            setting -> new SpawnEggItem(ModEntities.MOTORCYCLE, setting));
 
     public static final Item SHURIKEN = registerItem("shuriken",
             setting -> new ShurikenItem(setting.maxCount(16)));

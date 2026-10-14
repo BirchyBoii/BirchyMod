@@ -1,14 +1,13 @@
-// 1.21.3	2026-10-13T14:57:51.6310654	Birchy Mod/Tags for minecraft:item
-37ddcbb3f6d1428dc372f7dcba3f486201f8d1bd data\minecraft\tags\item\trimmable_armor.json
-8236312a99ecde9c87ad607aa7cecb824bb53d87 data\minecraft\tags\item\trim_templates.json
-8aee0486876d4f2cb4ecad7d88bd3fafa6c7ade8 data\birchy\tags\item\birchy_logs.json
-0667d0f3f392f33b64e06ca987265b1f5d893a59 data\birchy\tags\item\birchy_block_transformable_items.json
-07f8bf02e9dd0bf4d3e7ff028bd5b003cb66aade data\birchy\tags\item\birchy_repair.json
-c1ddc4f7b91ff34ecd8873e3954635bae331f45f data\minecraft\tags\item\axes.json
-622dac142a86b0ab4f39fed84389f5ad76db9d36 data\minecraft\tags\item\swords.json
-07f8bf02e9dd0bf4d3e7ff028bd5b003cb66aade data\minecraft\tags\item\trim_materials.json
-3777eb325088ba589c41c7df93caffcec7354ecd data\minecraft\tags\item\pickaxes.json
-044678931360670744dfb1b36eb598d6fadeb63d data\minecraft\tags\item\planks.json
-4053c7a9034e88df0d65c9ef28e94e2b164bc3d0 data\minecraft\tags\item\hoes.json
-12696253c6cb7dfabad5f5d8c0006ee7a6728f62 data\minecraft\tags\item\shovels.json
-8aee0486876d4f2cb4ecad7d88bd3fafa6c7ade8 data\minecraft\tags\item\logs.json
+// 1.21.4	-999999999-01-01T00:00:00	Birchy Mod/Tags for minecraft:item
+0667d0f3f392f33b64e06ca987265b1f5d893a59 data/birchy/tags/item/birchy_block_transformable_items.json
+8aee0486876d4f2cb4ecad7d88bd3fafa6c7ade8 data/birchy/tags/item/birchy_logs.json
+07f8bf02e9dd0bf4d3e7ff028bd5b003cb66aade data/birchy/tags/item/birchy_repair.json
+c1ddc4f7b91ff34ecd8873e3954635bae331f45f data/minecraft/tags/item/axes.json
+4053c7a9034e88df0d65c9ef28e94e2b164bc3d0 data/minecraft/tags/item/hoes.json
+8aee0486876d4f2cb4ecad7d88bd3fafa6c7ade8 data/minecraft/tags/item/logs.json
+3777eb325088ba589c41c7df93caffcec7354ecd data/minecraft/tags/item/pickaxes.json
+044678931360670744dfb1b36eb598d6fadeb63d data/minecraft/tags/item/planks.json
+12696253c6cb7dfabad5f5d8c0006ee7a6728f62 data/minecraft/tags/item/shovels.json
+622dac142a86b0ab4f39fed84389f5ad76db9d36 data/minecraft/tags/item/swords.json
+07f8bf02e9dd0bf4d3e7ff028bd5b003cb66aade data/minecraft/tags/item/trim_materials.json
+37ddcbb3f6d1428dc372f7dcba3f486201f8d1bd data/minecraft/tags/item/trimmable_armor.json

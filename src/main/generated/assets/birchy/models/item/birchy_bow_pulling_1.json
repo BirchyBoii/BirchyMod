@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/bow",
+  "textures": {
+    "layer0": "birchy:item/birchy_bow_pulling_1"
+  }
+}
