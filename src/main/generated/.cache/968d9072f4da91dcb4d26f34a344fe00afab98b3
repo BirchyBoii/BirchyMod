@@ -1,8 +1,8 @@
-// 1.21.4	-999999999-01-01T00:00:00	Birchy Mod/
+// 1.21.5	-999999999-01-01T00:00:00	Birchy Mod/
 773d17204eded23818ec0918f80e316413ca0ed3 data/birchy/enchantment/exploding_strike.json
 bf679b8fb224103df6e63fbb81c1a81889310867 data/birchy/enchantment/knockback_pants.json
-4d9dadcc2f995a8e7b25309d50003fb4443c24b8 data/birchy/trim_material/birchy.json
-fed551920ff2b58df68fff1f1f734ce67b785e4e data/birchy/trim_pattern/birchy.json
+2fbd97ffe6cd57c3a81e899710a105ade413c2fb data/birchy/trim_material/birchy.json
+635029257c0f3ea3ac13b0ddf759c06801c73b17 data/birchy/trim_pattern/birchy.json
 e305f21badf8a0f162f5dea3effc52c7159d83e6 data/birchy/worldgen/configured_feature/birchy_berry_bush.json
 727baa5ab5124ea84d9aa6fe7b477f2167279ce6 data/birchy/worldgen/configured_feature/birchy_ore.json
 c802ff63ad50b22a0e8471b9987cff7eec330dec data/birchy/worldgen/configured_feature/birchy_tree_key.json

@@ -49,7 +49,7 @@ public class BirchyBlock extends HorizontalFacingBlock {
                 double zDir = Math.cos(yawRad);
                 double intensity = 0.25;
 
-                world.addParticle(ParticleTypes.WARPED_SPORE, pos.getX() + 0.5, pos.getY() + 1,
+                world.addParticleClient(ParticleTypes.DUST_PLUME, pos.getX() + 0.5, pos.getY() + 1,
                         pos.getZ() + 0.5, 0, 1, 0);
 
                 player.addVelocity((xDir * intensity), 0.5, (zDir * intensity));

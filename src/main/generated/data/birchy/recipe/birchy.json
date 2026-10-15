@@ -2,5 +2,6 @@
   "type": "minecraft:smithing_trim",
   "addition": "#minecraft:trim_materials",
   "base": "#minecraft:trimmable_armor",
+  "pattern": "birchy:birchy",
   "template": "birchy:birchy_armor_trim_smithing_template"
 }

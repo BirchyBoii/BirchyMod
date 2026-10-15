@@ -23,7 +23,7 @@ public class ShurikenProjectileModel extends EntityModel<EntityRenderState> {
     public static TexturedModelData getTexturedModelData() {
         ModelData modelData = new ModelData();
         ModelPartData modelPartData = modelData.getRoot();
-        ModelPartData shuriken = modelPartData.addChild("shuriken", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
+        ModelPartData shuriken = modelPartData.addChild("shuriken", ModelPartBuilder.create(), ModelTransform.of(0.0F, 24.0F, 0.0F, 0f, 0f, 0f));
 
         ModelPartData cube_r1 = shuriken.addChild("cube_r1", ModelPartBuilder.create().uv(0, 0).cuboid(-0.5F, 0.5F, -0.5F, 1.0F, 0.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -1.0F, 0.0F, 0.0F, -0.7854F, 0.0F));
 

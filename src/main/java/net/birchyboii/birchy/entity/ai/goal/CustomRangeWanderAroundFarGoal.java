@@ -26,7 +26,7 @@ public class CustomRangeWanderAroundFarGoal extends WanderAroundFarGoal {
     @Nullable
     @Override
     protected Vec3d getWanderTarget() {
-        if (this.mob.isInsideWaterOrBubbleColumn()) {
+        if (this.mob.isTouchingWater()) {
             Vec3d vec3d = FuzzyTargeting.find(this.mob, horizontalRange, verticalRange);
             return vec3d == null ? super.getWanderTarget() : vec3d;
         } else {

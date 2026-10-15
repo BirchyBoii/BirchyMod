@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:birchy_sheet_from_blasting_birchy_chunk"
+        "recipe": "birchy:birchy_sheet_from_blasting_birchy_chunk"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:birchy_sheet_from_blasting_birchy_chunk"
+      "birchy:birchy_sheet_from_blasting_birchy_chunk"
     ]
   }
 }

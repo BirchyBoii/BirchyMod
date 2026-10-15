@@ -1,31 +1,22 @@
 package net.birchyboii.birchy.datagen;
 
-import net.birchyboii.birchy.BirchyMod;
 import net.birchyboii.birchy.block.ModBlocks;
 import net.birchyboii.birchy.block.custom.BirchyBerryBushBlock;
 import net.birchyboii.birchy.block.custom.BirchyCropBlock;
 import net.birchyboii.birchy.block.custom.BirchyLamp;
-import net.birchyboii.birchy.component.ModDataComponentTypes;
 import net.birchyboii.birchy.item.ModArmorMaterials;
 import net.birchyboii.birchy.item.ModItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.*;
 import net.minecraft.client.item.ItemAsset;
-import net.minecraft.client.render.item.model.CompositeItemModel;
 import net.minecraft.client.render.item.model.ConditionItemModel;
 import net.minecraft.client.render.item.model.ItemModel;
-import net.minecraft.client.render.item.model.SelectItemModel;
-import net.minecraft.client.render.item.property.bool.HasComponentProperty;
 import net.minecraft.client.render.item.property.bool.SelectedProperty;
-import net.minecraft.client.render.item.property.select.DisplayContextProperty;
-import net.minecraft.client.render.item.property.select.MainHandProperty;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.recipe.display.SlotDisplay;
+import net.minecraft.client.render.model.json.ModelVariant;
+import net.minecraft.client.render.model.json.WeightedVariant;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.Pool;
 
 import java.util.Optional;
 
@@ -42,8 +33,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BIRCHY_END_ORE);
 
         blockStateModelGenerator.registerNorthDefaultHorizontalRotatable(ModBlocks.BIRCHY_BLOCK, TextureMap.sideFrontTop(ModBlocks.BIRCHY_BLOCK));
-        blockStateModelGenerator.registerLog(ModBlocks.BIRCHY_LOG).log(ModBlocks.BIRCHY_LOG).wood(ModBlocks.BIRCHY_WOOD);
-        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_BIRCHY_LOG).log(ModBlocks.STRIPPED_BIRCHY_LOG).wood(ModBlocks.STRIPPED_BIRCHY_WOOD);
+        blockStateModelGenerator.createLogTexturePool(ModBlocks.BIRCHY_LOG).log(ModBlocks.BIRCHY_LOG).wood(ModBlocks.BIRCHY_WOOD);
+        blockStateModelGenerator.createLogTexturePool(ModBlocks.STRIPPED_BIRCHY_LOG).log(ModBlocks.STRIPPED_BIRCHY_LOG).wood(ModBlocks.STRIPPED_BIRCHY_WOOD);
         BlockStateModelGenerator.BlockTexturePool birchyPlanksPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.BIRCHY_PLANKS);
         blockStateModelGenerator.registerSingleton(ModBlocks.BIRCHY_LEAVES, TexturedModel.LEAVES);
         blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.BIRCHY_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
@@ -58,8 +49,10 @@ public class ModModelProvider extends FabricModelProvider {
 
         Identifier lampOffIdentifier = TexturedModel.CUBE_ALL.upload(ModBlocks.BIRCHY_LAMP, blockStateModelGenerator.modelCollector);
         Identifier lampOnIdentifier = blockStateModelGenerator.createSubModel(ModBlocks.BIRCHY_LAMP, "_on", Models.CUBE_ALL, TextureMap::all);
-        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.BIRCHY_LAMP)
-                .coordinate(BlockStateModelGenerator.createBooleanModelMap(BirchyLamp.CLICKED, lampOnIdentifier, lampOffIdentifier)));
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockModelDefinitionCreator.of(ModBlocks.BIRCHY_LAMP)
+                .with(BlockStateModelGenerator.createBooleanModelMap(BirchyLamp.CLICKED,
+                        new WeightedVariant(Pool.<ModelVariant>builder().add(new ModelVariant(lampOnIdentifier)).build()),
+                        new WeightedVariant(Pool.<ModelVariant>builder().add(new ModelVariant(lampOffIdentifier)).build()))));
 
         blockStateModelGenerator.registerCrop(ModBlocks.BIRCHY_GRAINS_CROP, BirchyCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6);
         blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.BIRCHY_BERRY_BUSH, BlockStateModelGenerator.CrossType.NOT_TINTED,
@@ -88,10 +81,10 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.upload(ModItems.BIRCHY_BOW, Models.BOW);
         itemModelGenerator.registerBow(ModItems.BIRCHY_BOW);
 
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_HELMET), ModArmorMaterials.BIRCHY_KEY, "helmet", false);
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_CHESTPLATE), ModArmorMaterials.BIRCHY_KEY, "chestplate", false);
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_LEGGINGS), ModArmorMaterials.BIRCHY_KEY, "leggings", false);
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BIRCHY_BOOTS), ModArmorMaterials.BIRCHY_KEY, "boots", false);
+        itemModelGenerator.registerArmor(ModItems.BIRCHY_HELMET, ModArmorMaterials.BIRCHY_KEY, ItemModelGenerator.HELMET_TRIM_ID_PREFIX, false);
+        itemModelGenerator.registerArmor(ModItems.BIRCHY_CHESTPLATE, ModArmorMaterials.BIRCHY_KEY, ItemModelGenerator.CHESTPLATE_TRIM_ID_PREFIX, false);
+        itemModelGenerator.registerArmor(ModItems.BIRCHY_LEGGINGS, ModArmorMaterials.BIRCHY_KEY, ItemModelGenerator.LEGGINGS_TRIM_ID_PREFIX, false);
+        itemModelGenerator.registerArmor(ModItems.BIRCHY_BOOTS, ModArmorMaterials.BIRCHY_KEY, ItemModelGenerator.BOOTS_TRIM_ID_PREFIX, false);
         itemModelGenerator.register(ModItems.BIRCHY_HORSE_ARMOR, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.BIRCHY_FIBERS, Models.GENERATED);

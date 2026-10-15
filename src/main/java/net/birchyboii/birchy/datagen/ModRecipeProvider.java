@@ -3,6 +3,7 @@ package net.birchyboii.birchy.datagen;
 import net.birchyboii.birchy.BirchyMod;
 import net.birchyboii.birchy.block.ModBlocks;
 import net.birchyboii.birchy.item.ModItems;
+import net.birchyboii.birchy.trim.ModTrimPatterns;
 import net.birchyboii.birchy.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -84,7 +85,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 createTrapdoorRecipe(ModBlocks.BIRCHY_TRAPDOOR, Ingredient.ofItems(ModBlocks.BIRCHY_PLANKS))
                         .criterion(hasItem(ModBlocks.BIRCHY_PLANKS), conditionsFromItem(ModBlocks.BIRCHY_PLANKS)).offerTo(exporter);
 
-                offerSmithingTrimRecipe(ModItems.BIRCHY_SMITHING_TEMPLATE, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(BirchyMod.MOD_ID, "birchy")));
+                offerSmithingTrimRecipe(ModItems.BIRCHY_SMITHING_TEMPLATE, ModTrimPatterns.BIRCHY,
+                        RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(BirchyMod.MOD_ID, "birchy")));
 
                 createShapeless(RecipeCategory.MISC, ModItems.BIRCHY_FIBERS, 3)
                         .input(ModItems.BIRCHY_GRAINS, 4)

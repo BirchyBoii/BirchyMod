@@ -22,6 +22,7 @@ import net.birchyboii.birchy.villager.ModVillagers;
 import net.birchyboii.birchy.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -35,6 +36,7 @@ import net.minecraft.item.Items;
 import net.minecraft.potion.Potions;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Identifier;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.TradedItem;
 import net.minecraft.village.VillagerProfession;
@@ -95,6 +97,8 @@ public class BirchyMod implements ModInitializer {
 			return ActionResult.PASS;
 		});
 
+
+
 		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
 			builder.registerPotionRecipe(Potions.AWKWARD, Items.SLIME_BALL, ModPotions.SLIMEY_POTION);
 		});
@@ -118,14 +122,14 @@ public class BirchyMod implements ModInitializer {
 					new ItemStack(ModItems.BIRCHY_BERRIES, 2), 6, 2, 0.04f
 			));
 		});
-		TradeOfferHelper.registerVillagerOffers(ModVillagers.BIRCHER, 1, factories -> {
+		TradeOfferHelper.registerVillagerOffers(ModVillagers.BIRCHER_KEY, 1, factories -> {
 			factories.add((entity, random) -> new TradeOffer(
 					new TradedItem(ModItems.BIRCHY_CHUNK, 3),
 					new ItemStack(ModItems.BIRCHY_SHEET, 2), 10, 2, 0.04f
 			));
 		});
-		TradeOfferHelper.registerWanderingTraderOffers(1, factories -> {
-			factories.add((entity, random) -> new TradeOffer(
+		TradeOfferHelper.registerWanderingTraderOffers(factories -> {
+			factories.addAll(Identifier.of(BirchyMod.MOD_ID, "birchy_sapling_for_emeralds"), (entity, random) -> new TradeOffer(
 					new TradedItem(Items.EMERALD, 3),
 					new ItemStack(ModBlocks.BIRCHY_SAPLING, 1), 4, 2, 0.04f
 			));

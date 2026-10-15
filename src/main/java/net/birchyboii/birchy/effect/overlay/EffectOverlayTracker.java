@@ -44,7 +44,7 @@ public class EffectOverlayTracker {
         } else {
             this.trackedMaxDuration = 1;
             if (this.currentAlpha > 0.0f) {
-                float frameDurationInTicks = tickCounter.getLastFrameDuration();
+                float frameDurationInTicks = tickCounter.getDynamicDeltaTicks();
                 float totalFadeTicks = this.fadeOutDurationSeconds * 20.0f;
 
                 this.currentAlpha -= (frameDurationInTicks / totalFadeTicks);

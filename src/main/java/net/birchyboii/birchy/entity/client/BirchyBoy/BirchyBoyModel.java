@@ -23,33 +23,33 @@ public class BirchyBoyModel extends EntityModel<BirchyBoyRenderState> {
     public static TexturedModelData getTexturedModelData() {
         ModelData modelData = new ModelData();
         ModelPartData modelPartData = modelData.getRoot();
-        ModelPartData body = modelPartData.addChild("body", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
+        ModelPartData body = modelPartData.addChild("body", ModelPartBuilder.create(), ModelTransform.of(0.0F, 24.0F, 0.0F, 0f, 0f, 0f));
 
         ModelPartData head = body.addChild("head", ModelPartBuilder.create().uv(0, 0).cuboid(-2.5F, -4.75F, -2.5F, 5.0F, 5.0F, 5.0F, new Dilation(0.0F))
-                .uv(0, 11).cuboid(-2.5F, -4.75F, -2.5F, 5.0F, 5.0F, 5.0F, new Dilation(0.25F)), ModelTransform.pivot(0.0F, -8.5F, 0.5F));
+                .uv(0, 11).cuboid(-2.5F, -4.75F, -2.5F, 5.0F, 5.0F, 5.0F, new Dilation(0.25F)), ModelTransform.of(0.0F, -8.5F, 0.5F, 0f, 0f, 0f));
 
         ModelPartData torso = body.addChild("torso", ModelPartBuilder.create().uv(21, 0).cuboid(-1.5F, -2.5F, -1.0F, 3.0F, 5.0F, 2.0F, new Dilation(0.0F))
-                .uv(21, 8).cuboid(-1.5F, -2.5F, -1.0F, 3.0F, 5.0F, 2.0F, new Dilation(0.15F)), ModelTransform.pivot(0.0F, -6.0F, 0.5F));
+                .uv(21, 8).cuboid(-1.5F, -2.5F, -1.0F, 3.0F, 5.0F, 2.0F, new Dilation(0.15F)), ModelTransform.of(0.0F, -6.0F, 0.5F, 0f, 0f, 0f));
 
         ModelPartData left_arm = body.addChild("left_arm", ModelPartBuilder.create().uv(21, 16).cuboid(-0.5F, 0.0F, -0.5F, 1.0F, 5.0F, 1.0F, new Dilation(0.0F))
-                .uv(5, 22).cuboid(-0.5F, 0.0F, -0.5F, 1.0F, 5.0F, 1.0F, new Dilation(0.15F)), ModelTransform.pivot(-2.0F, -8.0F, 0.5F));
+                .uv(5, 22).cuboid(-0.5F, 0.0F, -0.5F, 1.0F, 5.0F, 1.0F, new Dilation(0.15F)), ModelTransform.of(-2.0F, -8.0F, 0.5F, 0f, 0f, 0f));
 
         ModelPartData right_arm = body.addChild("right_arm", ModelPartBuilder.create().uv(0, 22).cuboid(-0.5F, 0.0F, -0.5F, 1.0F, 5.0F, 1.0F, new Dilation(0.0F))
-                .uv(10, 22).cuboid(-0.5F, 0.0F, -0.5F, 1.0F, 5.0F, 1.0F, new Dilation(0.15F)), ModelTransform.pivot(2.0F, -8.0F, 0.5F));
+                .uv(10, 22).cuboid(-0.5F, 0.0F, -0.5F, 1.0F, 5.0F, 1.0F, new Dilation(0.15F)), ModelTransform.of(2.0F, -8.0F, 0.5F, 0f, 0f, 0f));
 
         ModelPartData left_leg = body.addChild("left_leg", ModelPartBuilder.create().uv(20, 23).cuboid(-0.5F, 0.0F, -0.5F, 1.0F, 4.0F, 1.0F, new Dilation(0.0F))
-                .uv(25, 23).cuboid(-0.5F, 0.0F, -0.5F, 1.0F, 4.0F, 1.0F, new Dilation(0.15F)), ModelTransform.pivot(-0.75F, -4.0F, 0.5F));
+                .uv(25, 23).cuboid(-0.5F, 0.0F, -0.5F, 1.0F, 4.0F, 1.0F, new Dilation(0.15F)), ModelTransform.of(-0.75F, -4.0F, 0.5F, 0f, 0f, 0f));
 
         ModelPartData right_leg = body.addChild("right_leg", ModelPartBuilder.create().uv(15, 22).cuboid(-0.5F, 0.0F, -0.5F, 1.0F, 4.0F, 1.0F, new Dilation(0.0F))
-                .uv(26, 16).cuboid(-0.5F, 0.0F, -0.5F, 1.0F, 4.0F, 1.0F, new Dilation(0.15F)), ModelTransform.pivot(0.75F, -4.0F, 0.5F));
+                .uv(26, 16).cuboid(-0.5F, 0.0F, -0.5F, 1.0F, 4.0F, 1.0F, new Dilation(0.15F)), ModelTransform.of(0.75F, -4.0F, 0.5F, 0f, 0f, 0f));
         return TexturedModelData.of(modelData, 32, 32);
     }
     @Override
     public void setAngles(BirchyBoyRenderState state) {
         super.setAngles(state);
-        this.setHeadAngles(state.yawDegrees, state.pitch);
+        this.setHeadAngles(state.relativeHeadYaw, state.pitch);
 
-        this.animateWalking(BirchyBoyAnimations.ANIM_BIRCHY_BOY_RUN, state.limbFrequency, state.limbAmplitudeMultiplier, 2f, 2.5f);
+        this.animateWalking(BirchyBoyAnimations.ANIM_BIRCHY_BOY_RUN, state.limbSwingAnimationProgress, state.limbSwingAmplitude, 2f, 2.5f);
         this.animate(state.idleAnimationState, BirchyBoyAnimations.ANIM_BIRCHY_BOY_IDLE, state.age, 1f);
     }
 

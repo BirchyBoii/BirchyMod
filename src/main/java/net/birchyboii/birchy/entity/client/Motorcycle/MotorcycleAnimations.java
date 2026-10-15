@@ -24,12 +24,12 @@ public class MotorcycleAnimations {
                     new Keyframe(0.5F, AnimationHelper.createScalingVector(1.0F, 1.05F, 1.1F), Transformation.Interpolations.LINEAR),
                     new Keyframe(0.7083F, AnimationHelper.createScalingVector(1.0F, 1.0F, 1.0F), Transformation.Interpolations.LINEAR)
             ))
-            .addBoneAnimation("handles", new Transformation(Transformation.Targets.TRANSLATE,
+            .addBoneAnimation("handles", new Transformation(Transformation.Targets.MOVE_ORIGIN,
                     new Keyframe(0.25F, AnimationHelper.createTranslationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.LINEAR),
                     new Keyframe(0.5F, AnimationHelper.createTranslationalVector(0.0F, 0.1F, -0.1F), Transformation.Interpolations.LINEAR),
                     new Keyframe(0.75F, AnimationHelper.createTranslationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.LINEAR)
             ))
-            .addBoneAnimation("seat", new Transformation(Transformation.Targets.TRANSLATE,
+            .addBoneAnimation("seat", new Transformation(Transformation.Targets.MOVE_ORIGIN,
                     new Keyframe(0.25F, AnimationHelper.createTranslationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.LINEAR),
                     new Keyframe(0.5F, AnimationHelper.createTranslationalVector(0.0F, 0.1F, -0.1F), Transformation.Interpolations.LINEAR),
                     new Keyframe(0.75F, AnimationHelper.createTranslationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.LINEAR)
@@ -46,7 +46,7 @@ public class MotorcycleAnimations {
                     new Keyframe(0.5F, AnimationHelper.createRotationalVector(90.0F, 0.0F, 0.0F), Transformation.Interpolations.CUBIC),
                     new Keyframe(0.75F, AnimationHelper.createRotationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.CUBIC)
             ))
-            .addBoneAnimation("frame", new Transformation(Transformation.Targets.TRANSLATE,
+            .addBoneAnimation("frame", new Transformation(Transformation.Targets.MOVE_ORIGIN,
                     new Keyframe(0.25F, AnimationHelper.createTranslationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.LINEAR),
                     new Keyframe(0.5F, AnimationHelper.createTranslationalVector(0.0F, 0.1F, -0.1F), Transformation.Interpolations.LINEAR),
                     new Keyframe(0.75F, AnimationHelper.createTranslationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.LINEAR)
@@ -74,17 +74,17 @@ public class MotorcycleAnimations {
                     new Keyframe(0.25F, AnimationHelper.createScalingVector(1.0F, 1.05F, 1.1F), Transformation.Interpolations.LINEAR),
                     new Keyframe(0.5F, AnimationHelper.createScalingVector(1.0F, 1.0F, 1.0F), Transformation.Interpolations.LINEAR)
             ))
-            .addBoneAnimation("handles", new Transformation(Transformation.Targets.TRANSLATE,
+            .addBoneAnimation("handles", new Transformation(Transformation.Targets.MOVE_ORIGIN,
                     new Keyframe(0.0F, AnimationHelper.createTranslationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.LINEAR),
                     new Keyframe(0.25F, AnimationHelper.createTranslationalVector(0.0F, 0.1F, -0.1F), Transformation.Interpolations.LINEAR),
                     new Keyframe(0.5F, AnimationHelper.createTranslationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.LINEAR)
             ))
-            .addBoneAnimation("seat", new Transformation(Transformation.Targets.TRANSLATE,
+            .addBoneAnimation("seat", new Transformation(Transformation.Targets.MOVE_ORIGIN,
                     new Keyframe(0.0F, AnimationHelper.createTranslationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.LINEAR),
                     new Keyframe(0.25F, AnimationHelper.createTranslationalVector(0.0F, 0.1F, -0.1F), Transformation.Interpolations.LINEAR),
                     new Keyframe(0.5F, AnimationHelper.createTranslationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.LINEAR)
             ))
-            .addBoneAnimation("frame", new Transformation(Transformation.Targets.TRANSLATE,
+            .addBoneAnimation("frame", new Transformation(Transformation.Targets.MOVE_ORIGIN,
                     new Keyframe(0.0F, AnimationHelper.createTranslationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.LINEAR),
                     new Keyframe(0.25F, AnimationHelper.createTranslationalVector(0.0F, 0.1F, -0.1F), Transformation.Interpolations.LINEAR),
                     new Keyframe(0.5F, AnimationHelper.createTranslationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.LINEAR)
@@ -94,7 +94,7 @@ public class MotorcycleAnimations {
                     new Keyframe(0.25F, AnimationHelper.createScalingVector(1.0F, 1.1F, 1.0F), Transformation.Interpolations.LINEAR),
                     new Keyframe(0.5F, AnimationHelper.createScalingVector(1.0F, 1.0F, 1.0F), Transformation.Interpolations.LINEAR)
             ))
-            .addBoneAnimation("bike_front", new Transformation(Transformation.Targets.TRANSLATE,
+            .addBoneAnimation("bike_front", new Transformation(Transformation.Targets.MOVE_ORIGIN,
                     new Keyframe(0.0F, AnimationHelper.createTranslationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.LINEAR),
                     new Keyframe(0.25F, AnimationHelper.createTranslationalVector(0.0F, 0.1F, -0.1F), Transformation.Interpolations.LINEAR),
                     new Keyframe(0.5F, AnimationHelper.createTranslationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.LINEAR)

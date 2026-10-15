@@ -85,8 +85,8 @@ public class MotorcycleEntity extends PassiveEntity {
         if (!this.getWorld().isClient()) {
             ServerWorld serverWorld = (ServerWorld) this.getWorld();
             boolean isMoving = this.getVelocity().horizontalLengthSquared() > 1.0E-4
-                    || this.getX() != this.prevX
-                    || this.getZ() != this.prevZ;
+                    || this.getX() != this.lastX
+                    || this.getZ() != this.lastZ;
 
             if (isMoving) {
                 float yaw = this.bodyYaw != 0 ? this.bodyYaw : this.getYaw();

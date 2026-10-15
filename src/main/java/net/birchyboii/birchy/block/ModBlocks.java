@@ -10,6 +10,7 @@ import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -62,7 +63,7 @@ public class ModBlocks {
     public static final Block BIRCHY_PLANKS = registerBlock("birchy_planks",
             properties -> new Block(properties.strength(3f)));
     public static final Block BIRCHY_LEAVES = registerBlock("birchy_leaves",
-            properties -> new LeavesBlock(properties
+            properties -> new UntintedParticleLeavesBlock(0.02f, ParticleTypes.CHERRY_LEAVES, properties
                     .mapColor(MapColor.DARK_GREEN).strength(0.2F).ticksRandomly()
                     .sounds(BlockSoundGroup.AZALEA_LEAVES).nonOpaque()
                     .allowsSpawning(Blocks::canSpawnOnLeaves).suffocates(Blocks::never)

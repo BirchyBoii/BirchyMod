@@ -12,6 +12,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.BannerPatternsComponent;
+import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.item.*;
 import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.item.tooltip.TooltipType;
@@ -28,6 +29,7 @@ import net.minecraft.util.Rarity;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class ModItems {
@@ -45,18 +47,18 @@ public class ModItems {
                     ModBlocks.BIRCHY_DEEPSLATE_ORE, ModBlocks.BIRCHY_ORE
             ), SoundEvents.BLOCK_WET_SPONGE_DRIES, ParticleTypes.CLOUD) {
         @Override
-        public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
             if(Screen.hasShiftDown()) {
-                tooltip.add(Text.translatable("tooltip.birchy.dryer_wand.shift_down"));
+                textConsumer.accept(Text.translatable("tooltip.birchy.dryer_wand.shift_down"));
             } else {
-                tooltip.add(Text.translatable("tooltip.birchy.dryer_wand"));
+                textConsumer.accept(Text.translatable("tooltip.birchy.dryer_wand"));
             }
 
             if(stack.get(ModDataComponentTypes.COORDINATES) != null) {
-                tooltip.add(Text.literal("§8Last Block Changed at §8" + stack.get(ModDataComponentTypes.COORDINATES)));
+                textConsumer.accept(Text.literal("§8Last Block Changed at §8" + stack.get(ModDataComponentTypes.COORDINATES)));
             }
 
-            super.appendTooltip(stack, context, tooltip, type);
+            super.appendTooltip(stack, context, displayComponent, textConsumer, type);
         }
     });
 
@@ -70,43 +72,43 @@ public class ModItems {
                     ModBlocks.BIRCHY_ORE, ModBlocks.BIRCHY_DEEPSLATE_ORE
             ), SoundEvents.BLOCK_SPONGE_ABSORB, ParticleTypes.FALLING_WATER) {
         @Override
-        public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
             if(Screen.hasShiftDown()) {
-                tooltip.add(Text.translatable("tooltip.birchy.moistening_wand.shift_down"));
+                textConsumer.accept(Text.translatable("tooltip.birchy.moistening_wand.shift_down"));
             } else {
-                tooltip.add(Text.translatable("tooltip.birchy.moistening_wand"));
+                textConsumer.accept(Text.translatable("tooltip.birchy.moistening_wand"));
             }
 
             if(stack.get(ModDataComponentTypes.COORDINATES) != null) {
-                tooltip.add(Text.literal("§8Last Block Changed at §8" + stack.get(ModDataComponentTypes.COORDINATES)));
+                textConsumer.accept(Text.literal("§8Last Block Changed at §8" + stack.get(ModDataComponentTypes.COORDINATES)));
             }
 
-            super.appendTooltip(stack, context, tooltip, type);
+            super.appendTooltip(stack, context, displayComponent, textConsumer, type);
         }
     });
 
     public static final Item BIRCHY_BALLS = registerItem("birchy_balls", setting -> new Item(setting.food(
             ModFoodComponents.BIRCHY_BALLS, ModFoodComponents.BIRCHY_BALLS_EFFECT).fireproof()) {
         @Override
-        public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-            tooltip.add(Text.translatable("tooltip.birchy.birchy_balls"));
-            super.appendTooltip(stack, context, tooltip, type);
+        public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
+            textConsumer.accept(Text.translatable("tooltip.birchy.birchy_balls"));
+            super.appendTooltip(stack, context, displayComponent, textConsumer, type);
         }
     });
 
     public static final Item BIRCHISIZED_COAL = registerItem("birchisized_coal", setting -> new Item(setting.fireproof()) {
         @Override
-        public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-            tooltip.add(Text.translatable("tooltip.birchy.birchisized_coal"));
-            super.appendTooltip(stack, context, tooltip, type);
+        public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
+            textConsumer.accept(Text.translatable("tooltip.birchy.birchisized_coal"));
+            super.appendTooltip(stack, context, displayComponent, textConsumer, type);
         }
     });
 
     public static final Item BIRCHY_SWORD = registerItem("birchy_sword",
-            setting -> new SwordItem(ModToolMaterials.BIRCHY, 3, -2.0f, setting
+            setting -> new Item(setting.sword(ModToolMaterials.BIRCHY, 3, -2.0f)
                     .fireproof()));
     public static final Item BIRCHY_PICKAXE = registerItem("birchy_pickaxe",
-            setting -> new PickaxeItem(ModToolMaterials.BIRCHY, 1, -2.8f, setting
+            setting -> new Item(setting.pickaxe(ModToolMaterials.BIRCHY, 1, -2.8f)
                     .fireproof()));
     public static final Item BIRCHY_AXE = registerItem("birchy_axe",
             setting -> new AxeItem(ModToolMaterials.BIRCHY, 6, -3.2f, setting
@@ -125,23 +127,20 @@ public class ModItems {
             setting -> new BowItem(setting.maxDamage(500)));
 
     public static final Item BIRCHY_HELMET = registerItem("birchy_helmet",
-            setting -> new ModArmorItem(ModArmorMaterials.BIRCHY_ARMOR_MATERIAL, EquipmentType.HELMET, setting
-                    .fireproof()
-                    .maxDamage(EquipmentType.HELMET.getMaxDamage(40))));
+            setting -> new ModArmorItem(setting.armor(ModArmorMaterials.BIRCHY_ARMOR_MATERIAL, EquipmentType.HELMET)
+                    .fireproof()));
     public static final Item BIRCHY_CHESTPLATE = registerItem("birchy_chestplate",
-            setting -> new ArmorItem(ModArmorMaterials.BIRCHY_ARMOR_MATERIAL, EquipmentType.CHESTPLATE, setting
-                    .fireproof()
-                    .maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(40))));
+            setting -> new Item(setting.armor(ModArmorMaterials.BIRCHY_ARMOR_MATERIAL, EquipmentType.CHESTPLATE)
+                    .fireproof()));
     public static final Item BIRCHY_LEGGINGS = registerItem("birchy_leggings",
-            setting -> new ArmorItem(ModArmorMaterials.BIRCHY_ARMOR_MATERIAL, EquipmentType.LEGGINGS, setting
-                    .fireproof()
-                    .maxDamage(EquipmentType.LEGGINGS.getMaxDamage(40))));
+            setting -> new Item(setting.armor(ModArmorMaterials.BIRCHY_ARMOR_MATERIAL, EquipmentType.LEGGINGS)
+                    .fireproof()));
     public static final Item BIRCHY_BOOTS = registerItem("birchy_boots",
-            setting -> new ArmorItem(ModArmorMaterials.BIRCHY_ARMOR_MATERIAL, EquipmentType.BOOTS, setting
-                    .fireproof()
-                    .maxDamage(EquipmentType.BOOTS.getMaxDamage(40))));
+            setting -> new Item(setting.armor(ModArmorMaterials.BIRCHY_ARMOR_MATERIAL, EquipmentType.BOOTS)
+                    .fireproof()));
+
     public static final Item BIRCHY_HORSE_ARMOR = registerItem("birchy_horse_armor",
-            setting -> new AnimalArmorItem(ModArmorMaterials.BIRCHY_ARMOR_MATERIAL, AnimalArmorItem.Type.EQUESTRIAN, setting.maxCount(1)));
+            setting -> new Item(setting.horseArmor(ModArmorMaterials.BIRCHY_ARMOR_MATERIAL).maxCount(1)));
 
     public static final Item BIRCHY_SMITHING_TEMPLATE = registerItem("birchy_armor_trim_smithing_template",
             SmithingTemplateItem::of);

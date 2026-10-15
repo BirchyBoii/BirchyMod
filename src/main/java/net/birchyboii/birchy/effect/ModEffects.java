@@ -33,6 +33,8 @@ public class ModEffects {
     public static final RegistryEntry<StatusEffect> SUN_STARE = registerStatusEffect("sun_stare",
             new SunStareEffect(StatusEffectCategory.HARMFUL, 0xad2e03));
 
+    public static final RegistryEntry<StatusEffect> FREE_FLY = registerStatusEffect("free_fly",
+            new FreeFlyEffect(StatusEffectCategory.BENEFICIAL, 0x7A9A84));
 
 
     private static RegistryEntry<StatusEffect> registerStatusEffect(String name, StatusEffect statusEffect) {
