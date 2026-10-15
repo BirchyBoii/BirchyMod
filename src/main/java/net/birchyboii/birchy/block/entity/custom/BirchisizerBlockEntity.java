@@ -2,7 +2,6 @@ package net.birchyboii.birchy.block.entity.custom;
 
 import net.birchyboii.birchy.block.entity.ImplementedInventory;
 import net.birchyboii.birchy.block.entity.ModBlockEntities;
-import net.birchyboii.birchy.item.ModItems;
 import net.birchyboii.birchy.recipe.BirchisizerRecipe;
 import net.birchyboii.birchy.recipe.BirchisizerRecipeInput;
 import net.birchyboii.birchy.recipe.ModRecipes;
@@ -13,9 +12,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
@@ -26,6 +23,8 @@ import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.storage.ReadView;
+import net.minecraft.storage.WriteView;
 import net.minecraft.text.Text;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.collection.DefaultedList;
@@ -100,22 +99,20 @@ public class BirchisizerBlockEntity extends BlockEntity implements ExtendedScree
     }
 
     @Override
-    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-        super.writeNbt(nbt, registryLookup);
-        Inventories.writeNbt(nbt, inventory, registryLookup);
-        nbt.putInt("growth_chamber.progress", progress);
-        nbt.putInt("growth_chamber.max_progress", maxProgress);
+    protected void writeData(WriteView view) {
+        super.writeData(view);
+        Inventories.writeData(view, inventory);
+        view.putInt("growth_chamber.progress", progress);
+        view.putInt("growth_chamber.max_progress", maxProgress);
     }
 
     @Override
-    protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-        Inventories.readNbt(nbt, inventory, registryLookup);
-        progress = nbt.getInt("growth_chamber.progress").get();
-        maxProgress = nbt.getInt("growth_chamber.max_progress").get();
-        super.readNbt(nbt, registryLookup);
+    protected void readData(ReadView view) {
+        super.readData(view);
+        Inventories.readData(view, inventory);
+        progress = view.getInt("growth_chamber.progress", 0);
+        maxProgress = view.getInt("growth_chamber.max_progress", 0);
     }
-
-
 
     public void tick(World world, BlockPos pos, BlockState state) {
         if(hasRecipe()) {

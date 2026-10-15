@@ -1,8 +1,8 @@
 package net.birchyboii.birchy.entity.client.Motorcycle;
 
 import net.birchyboii.birchy.BirchyMod;
-import net.birchyboii.birchy.entity.custom.MotorcycleEntity;
 import net.minecraft.client.model.*;
+import net.minecraft.client.render.entity.animation.Animation;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.Identifier;
@@ -14,10 +14,16 @@ public class MotorcycleModel extends EntityModel<MotorcycleRenderState> {
     private final ModelPart wheeler;
     private final ModelPart head;
 
+    private final Animation walkingAnimation;
+    private final Animation idlingAnimation;
+
     public MotorcycleModel(ModelPart root) {
         super(root);
         this.wheeler = root.getChild("wheeler");
         this.head = this.wheeler.getChild("head");
+
+        this.walkingAnimation = MotorcycleAnimations.ANIM_MOTORCYCLE_DRIVING.createAnimation(root);
+        this.idlingAnimation = MotorcycleAnimations.ANIM_MOTORCYCLE_IDLE.createAnimation(root);
     }
     public static TexturedModelData getTexturedModelData() {
         ModelData modelData = new ModelData();
@@ -186,8 +192,8 @@ public class MotorcycleModel extends EntityModel<MotorcycleRenderState> {
         super.setAngles(state);
         this.setHeadAngles(state.relativeHeadYaw);
 
-        this.animateWalking(MotorcycleAnimations.ANIM_MOTORCYCLE_DRIVING, state.limbSwingAnimationProgress, state.limbSwingAmplitude, 2f, 2.5f);
-        this.animate(state.idleAnimationState, MotorcycleAnimations.ANIM_MOTORCYCLE_IDLE, state.age, 1f);
+        this.walkingAnimation.applyWalking(state.limbSwingAnimationProgress, state.limbSwingAmplitude, 2f, 2.5f);
+        this.idlingAnimation.apply(state.idleAnimationState, state.age, 1f);
     }
 
     private void setHeadAngles(float headYaw) {

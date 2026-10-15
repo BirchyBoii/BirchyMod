@@ -17,44 +17,44 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup lookup) {
-        getOrCreateTagBuilder(ModTags.Items.BIRCHY_BLOCK_TRANSFORMABLE_ITEMS)
+        valueLookupBuilder(ModTags.Items.BIRCHY_BLOCK_TRANSFORMABLE_ITEMS)
                 .add(ModItems.BIRCHY_CHUNK);
-        getOrCreateTagBuilder(ModTags.Items.BIRCHY_REPAIR)
+        valueLookupBuilder(ModTags.Items.BIRCHY_REPAIR)
                 .add(ModItems.BIRCHY_SHEET);
 
-        getOrCreateTagBuilder(ModTags.Items.BIRCHY_LOGS)
+        valueLookupBuilder(ModTags.Items.BIRCHY_LOGS)
                 .add(ModBlocks.BIRCHY_LOG.asItem())
                 .add(ModBlocks.BIRCHY_WOOD.asItem())
                 .add(ModBlocks.STRIPPED_BIRCHY_WOOD.asItem())
                 .add(ModBlocks.STRIPPED_BIRCHY_LOG.asItem());
 
-        getOrCreateTagBuilder(ItemTags.LOGS)
+        valueLookupBuilder(ItemTags.LOGS)
                 .add(ModBlocks.BIRCHY_LOG.asItem())
                 .add(ModBlocks.BIRCHY_WOOD.asItem())
                 .add(ModBlocks.STRIPPED_BIRCHY_WOOD.asItem())
                 .add(ModBlocks.STRIPPED_BIRCHY_LOG.asItem());
 
-        getOrCreateTagBuilder(ItemTags.PLANKS)
+        valueLookupBuilder(ItemTags.PLANKS)
                 .add(ModBlocks.BIRCHY_PLANKS.asItem());
 
-        getOrCreateTagBuilder(ItemTags.SWORDS)
+        valueLookupBuilder(ItemTags.SWORDS)
                 .add(ModItems.BIRCHY_SWORD);
-        getOrCreateTagBuilder(ItemTags.PICKAXES)
+        valueLookupBuilder(ItemTags.PICKAXES)
                 .add(ModItems.BIRCHY_PICKAXE);
-        getOrCreateTagBuilder(ItemTags.AXES)
+        valueLookupBuilder(ItemTags.AXES)
                 .add(ModItems.BIRCHY_AXE);
-        getOrCreateTagBuilder(ItemTags.SHOVELS)
+        valueLookupBuilder(ItemTags.SHOVELS)
                 .add(ModItems.BIRCHY_SHOVEL);
-        getOrCreateTagBuilder(ItemTags.HOES)
+        valueLookupBuilder(ItemTags.HOES)
                 .add(ModItems.BIRCHY_HOE);
 
-        getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
+        valueLookupBuilder(ItemTags.TRIMMABLE_ARMOR)
                 .add(ModItems.BIRCHY_HELMET)
                 .add(ModItems.BIRCHY_CHESTPLATE)
                 .add(ModItems.BIRCHY_LEGGINGS)
                 .add(ModItems.BIRCHY_BOOTS);
 
-        getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS)
+        valueLookupBuilder(ItemTags.TRIM_MATERIALS)
                 .add(ModItems.BIRCHY_SHEET);
 
 

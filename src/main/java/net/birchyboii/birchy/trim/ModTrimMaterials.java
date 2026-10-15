@@ -16,8 +16,6 @@ import net.minecraft.text.TextColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
 
-import java.util.Map;
-
 public class ModTrimMaterials {
     public static final RegistryKey<ArmorTrimMaterial> BIRCHY = RegistryKey.of(RegistryKeys.TRIM_MATERIAL,
             Identifier.of(BirchyMod.MOD_ID, "birchy"));

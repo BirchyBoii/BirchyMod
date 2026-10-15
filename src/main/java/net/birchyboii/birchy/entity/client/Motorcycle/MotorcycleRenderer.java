@@ -1,8 +1,6 @@
 package net.birchyboii.birchy.entity.client.Motorcycle;
 
 import net.birchyboii.birchy.BirchyMod;
-import net.birchyboii.birchy.entity.client.BirchyBoy.BirchyBoyRenderState;
-import net.birchyboii.birchy.entity.custom.BirchyBoyEntity;
 import net.birchyboii.birchy.entity.custom.MotorcycleEntity;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;

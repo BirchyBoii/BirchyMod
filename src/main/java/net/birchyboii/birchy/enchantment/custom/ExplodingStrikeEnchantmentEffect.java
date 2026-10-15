@@ -3,15 +3,11 @@ package net.birchyboii.birchy.enchantment.custom;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.enchantment.EnchantmentEffectContext;
 import net.minecraft.enchantment.effect.EnchantmentEntityEffect;
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.ItemCooldownManager;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.FireballEntity;
-import net.minecraft.item.Item;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
-
 
 
 public record ExplodingStrikeEnchantmentEffect() implements EnchantmentEntityEffect {

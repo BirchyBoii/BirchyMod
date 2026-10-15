@@ -21,13 +21,13 @@ import net.birchyboii.birchy.screen.ModScreenHandlers;
 import net.birchyboii.birchy.screen.custom.BirchisizerScreen;
 import net.birchyboii.birchy.screen.custom.PedestalScreen;
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
-import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.BlockRenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 
 public class BirchyModClient implements ClientModInitializer {
@@ -42,7 +42,7 @@ public class BirchyModClient implements ClientModInitializer {
         );
 
 
-        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
+        BlockRenderLayerMap.putBlocks(BlockRenderLayer.CUTOUT,
                 ModBlocks.BIRCHY_DOOR,
                 ModBlocks.BIRCHY_TRAPDOOR,
                 ModBlocks.BIRCHY_GRAINS_CROP,

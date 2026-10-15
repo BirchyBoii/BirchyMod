@@ -5,7 +5,6 @@ import net.minecraft.client.render.Frustum;
 import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.state.EntityRenderState;
-import net.minecraft.util.Identifier;
 
 public class SittableEntityRenderer extends EntityRenderer<SittableEntity, EntityRenderState> {
     public SittableEntityRenderer(EntityRendererFactory.Context ctx) {

@@ -73,7 +73,7 @@ public class SunGazeHandler {
         }
 
     private static boolean isLookingAtSun(ServerPlayerEntity player) {
-        ServerWorld world = player.getServerWorld();
+        ServerWorld world = player.getWorld();
 
         if (!world.isDay() || world.isRaining() || !world.isSkyVisible(player.getBlockPos())) {
             return false;

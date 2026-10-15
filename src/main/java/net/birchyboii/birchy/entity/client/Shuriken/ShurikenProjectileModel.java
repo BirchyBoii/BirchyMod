@@ -1,14 +1,10 @@
 package net.birchyboii.birchy.entity.client.Shuriken;
 
 import net.birchyboii.birchy.BirchyMod;
-import net.birchyboii.birchy.entity.custom.ShurikenProjectileEntity;
 import net.minecraft.client.model.*;
-import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.state.EntityRenderState;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.EntityType;
 import net.minecraft.util.Identifier;
 
 public class ShurikenProjectileModel extends EntityModel<EntityRenderState> {

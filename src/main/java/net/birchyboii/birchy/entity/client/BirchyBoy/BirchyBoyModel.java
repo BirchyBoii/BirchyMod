@@ -1,8 +1,8 @@
 package net.birchyboii.birchy.entity.client.BirchyBoy;
 
 import net.birchyboii.birchy.BirchyMod;
-import net.birchyboii.birchy.entity.custom.BirchyBoyEntity;
 import net.minecraft.client.model.*;
+import net.minecraft.client.render.entity.animation.Animation;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.Identifier;
@@ -14,10 +14,16 @@ public class BirchyBoyModel extends EntityModel<BirchyBoyRenderState> {
     private final ModelPart body;
     private final ModelPart head;
 
+    private final Animation walkingAnimation;
+    private final Animation idlingAnimation;
+
     public BirchyBoyModel(ModelPart root) {
         super(root);
         this.body = root.getChild("body");
         this.head = this.body.getChild("head");
+
+        this.walkingAnimation = BirchyBoyAnimations.ANIM_BIRCHY_BOY_RUN.createAnimation(root);
+        this.idlingAnimation = BirchyBoyAnimations.ANIM_BIRCHY_BOY_IDLE.createAnimation(root);
     }
 
     public static TexturedModelData getTexturedModelData() {
@@ -49,8 +55,8 @@ public class BirchyBoyModel extends EntityModel<BirchyBoyRenderState> {
         super.setAngles(state);
         this.setHeadAngles(state.relativeHeadYaw, state.pitch);
 
-        this.animateWalking(BirchyBoyAnimations.ANIM_BIRCHY_BOY_RUN, state.limbSwingAnimationProgress, state.limbSwingAmplitude, 2f, 2.5f);
-        this.animate(state.idleAnimationState, BirchyBoyAnimations.ANIM_BIRCHY_BOY_IDLE, state.age, 1f);
+        this.walkingAnimation.applyWalking(state.limbSwingAnimationProgress, state.limbSwingAmplitude, 2f, 2.5f);
+        this.idlingAnimation.apply(state.idleAnimationState, state.age, 1f);
     }
 
     private void setHeadAngles(float headYaw, float headPitch) {

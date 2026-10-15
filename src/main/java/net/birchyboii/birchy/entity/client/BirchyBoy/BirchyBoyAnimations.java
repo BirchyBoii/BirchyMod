@@ -1,12 +1,12 @@
 package net.birchyboii.birchy.entity.client.BirchyBoy;
 
-import net.minecraft.client.render.entity.animation.Animation;
+import net.minecraft.client.render.entity.animation.AnimationDefinition;
 import net.minecraft.client.render.entity.animation.AnimationHelper;
 import net.minecraft.client.render.entity.animation.Keyframe;
 import net.minecraft.client.render.entity.animation.Transformation;
 
 public class BirchyBoyAnimations {
-    public static final Animation ANIM_BIRCHY_BOY_IDLE = Animation.Builder.create(2.0F).looping()
+    public static final AnimationDefinition ANIM_BIRCHY_BOY_IDLE = AnimationDefinition.Builder.create(2.0F).looping()
             .addBoneAnimation("head", new Transformation(Transformation.Targets.SCALE,
                     new Keyframe(0.0F, AnimationHelper.createScalingVector(1.0F, 1.0F, 1.0F), Transformation.Interpolations.CUBIC),
                     new Keyframe(1.0F, AnimationHelper.createScalingVector(1.01F, 1.0F, 1.05F), Transformation.Interpolations.CUBIC),
@@ -29,7 +29,7 @@ public class BirchyBoyAnimations {
             ))
             .build();
 
-        public static final Animation ANIM_BIRCHY_BOY_RUN = Animation.Builder.create(0.5F).looping()
+        public static final AnimationDefinition ANIM_BIRCHY_BOY_RUN = AnimationDefinition.Builder.create(0.5F).looping()
                 .addBoneAnimation("head", new Transformation(Transformation.Targets.MOVE_ORIGIN,
                         new Keyframe(0.0F, AnimationHelper.createTranslationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.CUBIC),
                         new Keyframe(0.25F, AnimationHelper.createTranslationalVector(0.0F, 0.25F, 0.0F), Transformation.Interpolations.CUBIC),

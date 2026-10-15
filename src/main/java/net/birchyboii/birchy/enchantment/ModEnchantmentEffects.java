@@ -4,8 +4,6 @@ import com.mojang.serialization.MapCodec;
 import net.birchyboii.birchy.BirchyMod;
 import net.birchyboii.birchy.enchantment.custom.ExplodingStrikeEnchantmentEffect;
 import net.birchyboii.birchy.enchantment.custom.KnockbackPantsEnchantmentEffect;
-import net.minecraft.enchantment.EnchantmentEffectContext;
-import net.minecraft.enchantment.effect.EnchantmentEffectEntry;
 import net.minecraft.enchantment.effect.EnchantmentEntityEffect;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;

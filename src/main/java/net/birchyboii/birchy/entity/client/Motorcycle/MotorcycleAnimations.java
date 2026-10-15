@@ -1,12 +1,12 @@
 package net.birchyboii.birchy.entity.client.Motorcycle;
 
-import net.minecraft.client.render.entity.animation.Animation;
+import net.minecraft.client.render.entity.animation.AnimationDefinition;
 import net.minecraft.client.render.entity.animation.AnimationHelper;
 import net.minecraft.client.render.entity.animation.Keyframe;
 import net.minecraft.client.render.entity.animation.Transformation;
 
 public class MotorcycleAnimations {
-    public static final Animation ANIM_MOTORCYCLE_DRIVING_TRANSITION = Animation.Builder.create(0.75F)
+    public static final AnimationDefinition ANIM_MOTORCYCLE_DRIVING_TRANSITION = AnimationDefinition.Builder.create(0.75F)
             .addBoneAnimation("back_leg_wheel", new Transformation(Transformation.Targets.ROTATE,
                     new Keyframe(0.0F, AnimationHelper.createRotationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.LINEAR),
                     new Keyframe(0.25F, AnimationHelper.createRotationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.LINEAR),
@@ -58,7 +58,7 @@ public class MotorcycleAnimations {
             ))
             .build();
 
-    public static final Animation ANIM_MOTORCYCLE_DRIVING = Animation.Builder.create(0.5F).looping()
+    public static final AnimationDefinition ANIM_MOTORCYCLE_DRIVING = AnimationDefinition.Builder.create(0.5F).looping()
             .addBoneAnimation("back_leg_wheel", new Transformation(Transformation.Targets.ROTATE,
                     new Keyframe(0.0F, AnimationHelper.createRotationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.LINEAR),
                     new Keyframe(0.25F, AnimationHelper.createRotationalVector(180.0F, 0.0F, 0.0F), Transformation.Interpolations.LINEAR),
@@ -101,7 +101,7 @@ public class MotorcycleAnimations {
             ))
             .build();
 
-    public static final Animation ANIM_MOTORCYCLE_IDLE = Animation.Builder.create(0.0F)
+    public static final AnimationDefinition ANIM_MOTORCYCLE_IDLE = AnimationDefinition.Builder.create(0.0F)
 
             .build();
 }

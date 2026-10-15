@@ -104,13 +104,13 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.output.accept(ModItems.DRY_WAND,
                 new ItemAsset(new ConditionItemModel.Unbaked(new SelectedProperty(),
                         unbakedHeldDryWand, unbakedDryWand),
-                        new ItemAsset.Properties(false)).model());
+                        new ItemAsset.Properties(false, false)).model());
 
         ItemModel.Unbaked unbakedMoistWand = ItemModels.basic(itemModelGenerator.upload(ModItems.MOIST_WAND, Models.GENERATED));
         ItemModel.Unbaked unbakedHeldMoistWand = ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.MOIST_WAND, "_held", Models.GENERATED));
         itemModelGenerator.output.accept(ModItems.MOIST_WAND,
                 new ItemAsset(new ConditionItemModel.Unbaked(new SelectedProperty(),
                         unbakedHeldMoistWand, unbakedMoistWand),
-                        new ItemAsset.Properties(false)).model());
+                        new ItemAsset.Properties(false, false)).model());
     }
 }

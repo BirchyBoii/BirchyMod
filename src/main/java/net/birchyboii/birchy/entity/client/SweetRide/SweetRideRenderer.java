@@ -2,8 +2,6 @@ package net.birchyboii.birchy.entity.client.SweetRide;
 
 import com.google.common.collect.Maps;
 import net.birchyboii.birchy.BirchyMod;
-import net.birchyboii.birchy.entity.client.BirchyBoy.BirchyBoyRenderState;
-import net.birchyboii.birchy.entity.custom.BirchyBoyEntity;
 import net.birchyboii.birchy.entity.custom.SweetRideEntity;
 import net.birchyboii.birchy.entity.custom.SweetRideVariant;
 import net.minecraft.client.render.VertexConsumerProvider;

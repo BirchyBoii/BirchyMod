@@ -16,41 +16,41 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup lookup) {
-        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+        valueLookupBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.BIRCHY_DEEPSLATE_ORE)
                 .add(ModBlocks.BIRCHY_ORE)
                 .add(ModBlocks.BIRCHY_NETHER_ORE)
                 .add(ModBlocks.BIRCHY_END_ORE);
 
-        getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
+        valueLookupBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.BIRCHY_DEEPSLATE_ORE)
                 .add(ModBlocks.BIRCHY_ORE)
                 .add(ModBlocks.BIRCHY_NETHER_ORE)
                 .add(ModBlocks.BIRCHY_END_ORE);
 
-        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
+        valueLookupBuilder(BlockTags.SHOVEL_MINEABLE)
                 .add(ModBlocks.BIRCHY_BLOCK);
 
-        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+        valueLookupBuilder(BlockTags.AXE_MINEABLE)
                 .add(ModBlocks.BIRCHY_LOG)
                 .add(ModBlocks.BIRCHY_WOOD)
                 .add(ModBlocks.STRIPPED_BIRCHY_LOG)
                 .add(ModBlocks.STRIPPED_BIRCHY_WOOD)
                 .add(ModBlocks.BIRCHY_PLANKS);
 
-        getOrCreateTagBuilder(BlockTags.LOGS)
+        valueLookupBuilder(BlockTags.LOGS)
                 .add(ModBlocks.BIRCHY_LOG)
                 .add(ModBlocks.BIRCHY_WOOD)
                 .add(ModBlocks.STRIPPED_BIRCHY_LOG)
                 .add(ModBlocks.STRIPPED_BIRCHY_WOOD);
 
-        getOrCreateTagBuilder(BlockTags.PLANKS)
+        valueLookupBuilder(BlockTags.PLANKS)
                 .add(ModBlocks.BIRCHY_PLANKS);
 
-        getOrCreateTagBuilder(BlockTags.WOODEN_FENCES).add(ModBlocks.BIRCHY_FENCE);
-        getOrCreateTagBuilder(BlockTags.FENCE_GATES).add(ModBlocks.BIRCHY_FENCE_GATE);
+        valueLookupBuilder(BlockTags.WOODEN_FENCES).add(ModBlocks.BIRCHY_FENCE);
+        valueLookupBuilder(BlockTags.FENCE_GATES).add(ModBlocks.BIRCHY_FENCE_GATE);
 
-        getOrCreateTagBuilder(ModTags.Blocks.NEEDS_BIRCHY_TOOL)
+        valueLookupBuilder(ModTags.Blocks.NEEDS_BIRCHY_TOOL)
                 .addTag(BlockTags.NEEDS_DIAMOND_TOOL);
 
 

@@ -2,6 +2,7 @@ package net.birchyboii.birchy.entity.client.SweetRide;
 
 import net.birchyboii.birchy.BirchyMod;
 import net.minecraft.client.model.*;
+import net.minecraft.client.render.entity.animation.Animation;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.Identifier;
@@ -14,10 +15,16 @@ public class SweetRideModel extends EntityModel<SweetRideRenderState> {
     private final ModelPart main;
     private final ModelPart head;
 
+    private final Animation walkingAnimation;
+    private final Animation idlingAnimation;
+
     public SweetRideModel(ModelPart root) {
         super(root);
         this.main = root.getChild("main");
         this.head = this.main.getChild("head");
+
+        this.walkingAnimation = SweetRideAnimations.ANIM_SWEET_RIDE_WALK.createAnimation(root);
+        this.idlingAnimation = SweetRideAnimations.ANIM_SWEET_RIDE_IDLE.createAnimation(root);
     }
 
     public static TexturedModelData getTexturedModelData() {
@@ -149,8 +156,8 @@ public class SweetRideModel extends EntityModel<SweetRideRenderState> {
         super.setAngles(state);
         this.setHeadAngles(state.relativeHeadYaw, state.pitch);
 
-        this.animateWalking(SweetRideAnimations.ANIM_SWEET_RIDE_WALK, state.limbSwingAnimationProgress, state.limbSwingAmplitude, 2f, 2.5f);
-        this.animate(state.idleAnimationState, SweetRideAnimations.ANIM_SWEET_RIDE_IDLE, state.age, 1f);
+        this.walkingAnimation.applyWalking(state.limbSwingAnimationProgress, state.limbSwingAmplitude, 2f, 2.5f);
+        this.idlingAnimation.apply(state.idleAnimationState, state.age, 1f);
 
     }
 

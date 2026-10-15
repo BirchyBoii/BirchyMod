@@ -11,8 +11,6 @@ import net.minecraft.client.render.entity.state.EntityRenderState;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RotationAxis;
 
 public class ShurikenProjectileRenderer extends EntityRenderer<ShurikenProjectileEntity, EntityRenderState> {
     protected ShurikenProjectileModel model;
