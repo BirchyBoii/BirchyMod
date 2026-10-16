@@ -74,12 +74,12 @@ public class MotorcycleEntity extends PassiveEntity {
     public void tick() {
         super.tick();
 
-        if (this.getWorld().isClient()) {
+        if (this.getEntityWorld().isClient()) {
             this.setupAnimationStates();
         }
 
-        if (!this.getWorld().isClient()) {
-            ServerWorld serverWorld = (ServerWorld) this.getWorld();
+        if (!this.getEntityWorld().isClient()) {
+            ServerWorld serverWorld = (ServerWorld) this.getEntityWorld();
             boolean isMoving = this.getVelocity().horizontalLengthSquared() > 1.0E-4
                     || this.getX() != this.lastX
                     || this.getZ() != this.lastZ;
@@ -127,7 +127,7 @@ public class MotorcycleEntity extends PassiveEntity {
 
     @Override
     protected ActionResult interactMob(PlayerEntity player, Hand hand) {
-        if (!this.getWorld().isClient) {
+        if (!this.getEntityWorld().isClient()) {
             player.startRiding(this);
             return ActionResult.SUCCESS;
         }
@@ -199,7 +199,7 @@ public class MotorcycleEntity extends PassiveEntity {
     protected void addPassenger(Entity passenger) {
         super.addPassenger(passenger);
 
-        if (!this.getWorld().isClient && passenger instanceof ServerPlayerEntity serverPlayer) {
+        if (!this.getEntityWorld().isClient() && passenger instanceof ServerPlayerEntity serverPlayer) {
             this.bossBar.addPlayer(serverPlayer);
         }
     }
@@ -208,7 +208,7 @@ public class MotorcycleEntity extends PassiveEntity {
     protected void removePassenger(Entity passenger) {
         super.removePassenger(passenger);
 
-        if (!this.getWorld().isClient && passenger instanceof ServerPlayerEntity serverPlayer) {
+        if (!this.getEntityWorld().isClient() && passenger instanceof ServerPlayerEntity serverPlayer) {
             this.bossBar.removePlayer(serverPlayer);
         }
     }

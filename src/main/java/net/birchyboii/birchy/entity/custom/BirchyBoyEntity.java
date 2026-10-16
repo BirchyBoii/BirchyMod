@@ -59,7 +59,7 @@ public class BirchyBoyEntity extends AnimalEntity {
     public void tick() {
         super.tick();
 
-        if (this.getWorld().isClient()) {
+        if (this.getEntityWorld().isClient()) {
             this.setupAnimationStates();
         }
     }

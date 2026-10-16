@@ -11,7 +11,7 @@ import net.birchyboii.birchy.item.custom.ShurikenItem;
 import net.birchyboii.birchy.sounds.ModSounds;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Blocks;
-import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.item.*;
 import net.minecraft.item.equipment.EquipmentType;
@@ -46,7 +46,7 @@ public class ModItems {
             ), SoundEvents.BLOCK_WET_SPONGE_DRIES, ParticleTypes.CLOUD) {
         @Override
         public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
-            if(Screen.hasShiftDown()) {
+            if(MinecraftClient.getInstance().isShiftPressed()) {
                 textConsumer.accept(Text.translatable("tooltip.birchy.dryer_wand.shift_down"));
             } else {
                 textConsumer.accept(Text.translatable("tooltip.birchy.dryer_wand"));
@@ -71,7 +71,7 @@ public class ModItems {
             ), SoundEvents.BLOCK_SPONGE_ABSORB, ParticleTypes.FALLING_WATER) {
         @Override
         public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
-            if(Screen.hasShiftDown()) {
+            if(MinecraftClient.getInstance().isShiftPressed()) {
                 textConsumer.accept(Text.translatable("tooltip.birchy.moistening_wand.shift_down"));
             } else {
                 textConsumer.accept(Text.translatable("tooltip.birchy.moistening_wand"));
@@ -156,13 +156,13 @@ public class ModItems {
             setting -> new BlockItem(ModBlocks.BIRCHY_BERRY_BUSH, setting.food(ModFoodComponents.BIRCHY_BERRY)));
 
     public static final Item BIRCHY_BOY_SPAWN_EGG = registerItem("birchy_boy_spawn_egg",
-            setting -> new SpawnEggItem(ModEntities.BIRCHY_BOY, setting));
+            setting -> new SpawnEggItem(setting.spawnEgg(ModEntities.BIRCHY_BOY)));
 
     public static final Item SWEET_RIDE_SPAWN_EGG = registerItem("sweet_ride_spawn_egg",
-            setting -> new SpawnEggItem(ModEntities.SWEET_RIDE, setting));
+            setting -> new SpawnEggItem(setting.spawnEgg(ModEntities.SWEET_RIDE)));
 
     public static final Item MOTORCYCLE = registerItem("motorcycle_item",
-            setting -> new SpawnEggItem(ModEntities.MOTORCYCLE, setting));
+            setting -> new SpawnEggItem(setting.spawnEgg(ModEntities.MOTORCYCLE)));
 
     public static final Item SHURIKEN = registerItem("shuriken",
             setting -> new ShurikenItem(setting.maxCount(16)));

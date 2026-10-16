@@ -58,7 +58,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.BIRCHY_BERRY_BUSH, BlockStateModelGenerator.CrossType.NOT_TINTED,
                 BirchyBerryBushBlock.AGE, 0, 1, 2, 3);
 
-        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.CHAIR);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotatable(ModBlocks.CHAIR);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BIRCHISIZER);
     }

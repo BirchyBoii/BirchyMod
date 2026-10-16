@@ -21,7 +21,7 @@ public class ShurikenItem extends Item {
         ItemStack itemStack = user.getStackInHand(hand);
         world.playSound(null, user.getX(), user.getY(), user.getZ(),
                 SoundEvents.ITEM_TRIDENT_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
-        if (!world.isClient) {
+        if (!world.isClient()) {
             ShurikenProjectileEntity shuriken = new ShurikenProjectileEntity(world, user);
             shuriken.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 1.5f, 0f);
             world.spawnEntity(shuriken);

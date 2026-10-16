@@ -1,49 +1,67 @@
 package net.birchyboii.birchy.block.entity.renderer;
 
 import net.birchyboii.birchy.block.entity.custom.PedestalBlockEntity;
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.item.ItemModelManager;
 import net.minecraft.client.render.LightmapTextureManager;
 import net.minecraft.client.render.OverlayTexture;
-import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
-import net.minecraft.client.render.item.ItemRenderer;
+import net.minecraft.client.render.command.ModelCommandRenderer;
+import net.minecraft.client.render.command.OrderedRenderCommandQueue;
+import net.minecraft.client.render.state.CameraRenderState;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemDisplayContext;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RotationAxis;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
-public class PedestalBlockEntityRenderer implements BlockEntityRenderer<PedestalBlockEntity> {
+public class PedestalBlockEntityRenderer implements BlockEntityRenderer<PedestalBlockEntity, PedestalBlockEntityRenderState> {
+    private final ItemModelManager itemModelManager;
+
     public PedestalBlockEntityRenderer(BlockEntityRendererFactory.Context context) {
-
+        itemModelManager = context.itemModelManager();
     }
 
     @Override
-    public void render(PedestalBlockEntity entity, float tickDelta, MatrixStack matrices,
-                       VertexConsumerProvider vertexConsumers, int light, int overlay, Vec3d cameraPos) {
-        ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
-        ItemStack stack = entity.getStack(0);
-        float animationTicks = entity.getWorld().getTime() + tickDelta;
-        float YOffset = (float) Math.sin(animationTicks * 0.1f) * 0.175f + 1.325f;
-
-        matrices.push();
-        matrices.translate(0.5f, YOffset, 0.5f);
-        matrices.scale(0.5f, 0.5f, 0.5f);
-        matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(entity.getRenderingRotation()));
-
-        itemRenderer.renderItem(stack, ItemDisplayContext.GUI, getLightLevel(entity.getWorld(),
-                entity.getPos()), OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, entity.getWorld(), 1);
-        matrices.pop();
+    public PedestalBlockEntityRenderState createRenderState() {
+        return new PedestalBlockEntityRenderState();
     }
 
-     private int getLightLevel(World world, BlockPos pos) {
-         int bLight = world.getLightLevel(LightType.BLOCK, pos);
-         int sLight = world.getLightLevel(LightType.SKY, pos);
-         return LightmapTextureManager.pack(bLight, sLight);
-     }
+    @Override
+    public void updateRenderState(PedestalBlockEntity blockEntity, PedestalBlockEntityRenderState state, float tickProgress,
+                                  Vec3d cameraPos, @Nullable ModelCommandRenderer.CrumblingOverlayCommand crumblingOverlay) {
+        BlockEntityRenderer.super.updateRenderState(blockEntity, state, tickProgress, cameraPos, crumblingOverlay);
 
+        state.lightPosition = blockEntity.getPos();
+        state.blockEntityWorld = blockEntity.getWorld();
+        state.rotation = blockEntity.getRenderingRotation();
+        state.animationTicks = state.blockEntityWorld.getTime();
+        state.YOffset = (float) Math.sin(state.animationTicks * 0.1f) * 0.175f + 1.325f;
+
+        itemModelManager.clearAndUpdate(state.itemRenderState,
+                blockEntity.getStack(0), ItemDisplayContext.GUI, blockEntity.getWorld(), null, 0);
+    }
+
+    @Override
+    public void render(PedestalBlockEntityRenderState state, MatrixStack matrices, OrderedRenderCommandQueue queue, CameraRenderState cameraState) {
+        matrices.push();
+
+        matrices.translate(0.5f, state.YOffset, 0.5f);
+        matrices.scale(0.5f, 0.5f, 0.5f);
+        matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(state.rotation));
+
+        state.itemRenderState.render(matrices, queue, getLightLevel(state.blockEntityWorld, state.pos), OverlayTexture.DEFAULT_UV, 0);
+
+        matrices.pop();
+
+    }
+
+    private int getLightLevel(World world, BlockPos pos) {
+        int bLight = world.getLightLevel(LightType.BLOCK, pos);
+        int sLight = world.getLightLevel(LightType.SKY, pos);
+        return LightmapTextureManager.pack(bLight, sLight);
+    }
 }

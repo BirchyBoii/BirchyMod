@@ -4,9 +4,10 @@ import com.google.common.collect.Maps;
 import net.birchyboii.birchy.BirchyMod;
 import net.birchyboii.birchy.entity.custom.SweetRideEntity;
 import net.birchyboii.birchy.entity.custom.SweetRideVariant;
-import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.command.OrderedRenderCommandQueue;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
+import net.minecraft.client.render.state.CameraRenderState;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
@@ -33,14 +34,14 @@ public class SweetRideRenderer extends MobEntityRenderer<SweetRideEntity, SweetR
 
     @Override
     public void render(SweetRideRenderState state, MatrixStack matrixStack,
-                       VertexConsumerProvider vertexConsumerProvider, int i) {
+                       OrderedRenderCommandQueue orderedRenderCommandQueue, CameraRenderState cameraRenderState) {
         if(state.baby) {
             matrixStack.scale(0.5f, 0.5f, 0.5f);
         } else {
             matrixStack.scale(1f, 1f, 1f);
         }
 
-        super.render(state, matrixStack, vertexConsumerProvider, i);
+        super.render(state, matrixStack, orderedRenderCommandQueue, cameraRenderState);
     }
 
     @Override

@@ -19,7 +19,7 @@ public class BirchisizerScreenHandler extends ScreenHandler {
     private final BirchisizerBlockEntity blockEntity;
 
     public BirchisizerScreenHandler(int syncId, PlayerInventory inventory, BlockPos pos) {
-        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(pos), new ArrayPropertyDelegate(2));
+        this(syncId, inventory, inventory.player.getEntityWorld().getBlockEntity(pos), new ArrayPropertyDelegate(2));
     }
 
     public BirchisizerScreenHandler(int syncId, PlayerInventory playerInventory,
