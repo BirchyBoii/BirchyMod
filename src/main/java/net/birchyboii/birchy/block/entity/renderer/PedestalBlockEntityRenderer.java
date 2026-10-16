@@ -38,8 +38,8 @@ public class PedestalBlockEntityRenderer implements BlockEntityRenderer<Pedestal
         state.lightPosition = blockEntity.getPos();
         state.blockEntityWorld = blockEntity.getWorld();
         state.rotation = blockEntity.getRenderingRotation();
-        state.animationTicks = state.blockEntityWorld.getTime();
-        state.YOffset = (float) Math.sin(state.animationTicks * 0.1f) * 0.175f + 1.325f;
+        state.animationTicks = blockEntity.getAnimationTicks();
+        state.YOffset = blockEntity.getYOffset();
 
         itemModelManager.clearAndUpdate(state.itemRenderState,
                 blockEntity.getStack(0), ItemDisplayContext.GUI, blockEntity.getWorld(), null, 0);

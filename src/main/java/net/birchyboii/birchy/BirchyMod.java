@@ -112,25 +112,25 @@ public class BirchyMod implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.MOTORCYCLE, SweetRideEntity.createAttributes());
 
 		TradeOfferHelper.registerVillagerOffers(VillagerProfession.FARMER, 1, factories -> {
-			factories.add((entity, random) -> new TradeOffer(
+			factories.add((world,entity, random) -> new TradeOffer(
 					new TradedItem(Items.EMERALD, 2),
 					new ItemStack(ModItems.BIRCHY_GRAINS, 3), 7, 2, 0.04f
 			));
 		});
 		TradeOfferHelper.registerVillagerOffers(VillagerProfession.FARMER, 2, factories -> {
-			factories.add((entity, random) -> new TradeOffer(
+			factories.add((world,entity, random) -> new TradeOffer(
 					new TradedItem(Items.EMERALD, 4),
 					new ItemStack(ModItems.BIRCHY_BERRIES, 2), 6, 2, 0.04f
 			));
 		});
 		TradeOfferHelper.registerVillagerOffers(ModVillagers.BIRCHER_KEY, 1, factories -> {
-			factories.add((entity, random) -> new TradeOffer(
+			factories.add((world,entity, random) -> new TradeOffer(
 					new TradedItem(ModItems.BIRCHY_CHUNK, 3),
 					new ItemStack(ModItems.BIRCHY_SHEET, 2), 10, 2, 0.04f
 			));
 		});
 		TradeOfferHelper.registerWanderingTraderOffers(factories -> {
-			factories.addAll(Identifier.of(BirchyMod.MOD_ID, "birchy_sapling_for_emeralds"), (entity, random) -> new TradeOffer(
+			factories.addAll(Identifier.of(BirchyMod.MOD_ID, "birchy_sapling_for_emeralds"), (world,entity, random) -> new TradeOffer(
 					new TradedItem(Items.EMERALD, 3),
 					new ItemStack(ModBlocks.BIRCHY_SAPLING, 1), 4, 2, 0.04f
 			));

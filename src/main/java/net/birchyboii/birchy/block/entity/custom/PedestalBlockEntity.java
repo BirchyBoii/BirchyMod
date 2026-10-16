@@ -6,6 +6,7 @@ import net.birchyboii.birchy.screen.custom.PedestalScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
@@ -28,6 +29,8 @@ import org.jetbrains.annotations.Nullable;
 public class PedestalBlockEntity extends BlockEntity implements ImplementedInventory, ExtendedScreenHandlerFactory<BlockPos> {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
     private float rotation = 180;
+    private float animationTicks;
+    private float YOffset = 1.15f;
 
     public PedestalBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.PEDESTAL_BE, pos, state);
@@ -44,6 +47,16 @@ public class PedestalBlockEntity extends BlockEntity implements ImplementedInven
             rotation = 0;
         }
         return rotation;
+    }
+
+    public float getAnimationTicks() {
+        animationTicks = this.getWorld().getTime() + RenderTickCounter.ONE.getDynamicDeltaTicks();
+        return animationTicks;
+    }
+
+    public float getYOffset() {
+        YOffset = (float) Math.sin(this.animationTicks * 0.1f) * 0.175f + 1.325f;
+        return YOffset;
     }
 
     @Override

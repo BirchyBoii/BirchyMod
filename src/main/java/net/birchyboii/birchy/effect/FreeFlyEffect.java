@@ -35,7 +35,7 @@ public class FreeFlyEffect extends StatusEffect {
 
                 player.addVelocity(playerVelocity);
 
-                player.velocityModified = true;
+                player.velocityDirty = true;
                 return true;
             }
         }

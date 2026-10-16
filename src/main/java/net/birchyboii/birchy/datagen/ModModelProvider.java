@@ -13,10 +13,7 @@ import net.minecraft.client.item.ItemAsset;
 import net.minecraft.client.render.item.model.ConditionItemModel;
 import net.minecraft.client.render.item.model.ItemModel;
 import net.minecraft.client.render.item.property.bool.SelectedProperty;
-import net.minecraft.client.render.model.json.ModelVariant;
-import net.minecraft.client.render.model.json.WeightedVariant;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.collection.Pool;
 
 import java.util.Optional;
 
@@ -51,8 +48,8 @@ public class ModModelProvider extends FabricModelProvider {
         Identifier lampOnIdentifier = blockStateModelGenerator.createSubModel(ModBlocks.BIRCHY_LAMP, "_on", Models.CUBE_ALL, TextureMap::all);
         blockStateModelGenerator.blockStateCollector.accept(VariantsBlockModelDefinitionCreator.of(ModBlocks.BIRCHY_LAMP)
                 .with(BlockStateModelGenerator.createBooleanModelMap(BirchyLamp.CLICKED,
-                        new WeightedVariant(Pool.<ModelVariant>builder().add(new ModelVariant(lampOnIdentifier)).build()),
-                        new WeightedVariant(Pool.<ModelVariant>builder().add(new ModelVariant(lampOffIdentifier)).build()))));
+                        BlockStateModelGenerator.createWeightedVariant(lampOnIdentifier),
+                        BlockStateModelGenerator.createWeightedVariant(lampOffIdentifier))));
 
         blockStateModelGenerator.registerCrop(ModBlocks.BIRCHY_GRAINS_CROP, BirchyCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6);
         blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.BIRCHY_BERRY_BUSH, BlockStateModelGenerator.CrossType.NOT_TINTED,
@@ -104,13 +101,13 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.output.accept(ModItems.DRY_WAND,
                 new ItemAsset(new ConditionItemModel.Unbaked(new SelectedProperty(),
                         unbakedHeldDryWand, unbakedDryWand),
-                        new ItemAsset.Properties(false, false)).model());
+                        new ItemAsset.Properties(false, false, 1f)).model());
 
         ItemModel.Unbaked unbakedMoistWand = ItemModels.basic(itemModelGenerator.upload(ModItems.MOIST_WAND, Models.GENERATED));
         ItemModel.Unbaked unbakedHeldMoistWand = ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.MOIST_WAND, "_held", Models.GENERATED));
         itemModelGenerator.output.accept(ModItems.MOIST_WAND,
                 new ItemAsset(new ConditionItemModel.Unbaked(new SelectedProperty(),
                         unbakedHeldMoistWand, unbakedMoistWand),
-                        new ItemAsset.Properties(false, false)).model());
+                        new ItemAsset.Properties(false, false, 1f)).model());
     }
 }

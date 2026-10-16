@@ -18,7 +18,7 @@ public class SlimeyEffect extends StatusEffect {
             Vec3d climbVec = new Vec3d(initialVec.x, 0.2D, initialVec.z);
             entity.setVelocity(climbVec.multiply(0.96D));
 
-            entity.velocityModified = true;
+            entity.velocityDirty = true;
             return true;
         }
 

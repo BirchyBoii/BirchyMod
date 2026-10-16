@@ -3,11 +3,13 @@ package net.birchyboii.birchy.event;
 import net.birchyboii.birchy.BirchyMod;
 import net.birchyboii.birchy.effect.ModEffects;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.minecraft.client.render.state.SkyRenderState;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.attribute.EnvironmentAttributes;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -79,7 +81,7 @@ public class SunGazeHandler {
             return false;
         }
 
-        float celestialAngle = world.getSkyAngle(1.0f);
+        float celestialAngle = EnvironmentAttributes.SUN_ANGLE_VISUAL.clamp(1.0f);
         double radians = celestialAngle * 2.0 * Math.PI;
         Vec3d sunVector = new Vec3d(-Math.sin(radians), Math.cos(radians), 0.0).normalize();
 
